@@ -3,7 +3,7 @@ $theme: gaia
 template: invert
 -->
 
-# Week 4 - Numeric Python (Numpy)
+# Week 4 - Numeric Python (NumPy) and Scientific Python (SciPy)
 
 ---
 
@@ -272,5 +272,49 @@ array([[-1, -1, -1, -1]])
 Matrix Multiplication:
 ```python
 >>> myArray.T.dot(myArray) # to get 4 x 4 product
->>> myArray.dot(myArray.T) # to get scalar (dot) product
+>>> myArray.T @ myArray # '@' is the matrix mult operator
 ```
+
+---
+
+### Exercise
+
+Write a function that accepts four arguments ($a$, $b$, $c$, and $x$), and calculates the output ($y$) of the following functional form:
+
+$$ y = a + b\cdot x +c\cdot x^2 $$
+
+Write this function to utilize matrix multiplication in calculating the answer. 
+
+*Hint*: Think about how a dot product might calculate the output of this equation.
+
+___
+
+### Exercise - Answer
+
+<br>
+
+```python
+def squareFunc(a=1, b=1, c=1, x=1):
+  coef = np.array([a, b, c])
+  xs = np.array([1, x, x**2])
+  return coef.dot(xs)
+```
+
+---
+
+### SciPy and Statistics
+
+SciPy (as well as NumPy to some extent) contains the basic statistical tools that we need to be able to conduct data analysis.
+
+Unlike `numpy`, `scipy` utilizes Fortran BLAS and LAPACK by default
+
+
+--- 
+
+
+### Random Numbers
+
+
+---
+
+### Distributions of Random Variables
