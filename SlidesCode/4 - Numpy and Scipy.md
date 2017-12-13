@@ -272,7 +272,7 @@ array([[-1, -1, -1, -1]])
 Matrix Multiplication:
 ```python
 >>> myArray.T.dot(myArray) # to get 4 x 4 product
->>> myArray.T @ myArray # '@' is the matrix mult operator
+>>> myArray.T @ myArray # '@' only works in python >=3.5
 ```
 
 ---
@@ -298,15 +298,18 @@ def squareFunc(a=1, b=1, c=1, x=1):
   coef = np.array([a, b, c])
   xs = np.array([1, x, x**2])
   return coef.dot(xs)
+  # OR return coef @ xs
 ```
 
 ---
 
-### SciPy and Statistics
+### A Note on SciPy and Linear Algebra
 
 SciPy (as well as NumPy to some extent) contains the basic statistical tools that we need to be able to conduct data analysis.
 
-Unlike `numpy`, `scipy` utilizes Fortran BLAS and LAPACK by default
+Unlike `numpy`, `scipy` utilizes Fortran BLAS and LAPACK by default, and it's algorithms typically have greater functionality.
+
+We will focus on `numpy` for now, but will use `scipy` for its optimization algorithms next week.
 
 
 --- 
@@ -314,7 +317,101 @@ Unlike `numpy`, `scipy` utilizes Fortran BLAS and LAPACK by default
 
 ### Random Numbers
 
+We generate random numbers for all sorts of tasks:
+
+1) Simulations
+2) Bootstrapping Procedures
+3) Resampling
+
+`numpy` has the functionality to allow us to generate many different and useful types of random numbers
+
+
+--- 
+
+
+### Random Numbers
+
+In order to generate ANY set of random numbers, it is common to start with a random number on the unit interval $[0, 1)$. This is easily done in `numpy`:
+
+```python
+>>> import numpy as np
+>>> np.random.rand() # Generates a single value
+0.5961376320677276
+>>> np.random.rand(3) # Generates any number of values
+array([ 0.98936539,  0.82217552,  0.88597465])
+```
+
+This function draws from the uniform distribution, and can be utilized as the basis for ANY other random process.
+
 
 ---
 
-### Distributions of Random Variables
+### Exercise - Inverse Transform Sampling
+
+Using the function `np.random.rand`, generate a sample of 10 observations from the *Exponential Distribution*, where $\lambda = 1$.
+
+<br>
+
+Hint: Look up the CDF of the Exponential Distribution, and use it to generate your values
+
+---
+
+### Exercise - Inverse Transform Sampling
+
+CDF: $F = 1-e^{-\lambda x}=y \rightarrow x = - ln(1-y)$
+
+```python
+def expD(x): # Define my function
+  if len(x)==1: # Test if argument is list or not
+    return -1*np.log(1-x) # Return single value
+  else: # If list
+    return [-1*np.log(1-y) for y in x] # Return values
+```
+
+```python
+>>> expD(np.random.rand(10))
+[0.20580033093625635, 0.9055767157372443, 
+0.04204014499029702, 0.023403038262802461, 
+0.36570523428915314, 1.8015765454271302, 
+0.18743093806566119, 0.060997141650068795, 
+0.32588828649942142, 0.54768387613063885]
+```
+
+---
+
+### Distributional Calculations
+
+Fortunately for us (since most distributions involve a bit more legwork than the exponential distribution), `numpy.random` includes functions for drawing from most distributions:
+
+- Normal Distribution
+- Poisson Distribution
+- Log-normal Distribution
+- Binomial Distribution
+- [Tons more](https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.random.html#distributions)
+
+---
+
+### Distributional Calculations
+
+Even greater statistical functionality is available through the `scipy.stats` module, which provides helper functions for many distributions.
+
+Example: [Normal Distribution](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy.stats.norm)
+
+Example: [Student's t Distribution](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html#scipy.stats.t)
+
+We can use this functionality when we build out statistical tests on regression analysis, or in many other cases where we intend to sample from a specific distribution.
+
+
+---
+
+### For Lab Today
+
+There are two goods, pizza (p) and beer (b). **Using matrices**, write code to solve for the price of each good given the following supply and demand functions:
+
+Pizza:
+$Q_{dp} = 100 - 5P_p + P_b$
+$Q_{sp} = -20 + 3P_p$
+
+Beer:
+$Q_{db} = 200 + 3P_p - 12P_b$
+$Q_{sb} = 20P_b$

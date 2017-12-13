@@ -107,9 +107,9 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ### Getting Started in Python
 
-- Open the Anaconda Navigator
-- Run Spyder IDE
-	- An IDE is an **I**nteractive **D**evelopment **E**nvironment, or a place where we can write and execute code
+- Open the Jupyter Notebook Server
+	- Allows us to execute code on our remote server, processing the code on more powerful machines
+	- The computers here in the lab are just virtual instances
 - Let's write some Python!
 
 ---
@@ -504,6 +504,10 @@ Learning to read documentation is a critical component of becoming a programmer,
 - Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Goole is your friend!)
 - Don't Panic!
 
+
+---
+
+### How to Document Your Work in Jupyter Notebooks
 
 ---
 

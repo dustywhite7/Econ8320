@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  13 DEC 2017 11:28
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  12 DEC 2017 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**syllabusTools.tex
-(./syllabusTools.tex
+**assignment1.tex
+(./assignment1.tex
 LaTeX2e <2017-04-15>
 Babel <3.12> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -574,8 +574,8 @@ LaTeX Info: Redefining \sffamily on input line 9.
 LaTeX Warning: Unused global option(s):
     [margin=.5in].
 
-(./syllabusTools.aux)
-\openout1 = `syllabusTools.aux'.
+(./assignment1.aux)
+\openout1 = `assignment1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -676,15 +676,16 @@ LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
 
-(./syllabusTools.out) (./syllabusTools.out)
+(./assignment1.out) (./assignment1.out)
 \@outlinefile=\write3
-\openout3 = `syllabusTools.out'.
+\openout3 = `assignment1.out'.
 
 
-Overfull \hbox (13.61993pt too wide) in paragraph at lines 23--26
-[]| [] 
+Overfull \hbox (13.61993pt too wide) in paragraph at lines 23--27
+[]| []
  []
 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
@@ -692,49 +693,19 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-
- []
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 79.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 79.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 79.
-[2]
-Overfull \hbox (11.835pt too wide) in paragraph at lines 108--109
-\TU/AdobeGaramondPro(0)/m/n/12 and must satisfy the UNO Academic Integrity Poli
-cy []www.unomaha.edu/student-
- []
-
-
-Overfull \hbox (8.844pt too wide) in paragraph at lines 108--109
-\TU/AdobeGaramondPro(0)/m/n/12 life/student-conduct-and-community-standards/pol
-icies/academic-integrity.php[]
- []
-
-
-Overfull \hbox (8.956pt too wide) in paragraph at lines 108--109
-\TU/AdobeGaramondPro(0)/m/n/12 and Student Code of Conduct []www.unomaha.edu/st
-udent-life/student-conduct-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
- (./syllabusTools.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 126.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 126.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+ (./assignment1.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 41.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 41.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 17655 strings out of 492998
- 343292 string characters out of 6136604
- 431176 words of memory out of 5000000
- 21577 multiletter control sequences out of 15000+600000
- 533512 words of font info for 50 fonts, out of 8000000 for 9000
+ 17632 strings out of 492998
+ 342876 string characters out of 6136604
+ 427170 words of memory out of 5000000
+ 21564 multiletter control sequences out of 15000+600000
+ 530760 words of font info for 39 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 35i,6n,66p,10374b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,4n,66p,10372b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on syllabusTools.pdf (3 pages).
+Output written on assignment1.pdf (1 page).
