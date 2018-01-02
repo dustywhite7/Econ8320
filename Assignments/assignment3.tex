@@ -26,13 +26,26 @@
 \hspace*{2em}
  
 \begin{large}
-Classes provide a great way to bundle information and functions. We will create :
+Classes provide a great way to bundle information and functions. We will create a class to record student academic information:
 
 \begin{enumerate}
-\item Find the largest (or smallest) number in a list of any size
-\item Sort a list of numbers WITHOUT using the sort functions built into Python
-\item Sort a list of words, ignoring upper and lower cases
-\item Use the csv module (documentation at \url{https://docs.python.org/3/library/csv.html#module-csv}) to read a csv file, and store only the row with the largest number in the third column. Be sure to store the entire row, though!
+\item The class should contain attributes for recording
+\begin{itemize}
+\item Name (First and Last separately)
+\item Date of Birth
+\item High School (name and city separately)
+\item Degree program
+\item Address
+\item Grade history. This should be of a type that allows the storage of the course name, grade in the course, the number of credits assigned to the course, and the semester and year taken.
+\end{itemize}
+\item The class should include methods to
+\begin{itemize}
+\item Calculate cumulative GPA
+\item Calculate semester GPA
+\item Count the number of credits a student has accumulated
+\item Add a course to the grade history
+\item Determine scholarship eligibility based on the following GPA cutoffs: $\geq$ 3.9 for a full-ride, $\geq$ 3.63 for a half-tuition scholarship, and $\geq$ 3.3 for a 1/4 tuition scholarship. All GPA's below the minimum scholarship cutoff receive no reward.
+\end{itemize}
 \end{enumerate}
 
 \end{large}

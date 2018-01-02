@@ -1,0 +1,48 @@
+\documentclass[12pt, margin=.5in]{article}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Adobe Garamond Pro} % Main document font
+\setsansfont {Gill Sans} % Used in the from address line above the to address
+
+
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+{\Large ECON 8320\   \ -- \ Tools for Data Analysis \\[.5em] Assignment 4 [25 points]
+}
+\end{center}
+
+\setlength{\unitlength}{1in}
+
+\hspace*{-4em}\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+\hspace*{2em}
+ 
+\begin{large}
+Now that we know how to manipulate matrices in Python, we need to put that knowledge to good use! We will write a class that accepts x and y matrices, and performs linear regression. This class should:
+
+\begin{enumerate}
+\item Take the inputs necessary to conduct Ordinary Least Squares regression analysis.
+\item Include a method to fit the OLS model.
+\item Include a method to print a regression summary table
+\item Store regression results as attributes that can be easily accessed
+\item Include methods to update the standard errors to estimate
+\begin{itemize}
+\item White's robust standard error estimates
+\item Cluster robust standard errors
+\end{itemize}
+\item Include a method to predict the outcomes of new observations
+\end{enumerate}
+
+
+\end{large}
+
+
+\end{document}
