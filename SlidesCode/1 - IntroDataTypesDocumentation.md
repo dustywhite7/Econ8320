@@ -504,7 +504,7 @@ Keep in mind, [StackOverflow](stackoverflow.com) is a great website to help us f
 Learning to read documentation is a critical component of becoming a programmer, or using programming for pretty much any purpose.
 
 - Take your time
-- Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Goole is your friend!)
+- Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Google is your friend!)
 - Don't Panic!
 
 
