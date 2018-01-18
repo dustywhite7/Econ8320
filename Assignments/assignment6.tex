@@ -1,0 +1,42 @@
+\documentclass[12pt, margin=.5in]{article}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{amsmath}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Adobe Garamond Pro} % Main document font
+\setsansfont {Gill Sans} % Used in the from address line above the to address
+
+\let\inlinecode\texttt
+
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+{\Large ECON 8320\   \ -- \ Tools for Data Analysis \\[.5em] Assignment 6 [25 points]
+}
+\end{center}
+
+\setlength{\unitlength}{1in}
+
+\hspace*{-4em}\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+\hspace*{2em}
+ 
+\begin{large}
+Many of the functions that we perform in Python can be executed in parallel for increased performance. Let's start by re-writing one of the algorithms from Homework 2 using the \inlinecode{multiprocessing} library. The functions written in this assignment should check the number of available processor cores, and divide work evenly between the available cores. Parallelize the follwing functions:
+
+\begin{enumerate}
+\item Find the largest (or smallest) number in a list of any size
+\item Use the csv module (documentation at \url{https://docs.python.org/3/library/csv.html#module-csv}) to read a csv file, and compute summary statistics for the third column. Summary statistics that should be calculated are minimum, maximum, mean, and standard deviation.
+\end{enumerate}
+
+\vfill Note: If you wish to parallelize the computation of mean and standard deviation (as you would for a large dataset), this blog post explains how to update means and standard deviations when incorporating a new batch of data: \url{http://notmatthancock.github.io/2017/03/23/simple-batch-stat-updates.html}
+\end{large}
+
+
+\end{document}

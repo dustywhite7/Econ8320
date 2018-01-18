@@ -65,9 +65,8 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 |Assignment|Percent of Grade|
 |:-:|:-:|
-|Lab Work|400 points|
-|Participation|100 points|
-|Midterm Exam|250 points|
+|Lab Work|375 points|
+|Homework|375 points|
 |Final Exam|250 points|
 
 </center>
@@ -91,6 +90,10 @@ Your ability to use code to solve problems will be the basis for your grade in t
 - I will work through examples of code in class
 - I will be available during office hours to help you with assignments
 - I will revise the course material as needed to suit your interests
+
+---
+
+### Week 1 - Data Types and Documentation
 
 ---
 
@@ -143,7 +146,7 @@ import numpy as np
 
 ```import``` statements allow us to use pre-written (and typically optimized) code within our own programs
 - ```numpy``` itself is an excellent mathematics library (NUM-eric PY-thon)
-- imported libraries are often written in languages like C++, giving a tremendous speed advantage, as well!
+- imported libraries are often written in languages like C++ and Fortran, giving a tremendous speed advantage, as well!
 
 ---
 
@@ -226,7 +229,7 @@ Numbers support basic arithmetic like we are familiar with:
 
 <br>
 
-We will also be able to import greater functionality from modules like ```numpy```, which will discuss later.
+We will also be able to import greater functionality from modules like ```numpy```, which we will discuss later.
 
 ---
 
@@ -393,7 +396,7 @@ Lists can also have lists as elements, and are then referred to as "a list of li
 ```
 
 We can embed lists infinitely deep (list of lists of lists...), allowing us to create N-dimensional objects 
-- This is especially helpful in some more advanced machine learning techniques
+- This becomes especially helpful when doing matrix computations, or in more advanced machine learning techniques
 
 ---
 
@@ -414,7 +417,7 @@ TypeError: 'tuple' object does not support item assignment
 
 ### Dictionaries
 
-While strings, lists and tuples have specific orders, dictionaries approach the organization of data differently, using a key:pair combination to store data that can be found using the index provided by the programmer to the dictionary.
+While strings, lists and tuples have specific orders, dictionaries approach the organization of data differently, using a `key:pair` combination to store data that can be found using the index provided by the programmer to the dictionary.
 
 ```python
 >>> myDict = {"first": "Dusty", "last": "White"}
@@ -511,9 +514,9 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 ---
 
-### For Lab Today
+### For Lab Today (Turn in by tonight!)
 
-Work with your classmates to complete the following:
+Complete the following:
 
 - Write code that appends the string "Meow!" to an arbitrary string stored in the variable ```myString```
 - Given two numeric values (```x``` and ```y```), calculate the following

@@ -293,27 +293,6 @@ mp.cpu_count() # Tells us the number of available CPUs
 
 ---
 
-### Lab Today
-
-Draw from the normal distribution using `numpy`
-
-```python
-import numpy as np
-
-# Make 100 draws from the standard normal distribution
-# Mean: 0
-# SD: 1
-# Number of draws: 100
-randNormals = np.random.normal(0, 1, 100)
-```
-
-Notation for a normal distribution with mean 0 and variance (std. dev. squared) of 1 is
-
-$$ X \sim \mathcal{N}(0,1) $$
-
-
----
-
 #### Lab Today
 
 <font size=5>
