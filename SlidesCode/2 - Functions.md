@@ -129,7 +129,7 @@ We often want to use logical statements (a test of whether or not some condition
 
 Here is some pseudocode (a framework of what we want our code to do, but not written in code yet):
 
-```python
+```text
 if condition1 is true
     then do x
 if condition2 is true instead
@@ -164,7 +164,7 @@ Set ```a=12``` and ```b=100```. What happens? What if ```b=12```?
 - ```if```, ```else``` statements are order dependent!
 - The logic must be clear
 	- Can't compare strings to integers, for example
-- You must enumerate all possible outcomes!
+- You must enumerate all possible outcomes. If not, your code might surprise you!
 	- Remember, computers are stupid, and only do what they are told
 	- This is the ["Garbage in, garbage out"](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out) principle
 
@@ -197,7 +197,7 @@ def manhattanDistance(coord1, coord2):
     return dist
 ```
 
-This is the most important part of that code snippet
+Let's focus on one part of that code snippet
 
 - Defines a function called ```manhattanDistance```, as well as its arguments
 - Functions are extremely powerful!
@@ -229,7 +229,7 @@ What might go wrong with the code on the previous slide?
 - What if I want to use a new set of coordinates with 4 dimensions?
 - What if I don't notice that my coordinates do not have the same number of dimensions?
 - What if I want to run that code as part of antother program in a different file?
-- What if I want to use only Euclidean Distance in the future?
+- What if I want to use Euclidean Distance in the future?
 
 
 ---
@@ -330,7 +330,7 @@ def areaCircle(r):
 
 ### Recursive Functions
 
-Let's write a function to calculate [Fibonacci numbers](http://mathworld.wolfram.com/FibonacciNumber.html).
+Try writing a function to calculate [Fibonacci numbers](http://mathworld.wolfram.com/FibonacciNumber.html).
 
 $$F_0=0$$
 $$F_1=F_2=1$$
@@ -395,5 +395,5 @@ Calling ```fibonacci(5)``` utilized the ```fibonacci(n)``` function 9 times, and
 Write a function ```manyOptions``` that takes x and y as input. Be sure to write all operations on your own (don't use other libraries!).
 - If ```x``` equals 1, return the factorial of ```y```
 - If ```x``` equals 2, print the sum of squares of all integers between 1 and ```y```
-- If ```x``` equals 3, use a while loop to count down from ```y``` to 1, and print each integer to the screen
+- If ```x``` equals 3, print the first `y` values of Hofstadter's Q-Sequence, starting with 1.
 - If ```x``` has any other value, print a statement saying that the value of ```x``` is invalid
