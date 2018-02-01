@@ -59,7 +59,7 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 
 ---
 
-### Magic Methods
+### Magic Methods (more [here](https://www.python-course.eu/python3_magic_methods.php))
 
 ![](magicMethodsClasses.png)
 
@@ -259,7 +259,7 @@ class Sandwich(object):
 
 Create your own ``ComplexNumber`` class!
 1. Complex numbers have a real and an imaginary part. The ``__init__()`` method should therefore accept two numbers. Store the first as self.real and the second as self.imag.
-2. Implement a ``conjugate()`` method that returns the object’s complex conjugate (as a new ``ComplexNumber`` object). Recall that $a + bi = a - bi$.
+2. Implement a ``conjugate()`` method that returns the object's complex conjugate (as a new ``ComplexNumber`` object). Recall that $a + bi = a - bi$.
 3. Add the following magic methods:
  	- ``__abs__()`` determines the output of the builtin ``abs()`` function (absolute value). Implement ``__abs__()`` so that it returns the magnitude of the complex number. Recall that $|a + bi| = \sqrt{a^2 + b^2}$.
  	- Implement ``__lt__()`` and ``__gt__()`` so that ``ComplexNumber`` objects can be compared by their magnitudes. That is, $(a + bi) < (c + di)$ if and only if $|a + bi| < |c + di|$, and so on.
