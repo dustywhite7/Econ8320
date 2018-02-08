@@ -65,6 +65,15 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 
 ---
 
+### Magic Methods Note
+
+In Python 3, there are 2 different division magic methods:
+
+- `__truediv__` represents the functionality of the '/' operator
+- `__floordiv__` represents the functionality of the '//' operator
+
+---
+
 ### Magic Methods
 
 Not all of the magic methods will make sense for all classes. Which standard operations do you think would make sense for our ```Sandwich``` class?
@@ -152,7 +161,7 @@ class Sandwich(object):
     self.bread = bread
     self.toppings = []
   ...  # Other magic methods here
-  def __str__(self):
+  def __repr__(self):
     alltops = "Toppings:\t"
     for i in self.toppings:
       alltops += " %s" % i

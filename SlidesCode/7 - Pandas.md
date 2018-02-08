@@ -341,6 +341,34 @@ Let's take a look at some slides about writing SQL query code:
 
 ---
 
+### PandaSQL and Data Cleaning
+
+We can actually use SQL to clean our data within Pandas by making use of the `pandasql` library.
+
+<br>
+
+Get started by using the following code:
+```python
+from pandasql import sqldf
+pysqldf = lambda q: sqldf(q, globals())
+```
+
+---
+
+### PandaSQL and Data Cleaning
+
+<br>
+
+```python
+edited_data = pandasql(select_statement_here)
+```
+
+Using SQLite syntax, we can then clean any dataset using the same tools that we would to extract data from a database!
+
+We can aggregate, create new columns, group, and join across datasets, just like we would with SQL.
+
+---
+
 ### For Lab
 
 <small>

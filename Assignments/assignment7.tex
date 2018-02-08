@@ -1,0 +1,52 @@
+\documentclass[12pt, margin=.5in]{article}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{amsmath}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Adobe Garamond Pro} % Main document font
+\setsansfont {Gill Sans} % Used in the from address line above the to address
+
+\let\inlinecode\texttt
+
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+{\Large ECON 8320\   \ -- \ Tools for Data Analysis \\[.5em] Assignment 7 [25 points]
+}
+\end{center}
+
+\setlength{\unitlength}{1in}
+
+\hspace*{-4em}\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+\hspace*{2em}
+ 
+\begin{large}
+Data Frames and SQL allow us to store our data very efficiently on a database, and to quickly retrieve and work with that data to solve real research questions. In this lab, we will work with raw data to practice importing data into Data Frames, and use SQL (via pandasql) to clean that data.
+
+\begin{enumerate}
+\item Import the data from assignment7.csv into a dataframe
+\item Using pandasql, create an aggregated dataset, taking averages over the area variable
+\item Which area code has the highest value for churn?
+\item Without using pandasql, reduce the dataset to the following data:
+\begin{itemize}
+\item Accounts in California (CA)
+\item Accounts with accLen greater than 100
+\item Only keep the area, vmMessages, dayCalls, eveCalls, nightCalls, intlCalls, and churn columns
+\item Create a new column called allCalls, which is the sum of dayCalls, nightCalls, and intlCalls
+\item Restric the dataset one more time to only contain the area, vmMessages, allCalls, and churn columns
+\end{itemize}
+\item Print the head of all three datasets, so that I can verify your results
+\end{enumerate}
+
+
+\end{large}
+
+
+\end{document}
