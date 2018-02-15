@@ -1,0 +1,39 @@
+\documentclass[12pt, margin=.5in]{article}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Adobe Garamond Pro} % Main document font
+\setsansfont {Gill Sans} % Used in the from address line above the to address
+
+
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+{\Large ECON 8320\   \ -- \ Tools for Data Analysis \\[.5em] Assignment 8 [25 points]
+}
+\end{center}
+
+\setlength{\unitlength}{1in}
+
+\hspace*{-4em}\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+\hspace*{2em}
+ 
+\begin{large}
+Plotting is an important element of the data exploration process, and can aid in the design of research questions, as well as provide valuable evidence in support of (or against) an hypothesis. For this assignment, we will focus on using data to explore a new data set: H1B Documents filed during 2017. Do all plotting using the Plotly library, and make sure to set the plots in-line within a Jupyter Notebook.
+
+\begin{enumerate}
+\item Generate TWO map visuals using variables of your choice, along with location information about applicants. There are multiple locational variables available. Feel free to use whichever location variable you prefer, as well as a map style of your choice.
+\item Choose two groups from the data, and compare four different variables between those populations and the likelihood of having a CASE\_STATUS of ``certified" vs ``denied".
+
+\end{enumerate}
+\end{large}
+
+
+\end{document}
