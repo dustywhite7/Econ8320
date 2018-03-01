@@ -122,9 +122,10 @@ We can use the gradient to determine the linear approximation of a function at a
 
 ### Gradient Descent
 
-<left>
-<img src="gradDesc.png" height=200></img>
-</left>
+<center>
+<img src="gradDesc.png" height=300></img>
+</center>
+
 
 **Gradient Descent** is a technique in which we algorithmically choose to move toward what we believe to be the minimum value of our function based on the current slope of our function.
 
@@ -148,7 +149,7 @@ We can use the gradient to determine the linear approximation of a function at a
 
 Estimate the gradient of the following function (using Python!):
 
-$$ y = sin(x) - (z+3)^2 $$
+$$ y = \text{sin}(x) - (z+3)^2 $$
 
 where
 1) $x = 1$ and $z=10$
