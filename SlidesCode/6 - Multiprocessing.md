@@ -50,11 +50,12 @@ It is important to note that when a program is running, it typically has a singl
 
 ### Serial Programs
 
-When we perform calculations, some steps MUST be performed sequentially.
+When we perform tasks, some steps MUST be performed sequentially.
 
+- We need to aim our Halo rocket launcher prior to pulling the trigger
 - We need to estimate regression coefficients before we can estimate standard errors on those coefficients
 - We need to fit a machine learning model before we can use it to make predictions
-- We need to aim our Halo rocket launcher prior to pulling the trigger
+
 
 ---
 
@@ -137,7 +138,6 @@ def integral(nSample, f, xmin, xmax):
   value = f(sample)
   # Calculate areas, sum
   area = np.sum(np.diff(sample) * value[1:])
-  area += sample[0] * value[0]
   # Return integral
   return (nSample, area)
 ```
@@ -164,7 +164,7 @@ def multiprocess(processes, samples, f, lb, ub):
     args=(s, f, lb, ub)) for s in range(samples)]
   results = [p.get() for p in results]
   results.sort() # to sort the results
-  return [results[x][1] for x in range(len(results))]
+  return [x[1] for x in results]
 ```
 
 We specify two functions to estimate integrals of `f`. One does so using serial code, the other parallelizes the estimates.
@@ -232,7 +232,7 @@ Remember when we included two elements in our `return` statement for the `integr
 ```python
 def multiprocess(processes, samples, f, lb, ub):
   ...
-  return [results[x][1] for x in range(len(results))]
+  return [x[1] for x in results]
 ```
 <br>
 
@@ -309,4 +309,4 @@ $$ x_2 \sim \mathcal{N}(10,1) $$
 $$ x_3 \sim \mathcal{N}(8,8) $$
 $$ \epsilon \sim \mathcal{N}(0,1) $$
 
-Write functions to generate all values and calculate $y$. Test and time these draws using serial and parallel programming, and report the difference in performance between the two versions.
+Write functions to generate all values and calculate $y$. Test and time these draws using serial and parallel programming (2 cores), and report the difference in performance between the two versions.

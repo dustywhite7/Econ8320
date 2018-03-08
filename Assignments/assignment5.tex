@@ -30,7 +30,7 @@
 Ordinary Least Squares regressions are problematic at best when exploring binary dependent variables. The logistic regression is typically used in its place. In order to solve for the optimal coefficients in a logistic regression, practitioners will implement a maximum likelihood estimation (MLE), in which the model is stated as an optimization problem. The MLE equation for this problem is written as follows:
 
 \begin{equation*}
-ln(L) = \sum_i \left[y_i ln\left(\frac{exp(x_i'\beta)}{1+exp(x_i'\beta)}\right) + (1-y_i) ln \left(\frac{1}{1+exp(x_i'\beta)}\right) \right]
+ln(L) = \sum_i \left[y_i ln\left(\frac{exp(x_i\beta)}{1+exp(x_i\beta)}\right) + (1-y_i) ln \left(\frac{1}{1+exp(x_i\beta)}\right) \right]
 \end{equation*}
 
 Your assignment is to modify your class from last week's homework to include an option to specify that logistic regression be performed instead of OLS.
