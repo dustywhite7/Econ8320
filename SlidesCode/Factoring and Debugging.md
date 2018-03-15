@@ -111,4 +111,16 @@ In order to be better able to use these functions, we need to leave Jupyter behi
 
 Let's work through some code, in order to learn how to debug it.
 
-Here is the [file]()
+Here is the [file](https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/debuggingExercise.py)
+
+
+---
+
+### For Lab Today
+
+Choose one of your lab/homework assignments from earlier in the semester. Work through it carefully to 
+1) Factor the code (if you didn't do so before)
+2) Debug any problems that you may not have resolved during that assignment
+3) Turn in a **.py** file, with comments explaining your changes.
+<br>
+*Note: Ideally you will choose an imperfect assignment*
