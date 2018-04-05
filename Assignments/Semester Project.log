@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  23 MAR 2018 15:33
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  30 MAR 2018 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -689,6 +689,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 32.
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+ []
+
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
@@ -696,13 +701,13 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 [1
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./Semester Project.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 71.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 71.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 79.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 79.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
  17649 strings out of 492998
@@ -711,6 +716,6 @@ Here is how much of TeX's memory you used:
  21574 multiletter control sequences out of 15000+600000
  531705 words of font info for 46 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 35i,4n,66p,10379b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,4n,66p,10379b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Semester Project.pdf (2 pages).

@@ -121,7 +121,7 @@ data.iloc[:, 0] # Selects all rows, and first column
 Two selection (or slicing) tools allow us to quickly subset our data.
 
 ```python
-data.iloc[row_selection, column_selection]
+data.loc[row_selection, column_selection]
 ```
 
 With the `.loc` method (now with no `i`), we can provide **name**-based selections, choose to select all rows or columns, and create subsets based on conditions.
@@ -143,7 +143,7 @@ data.loc[row_selection, column_selection]
 With the `.loc` method (now with no `i`), we can provide **name**-based selections, choose to select all rows or columns, and create subsets based on conditions.
 
 ```python
-data.iloc[data['Column1'] == some_value, :]
+data.loc[data['Column1'] == some_value, :]
 # Selects only the observations (rows) where the
 #   condition is met
 ```
@@ -271,9 +271,7 @@ The first thing we need to do is to establish a connection to our database:
 ```python
 from sqlalchemy import create_engine
 
-engine = create_engine(
- 'mysql+mysqlconnector://viewer:')
- engine = create_engine('mysql+mysqlconnector://viewer:@dadata.cba.edu:3306/ACS')
+engineStr = 'mysql+mysqlconnector://viewer:'
 ```
 
 We are using `mysql` via the `mysqlconnector` module. Next, we provide our `username:password`, which in this case is "viewer," with no password, so we do not enter text after the colon.
@@ -289,8 +287,8 @@ The first thing we need to do is to establish a connection to our database:
 ```python
 from sqlalchemy import create_engine
 
-engine = create_engine(
- 'mysql+mysqlconnector://viewer:@dadata.cba.edu:3306')
+engineStr = 'mysql+mysqlconnector://viewer:'
+engineStr += '@dadata.cba.edu:3306'
 ```
 
 We need to direct the connection to our server, which is hosted at `dadata.cba.edu`, and can be reached through port `3306`.
@@ -306,8 +304,11 @@ The first thing we need to do is to establish a connection to our database:
 ```python
 from sqlalchemy import create_engine
 
-engine = create_engine(
- 'mysql+mysqlconnector://viewer:@dadata.cba.edu:3306/ACS')
+engineStr = 'mysql+mysqlconnector://viewer:' # Connector
+engineStr += '@dadata.cba.edu:3306' # Server Address
+engineStr += '/ACS' # Database Name
+
+engine = create_engine(engineStr) # Start the Engine
 ```
 
 Last, we just need to include the database that we wish to access on the server. In this case, we can use `ACS`
@@ -360,7 +361,7 @@ pysqldf = lambda q: sqldf(q, globals())
 <br>
 
 ```python
-edited_data = pandasql(select_statement_here)
+edited_data = pysqldf(select_statement_here)
 ```
 
 Using SQLite syntax, we can then clean any dataset using the same tools that we would to extract data from a database!
