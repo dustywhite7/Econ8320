@@ -330,8 +330,11 @@ plot(figure)
 
 ### Let's Use More States!
 
+<center>
 
-PUT FIGURE FROM PREVIOUS SLIDE HERE
+![](NEandIA.png)
+
+</center>
 
 ---
 

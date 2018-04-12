@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  21 MAR 2018 15:26
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.29)  11 APR 2018 13:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**assignment8.tex
-(./assignment8.tex
+**assignment10.tex
+(./assignment10.tex
 LaTeX2e <2017-04-15>
 Babel <3.12> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -574,8 +574,8 @@ LaTeX Info: Redefining \sffamily on input line 9.
 LaTeX Warning: Unused global option(s):
     [margin=.5in].
 
-(./assignment8.aux)
-\openout1 = `assignment8.aux'.
+(./assignment10.aux)
+\openout1 = `assignment10.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -676,9 +676,9 @@ LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
 
-(./assignment8.out) (./assignment8.out)
+(./assignment10.out) (./assignment10.out)
 \@outlinefile=\write3
-\openout3 = `assignment8.out'.
+\openout3 = `assignment10.out'.
 
 
 Overfull \hbox (13.61993pt too wide) in paragraph at lines 23--27
@@ -694,18 +694,18 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
- (./assignment8.aux)
+ (./assignment10.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 39.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 39.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 39.
  ) 
 Here is how much of TeX's memory you used:
  17632 strings out of 492998
- 342876 string characters out of 6136604
- 428170 words of memory out of 5000000
+ 342889 string characters out of 6136604
+ 428173 words of memory out of 5000000
  21564 multiletter control sequences out of 15000+600000
  530760 words of font info for 39 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 35i,4n,66p,10372b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,4n,66p,10373b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on assignment8.pdf (1 page).
+Output written on assignment10.pdf (1 page).
