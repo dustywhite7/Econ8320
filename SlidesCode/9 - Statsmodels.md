@@ -3,7 +3,7 @@ $theme: gaia
 template: invert
 -->
 
-### Week 9 - Statistical Modeling through Statsmodels
+### Week 9 - Modeling through Statsmodels, Sklearn
 
 ---
 
@@ -22,6 +22,9 @@ Unfortunately, it takes a lot of time!
 
 ---
 
+## Statsmodels
+
+---
 
 ### Importing Statsmodels
 
@@ -174,7 +177,7 @@ Below are some of the [covariance options](http://www.statsmodels.org/dev/genera
 We have multiple time series options available.
 
 
-To implement an ARIMA(1,1,0) model:
+To implement an [ARIMA](http://www.statsmodels.org/dev/generated/statsmodels.tsa.arima_model.ARIMA.html)(1,1,0) model:
 
 ```python
 from statsmodels.tsa.arima_model import ARIMA
@@ -191,3 +194,150 @@ print(reg.summary())
 
 ### Time Series Models
 
+To implement a [VAR](http://www.statsmodels.org/dev/generated/statsmodels.tsa.vector_ar.var_model.VAR.html) model:
+
+```python
+from statsmodels.tsa.vector_ar.var_model import VAR
+
+y = data.loc[data['statefip']==31, ['hhincome','year']]
+y.index=pd.to_datetime(y.year)
+reg = VAR(y['hhincome']).fit()
+print(reg.summary())
+```
+
+The VAR model will optimize its own order (number of lags included) based on information criteria estimates.
+
+
+---
+
+
+### Modeling Discrete Outcomes
+
+If we have a binary dependent variable, we are able to use either [Logit]() or [Probit]() models to estimate the effect of exogenous variables on our outcome of interest. To fit a Logit model:
+
+```python
+from scipy import stats
+stats.chisqprob = lambda chisq, 
+                    df: stats.chi2.sf(chisq, df)
+# Previous lines fix a temporary problem between 
+#   statsmodels and scipy's chi square distribution
+data = pd.read_csv("auto-mpg.csv")
+data['highMPG'] = (data['mpg']>30).astype(np.int)
+
+myformula="highMPG ~ cylinders + displacement + weight"
+model= sm.Logit.from_formula(myformula, data=data).fit()
+```
+
+---
+
+### Modeling Discrete Outcomes
+
+When modeling count data, we have options such as [Poisson](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.Poisson.html#statsmodels.discrete.discrete_model.Poisson) and [Negative Binomial](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html#statsmodels.discrete.discrete_model.NegativeBinomial) models.
+
+
+```python
+from scipy import stats
+stats.chisqprob = lambda chisq, 
+                    df: stats.chi2.sf(chisq, df)
+# Previous lines fix a temporary problem between 
+#   statsmodels and scipy's chi square distribution
+data = pd.read_csv("auto-mpg.csv")
+
+myformula="mpg ~ cylinders + displacement + weight"
+model= sm.Poisson.from_formula(myformula, data=data).fit()
+```
+
+---
+
+
+## scikit-learn
+
+---
+
+### Predictive Modeling
+
+What `statsmodels` does for regression analysis, `sklearn` does for predictive analytics and machine learning.
+
+- Likely the most popular machine learning library currently in use
+- Has a standard API to make using the library VERY simple.
+
+
+---
+
+### Decision Tree Classification (and Regression)
+
+[Classification](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier) and [Regression](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor) Trees (CARTs) are the standard jumping-off point for exploring machine learning. They are very easy to implement in `sklearn`:
+
+```python
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(x, y)
+
+pred = clf.pred(new_xs)
+
+print(accuracy_score(new_ys, pred)
+```
+
+---
+
+### Support Vector Machines
+
+We also implement [Support Vector Machines](http://scikit-learn.org/stable/modules/svm.html#svm) for both [classification](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC) and [regression](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR):
+
+```python
+from sklearn import svm
+from sklearn.metrics import accuracy_score
+
+clf = svm.SVC()
+clf = clf.fit(x, y)
+
+pred = clf.pred(new_xs)
+
+print(accuracy_score(new_ys, pred)
+```
+
+Can you see the API pattern yet?
+
+---
+
+### Random Forest Models
+
+Again, available in both [classification](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier) and [regression](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor) flavors, these models are aggregations of many randomized Decision Trees.
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+clf = RandomForestClassifier(n_estimators=100)
+clf = clf.fit(x, y)
+
+pred = clf.pred(new_xs)
+
+print(accuracy_score(new_ys, pred)
+```
+There MUST be a pattern here...
+
+
+---
+
+### Data Preprocessing
+
+Many other tools are also available to aid in the data cleaning process through `sklearn`. Some of these are:
+
+- [Principal Component Analysis (PCA)](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA)
+- [Factor Analysis](http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html#sklearn.decomposition.FactorAnalysis)
+- Many [Cross-Validation Algorithms](http://scikit-learn.org/stable/modules/cross_validation.html)
+- [Hyperparameter Tuning](http://scikit-learn.org/stable/modules/grid_search.html)
+   - Finding the correct parameters for a decision tree or random forest, for example
+- [Model Evaluation Tools](http://scikit-learn.org/stable/modules/model_evaluation.html)
+
+
+---
+
+### For Lab Today
+
+Work on the homework assignment. You will practice using both `statsmodels` and `sklearn` in order to apply regression and predictive models to data.
+
+You will want to make sure that you collect the data before you leave the lab, since the homework will require data from the databases available through the data server here in Mammel Hall.
