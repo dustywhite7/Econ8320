@@ -249,6 +249,12 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 
 ---
 
+### Using Patsy
+
+Describe how Patsy can be used to generate matrices for regression and predictive models.
+
+---
+
 
 ## scikit-learn
 
@@ -333,6 +339,12 @@ Many other tools are also available to aid in the data cleaning process through 
    - Finding the correct parameters for a decision tree or random forest, for example
 - [Model Evaluation Tools](http://scikit-learn.org/stable/modules/model_evaluation.html)
 
+
+---
+
+### Data Preprocessing
+
+Provide examples of PCA and train_test_split
 
 ---
 

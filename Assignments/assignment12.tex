@@ -1,0 +1,48 @@
+\documentclass[12pt, margin=.5in]{article}
+
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Adobe Garamond Pro} % Main document font
+\setsansfont {Gill Sans} % Used in the from address line above the to address
+
+
+\pagestyle{empty}
+
+\begin{document}
+\vspace*{-6em}
+\begin{center}
+{\Large ECON 8320\   \ -- \ Tools for Data Analysis \\[.5em] Assignment 12 [25 points]
+}
+\end{center}
+
+\setlength{\unitlength}{1in}
+
+\hspace*{-4em}\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}         
+\end{picture}
+\hspace*{2em}
+ 
+\begin{large}
+
+When attempting to model text, it is important to be able to extract features of the text for analysis. A powerful tool for extracting text features (as well as for searching, replacing, and performing other text-based tasks) is Regular Expression (regex).
+
+For this assignment, your job is to process features of emails sent and received by Enron employees during the investigation into fraudulent activity by Enron executives in the early 2000's using regular expressions. Given emails from a single employee, generate the following information for each email:
+
+\begin{enumerate}
+\item Extract the text of the email into one feature
+\item Create a column labelled ``worry" containing the following values: 1 if some form of the word ``worry" is contained in the text of the email, 0 otherwise
+\item Create a column labelled ``trouble" with the following values: 1 if some form of the word ``trouble" is contained in the text of the email, 0 otherwise
+\item Create a column containing the number of recipients of the email
+\item Create a column labelled ``sent" with the following values: 1 if the email was sent by the user, 0 otherwise
+\end{enumerate}
+
+Submit your code, as well a csv containing the new columns, to Canvas when you complete this assignment.
+
+
+\end{large}
+
+
+\end{document}
