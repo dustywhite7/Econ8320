@@ -3,34 +3,58 @@ import scrapy
 class BasketballSpider(scrapy.Spider):
     name = "basketball_spider"
     start_urls = [
-            'https://www.basketball-reference.com/leagues/NBA_2017_totals.html'
+            'https://www.baseball-reference.com/teams/ARI/2017.shtml',
+            'https://www.baseball-reference.com/teams/ATL/2017.shtml',
+            'https://www.baseball-reference.com/teams/BAL/2017.shtml',
+            'https://www.baseball-reference.com/teams/BOS/2017.shtml',
+            'https://www.baseball-reference.com/teams/CHC/2017.shtml',
+            'https://www.baseball-reference.com/teams/CHW/2017.shtml',
+            'https://www.baseball-reference.com/teams/CIN/2017.shtml',
+            'https://www.baseball-reference.com/teams/CLE/2017.shtml',
+            'https://www.baseball-reference.com/teams/COL/2017.shtml',
+            'https://www.baseball-reference.com/teams/DET/2017.shtml',
+            'https://www.baseball-reference.com/teams/HOU/2017.shtml',
+            'https://www.baseball-reference.com/teams/KCR/2017.shtml',
+            'https://www.baseball-reference.com/teams/LAA/2017.shtml',
+            'https://www.baseball-reference.com/teams/LAD/2017.shtml',
+            'https://www.baseball-reference.com/teams/MIA/2017.shtml',
+            'https://www.baseball-reference.com/teams/MIL/2017.shtml',
+            'https://www.baseball-reference.com/teams/MIN/2017.shtml',
+            'https://www.baseball-reference.com/teams/NYM/2017.shtml',
+            'https://www.baseball-reference.com/teams/NYY/2017.shtml',
+            'https://www.baseball-reference.com/teams/OAK/2017.shtml',
+            'https://www.baseball-reference.com/teams/PHI/2017.shtml',
+            'https://www.baseball-reference.com/teams/PIT/2017.shtml',
+            'https://www.baseball-reference.com/teams/SDP/2017.shtml',
+            'https://www.baseball-reference.com/teams/SEA/2017.shtml',
+            'https://www.baseball-reference.com/teams/SFG/2017.shtml',
+            'https://www.baseball-reference.com/teams/STL/2017.shtml',
+            'https://www.baseball-reference.com/teams/TBR/2017.shtml',
+            'https://www.baseball-reference.com/teams/TEX/2017.shtml',
+            'https://www.baseball-reference.com/teams/TOR/2017.shtml',
+            'https://www.baseball-reference.com/teams/WSN/2017.shtml'
             ]
-    with open('mybballresults.csv', 'w') as f:
-        f.write("name, team, AST, FG3, PTS, REB, BLK, STL")
+    with open('baseballresults.csv', 'w') as f:
+        f.write("name,team,pos,age\n")
     
     def parse(self, response):
-        with open('mybballresults.csv', 'a') as f:
+        with open('baseballresults.csv', 'a') as f:
 
-            names = response.xpath('//tr[@class="full_table"]/td[@data-stat="player"]/a/text()').extract()
-            teams = response.xpath('//tr[@class="full_table"]/td[@data-stat="team_id"]/text() | //tr[@class="full_table"]/td[@data-stat="team_id"]/a/text()').extract()
-            ast = response.xpath('//tr[@class="full_table"]/td[@data-stat="ast"]/text()').extract()
-            fg3 = response.xpath('//tr[@class="full_table"]/td[@data-stat="fg3"]/text()').extract()
-            pts = response.xpath('//tr[@class="full_table"]/td[@data-stat="pts"]/text()').extract()
-            reb = response.xpath('//tr[@class="full_table"]/td[@data-stat="trb"]/text()').extract()
-            blk = response.xpath('//tr[@class="full_table"]/td[@data-stat="blk"]/text()').extract()
-            stl = response.xpath('//tr[@class="full_table"]/td[@data-stat="stl"]/text()').extract()
+            names = response.xpath('//table[@id="team_batting"]/tbody/tr/td[@data-stat="player"]/a/text()').extract()
+            teams = [response.url[-14:-11] for i in range(len(names))]
+            pos = response.xpath('//table[@id="team_batting"]/tbody/tr/td[@data-stat="pos"]/text() | //table[@id="team_batting"]/tbody/tr/td[@data-stat="pos"]/strong/text()').extract()
+            age = response.xpath('//table[@id="team_batting"]/tbody/tr/td[@data-stat="age"]/text()').extract()
             
-            print("\n\n\n" + str(len(names)) + "\n\n\n")
+            
+            print("\n\n\n" + str(len(names)) + str(len(pos)) + str(len(age)) + "\n\n\n")
             for i in range(len(names)):
                 result = ""
                 result += str(names[i] + ",")
                 result += str(teams[i] + ",")
-                result += str(ast[i] + ",")
-                result += str(fg3[i] + ",")
-                result += str(pts[i] + ",")
-                result += str(reb[i] + ",")
-                result += str(blk[i] + ",")
-                result += str(stl[i] + "\n")
+                result += str(pos[i] + ",")
+                result += str(age[i] + "\n")
+                
+                print(result)
                 
                 f.write(result)
             
