@@ -10,7 +10,7 @@ import numpy as np
 The data for this project comes from movielens, via grouplens.org
 """
 
-df = pd.read_csv("movieData.csv",delimiter="\t")
+df = pd.read_csv("movieDataSmall.csv",delimiter="\t")
 df['year'] = pd.to_datetime(df['release']).dt.year
 df.columns = [i.lower() for i in df.columns]
 

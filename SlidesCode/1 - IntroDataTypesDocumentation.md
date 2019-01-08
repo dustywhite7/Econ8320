@@ -16,7 +16,7 @@ Dustin White
 Mammel Hall 332M
 
 **Office Hours**:
-TBA
+4:30 - 5:30 PM on Tuesday
 
 **Contact Info**:
 drwhite@unomaha.edu
@@ -110,9 +110,9 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ### Getting Started in Python
 
-- Open the Jupyter Notebook Server
-	- Allows us to execute code on our remote server, processing the code on more powerful machines
-	- The computers here in the lab are just virtual instances
+- Open Spyder (locally), or the Mimir IDE
+	- Mimir allows us to execute code on a remote server, processing the code on more powerful machines
+	- The computers here in the lab are just virtual instances, and are slower at running code, but may be easier to use as you get started
 - Let's write some Python!
 
 ---
@@ -162,7 +162,7 @@ def manhattanDistance(coord1, coord2):
 
 Using the ```def``` keyword allows us to define **functions**, or reusable bits of code that perform some specific task. 
 
-Functions accept arguments, and can be made to return values, as well.
+Functions accept arguments, and can be made to **return** values, as well.
 
 ---
 
@@ -177,7 +177,7 @@ else:
 
 <br>
 
-We can easily incorporate different kinds of conditions into our code using ```if``` statements. Here, we test for equality between two values and condition our response of the result of that test.
+We can easily incorporate different kinds of conditions into our code using ```if``` statements. Here, we test for equality between two values and condition our response on the result of that test.
 
 ---
 
@@ -229,7 +229,7 @@ Numbers support basic arithmetic like we are familiar with:
 
 <br>
 
-We will also be able to import greater functionality from modules like ```numpy```, which we will discuss later.
+We will also be able to import greater functionality from modules like ```numpy```.
 
 ---
 
@@ -487,13 +487,14 @@ In this case, the module is ```numpy```, a numeric library already mentioned.
 
 ---
 
-### What if I can't remember this?
+### What if I can't remember all this?
+
+DON'T PANIC!
 
 This is a LOT of information! Fortunately, we have ==**DOCUMENTATION**== to help us make sure that we are doing the right thing.
 
-To get started, lets look at the [Numpy Random Sampling Documentation](https://docs.scipy.org/doc/numpy/reference/routines.random.html)
+To get started, let's look at the [Numpy Random Sampling Documentation](https://docs.scipy.org/doc/numpy/reference/routines.random.html)
 
-<br>
 
 Keep in mind, [StackOverflow](stackoverflow.com) is a great website to help us figure out what to do when we have an error.
 
@@ -505,16 +506,12 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 - Take your time
 - Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Google is your friend!)
-- Don't Panic!
+- Again, Don't Panic!
 
 
 ---
 
-### How to Document Your Work in Jupyter Notebooks
-
----
-
-### For Lab Today (Turn in by tonight!)
+### For Lab Today (Turn in tonight for up to 5 bonus points!)
 
 Complete the following:
 
