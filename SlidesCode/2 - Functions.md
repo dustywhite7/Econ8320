@@ -13,6 +13,7 @@ Sometimes, we need to execute code multiple times, or need to run that code unti
 
 - ```for``` loops allow us to iterate through code a fixed number of times
 - ```while``` loops allow us to repeat code until a predetermined condition is met
+- functions allow us to recycle code of **any** form!
 
 ---
 
@@ -84,6 +85,26 @@ for i in range(3): # 3 is the number of elements in a row
         myMatrix[i][j]*=myMatrix[i][j] # row THEN column
 ```
 Note: ```*=``` means to multiply and then set equal
+
+---
+
+### Some Shorthand
+
+We can also write for loops as **iterators** in order to use them to quickly create lists:
+
+```python
+myList = [x**2 for x in range(1,11)]
+```
+
+This will provide us with the same list as
+
+```python
+myList = []
+for i in range(1,11):
+    myList.append(i**2)
+```
+
+This will come in very handy on occasion
 
 ---
 
@@ -279,7 +300,7 @@ Write a function that returns the product of two numbers (note: the product of x
 
 ### Exercise, Part 2!
 
-Write a function that utilizes YOUR ```product``` function to calculate the area of a circle with radius ```r``` (note: area is calculated as $\pi r^2$). Call that function ```areaCircle```
+Write a function that ONLY utilizes your ```product``` function to calculate the area of a circle with radius ```r``` (note: area is calculated as $\pi r^2$). Call that function ```areaCircle```
 
 <br>
 
@@ -390,7 +411,7 @@ Calling ```fibonacci(5)``` utilized the ```fibonacci(n)``` function 9 times, and
 
 ---
 
-### For Lab Today
+### Extra Problems
 
 Write a function ```manyOptions``` that takes x and y as input. Be sure to write all operations on your own (don't use other libraries!).
 - If ```x``` equals 1, return the factorial of ```y```
