@@ -262,7 +262,7 @@ class Sandwich(object):
 
 ---
 
-###### Lab Today
+###### Extra Practice!
 
 <font size=4>
 
