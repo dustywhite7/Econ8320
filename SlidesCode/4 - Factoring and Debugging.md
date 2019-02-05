@@ -39,13 +39,13 @@ We write a series of logical steps that can be taken, given assumed inputs, in o
 
 ### Factoring Recent Assignments
 
-1) Homework 4 - Least Squares Regression Problem
+1) Homework 3 - `StudentRecord` and `Course` classes
 <br>
 
-2) Lab 6 - Multiprocessing on a Random Draw
+2) Homework 2 - Writing functions
 <br>
 
-3) Homework 6 - Multiprocessing with Summary Statistics
+3) In-Class Exercise - Recursive Functions
 
 <br>
 
@@ -61,7 +61,7 @@ Let's walk through factoring these problems
 - Your code will be easier to read
 - You will know what you need to do
 - It is clear what the next step is
-- Your code will be reusable to a greater extent
+- Your code will be **reusable** to a greater extent
 	- Other programmers will have an easier time following your code
 - It will be easier to **debug** and run **unit tests**
 
@@ -103,22 +103,46 @@ Let's walk through factoring these problems
 
 ---
 
-### Moving from Jupyter to Spyder
+### Moving from Mimir to Spyder
 
 <br>
 
-In order to be better able to use these functions, we need to leave Jupyter behind.
+In order to be better able to use these functions, we need to leave Mimir behind (although it is all possible there, just harder to work with).
 
 Let's work through some code, in order to learn how to debug it.
 
 Here is the [file](https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/debuggingExercise.py)
 
+---
+
+### Doing Debugging
 
 ---
 
-### For Lab Today
+### Doing Unit Tests
 
-Choose one of your lab/homework assignments from earlier in the semester. Work through it carefully to 
+---
+
+### Using Try, Except
+
+```python
+try:
+  myCode()
+except:
+  raise RuntimeError("This is what went wrong...")
+  # We could also use any other kind of error
+  # TypeError, KeyError, etc.
+```
+
+For more types of errors, see [this list](https://www.programiz.com/python-programming/exceptions)
+
+This kind of code block allows us to create code that **might actually fail**, but that we want to run wherever possible, while being notified when it does not succeed.
+
+---
+
+### Bonus Work
+
+Choose one of your lab/homework assignments from earlier in the semester.
 1) Factor the code (if you didn't do so before)
 2) Debug any problems that you may not have resolved during that assignment
 3) Turn in a **.py** file, with comments explaining your changes.
