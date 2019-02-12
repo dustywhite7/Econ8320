@@ -19,10 +19,8 @@ How have you dealt with text in Python so far?
 
 - Writing to CSV's
 - Test equality
-- Look for HTML snippets
-- Use class-type variables in regression
 - Passing arguments to functions
-- Many other ways...
+- Other ways?
 
 ---
 
@@ -94,7 +92,7 @@ Let's find the expected score in this response!
 re.search(r'[0123456789]', mystring)
 ```
 
-- `r''` denotes a "raw" string, and permits escape characters. We will put our regex code into raw strings
+- `r''` denotes a "raw" string, and permits escape characters. We will always put our regex code into raw strings
 
 ---
 
@@ -153,6 +151,18 @@ Did our student report that they would score a 5%? NO!
 
 What is wrong?
 
+
+
+---
+
+### Regular Expression
+
+```python
+mystring = "I think I'll get a 50."
+re.search(r'[0123456789]', mystring)
+```
+
+This search looks for a **single character** that has a number value. We need more than one character:
 
 
 ---
@@ -241,7 +251,7 @@ This search will look for **1 or more** digits between 0 and 9
 ### Repeating Values
 
 - `*` is shorthand for 0 or more of a character/character class
-- `*` is shorthand for 1 or more of a character/character class
+- `+` is shorthand for 1 or more of a character/character class
 - `?` is shorthand for 0 or 1 (like saying"maybe")
 - `{x,y}` is shorthand for a character that is repeated no less than $x$ times, and no more than $y$ times
 
@@ -274,7 +284,7 @@ What do we get back in these cases?
 
 We can be more stringent in our expectations:
 
-- A percentage with 3 digits can only begin with a 1 or 0! That would then be followed by two digits between 0 and 9, but only if the first digit was not 1.
+- A percentage with 3 digits can only begin with a 1! Two digit percentages shouldn't lead with a 0, and single digit percentages can be between 0 and 9.
 
 <br>
 
@@ -377,12 +387,14 @@ Take 5 minutes and try with your neighbors.
 
 How can we solve our phone number problem?
 
-<br>
-
 My solution:
 ```python
 re.search(r'\b((1-)?\d{3}-)?(\d{3}-\d{4})\b', mystring)
 ```
+
+<br>
+
+But even here, I haven't included any way to account for phone numbers with `(` and `)` around the area code.
 
 ---
 
@@ -469,16 +481,6 @@ Within our groups, we have a new, unique symbol: `?:`
 
 ---
 
-# Alternate Functionality
-
-The `re` library offers several functions:
-1) `re.search`: We can search as we have so far
-2) `re.findall`: We can search for all matches in a string
-3) `re.finditer`: We can generate an iterator to process all matches in a string (related to `findall`)
-4) `re.split`: Use regex to split strings, rather than simple string matching
-
-
----
 
 ### Finding All
 
@@ -493,15 +495,28 @@ re.findall(myexp, mystring)
 
 Using those `?:` markers, we can omit all of the groups (and ugly separating characters) that we are not interested in collecting.
 
+---
+
+
+# Alternate Functionality
+
+The `re` library offers several functions:
+1) `re.search`: We can search as we have so far
+2) `re.findall`: We can search for all matches in a string
+3) `re.finditer`: We can generate an iterator to process all matches in a string (related to `findall`)
+4) `re.split`: Use regex to split strings, rather than simple string matching
+
 
 ---
 
-### For Lab/Homework
+### Quick Iterations
 
-See Assignment 12 posted to canvas for details. We will be parsing work emails collected during the Enron investigation.
+With regular expressions, you might want to try lots of things and fail quickly (over and over, because that is how this works!).
 
-If you want some great reference for a cheatsheet on regular expression, check out
+[regexr.com](https://regexr.com) is a great place to put some sample data into a website and play around with regular expressions
 
-[http://pycon2017.regex.training/index.html](http://pycon2017.regex.training/index.html)
+Also, don't forget that there is a `regex` [Cheat Sheet](https://github.com/dustywhite7/Econ8320/blob/master/CheatSheets/regular-expressions-cheat-sheet-v2.pdf) available on the github page!
 
-It also includes a 3-hour training video on using regular expression.
+---
+
+### Lab Tonight - Work on the Homework!
