@@ -1,12 +1,14 @@
 import scrapy
 import json
 
+filename = 'etsyresults2.csv'
+
 class EtsySpider(scrapy.Spider):
     name = "etsy_spider"
     start_urls = [
             'https://www.etsy.com/search?q=dungeons%20and%20dragons&ref=auto1&as_prefix=dungeons%20'
             ]
-    with open('etsyresults.csv', 'w') as f:
+    with open(filename, 'w') as f:
         f.write('url\t name\t image\t description\t startPrice\t rating\n')
                 
     def parse(self, response):     
@@ -21,7 +23,7 @@ class EtsySpider(scrapy.Spider):
         
 
     def parse_item(self, response):
-        with open('etsyresults.csv', 'a') as f:
+        with open(filename, 'a') as f:
             thedict = json.loads(response.xpath("//script[@type='application/ld+json']/text()").extract()[0])
             finaldict = {
                     'url' : thedict['url'],
