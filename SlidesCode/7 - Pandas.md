@@ -54,7 +54,7 @@ A Data Frame is a class that accepts the following:
 - data (typically as a numpy array)
 - index (if you don't want this to be created for you)
 - columns (so you can name your variables)
-- dtype (specify the type of data)
+- dtype (specify the **kind** of data for each variable)
 - copy (whether or not the data should be copied)
 
 ---
@@ -346,12 +346,16 @@ Let's take a look at some slides about writing SQL query code:
 
 We can actually use SQL to clean our data within Pandas by making use of the `pandasql` library.
 
-<br>
 
 Get started by using the following code:
 ```python
 from pandasql import sqldf
 pysqldf = lambda q: sqldf(q, globals())
+```
+
+If it isn't installed, you can install the library by running
+```bash
+pip install pandasql
 ```
 
 ---
@@ -368,7 +372,7 @@ Using SQLite syntax, we can then clean any dataset using the same tools that we 
 
 We can aggregate, create new columns, group, and join across datasets, just like we would with SQL.
 
----
+<!---
 
 ### For Lab
 
@@ -382,3 +386,5 @@ Using SQL, collect variables covering the following information:
 - Industry/Occupation
 
 Apply the log transformation to the columns containing dollar values. Then, create a variable that takes the value 1 if an individual reports completing at least 4 years of college (BS/BA level). Finally, create a column that takes the value 1 if an individual reports working in a government industry or occupation code.
+
+-->
