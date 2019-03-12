@@ -3,7 +3,7 @@ $theme: gaia
 template: invert
 -->
 
-# Week 4 - Numeric Python (NumPy) and Scientific Python (SciPy)
+# Numeric Python (NumPy) and Scientific Python (SciPy)
 
 ---
 
@@ -24,7 +24,7 @@ The **dot product** of two vectors is the sum of the products of the correspondi
 
 $$ a \cdot b = \sum_{i=1}^N a_i \times b_i $$
 
-Take 5 minutes, and write a function to take two vectors of any (equal) length, and calculate the dot product. 
+Take 5 minutes, and write a function (or at least some pseudocode) to take two vectors of any (equal) length, and calculate the dot product. 
 
 ---
 
@@ -137,7 +137,7 @@ $$
   c_{ij} = \sum_{k=1}^m a_{ik} \times b_{kj}
 $$
 
-Write an algorithm (maybe even recycling your dot product function!) to perform arbitrary matrix multiplication given two conforming matrices.
+Write an algorithm (or at least some pseudocode, again) to perform arbitrary matrix multiplication given two conforming matrices.
 
 ---
 
@@ -228,7 +228,7 @@ array([[ 1.,  0.,  0.],
        [ 0.,  0.,  1.]])
 ```
 
-The `array`, `zeros`, and `eye` functions are all ways to create arrays in `numpy`. There are many more functions that we can use to generate arrays.
+The `array`, `zeros`, and `eye` functions are all ways to create arrays in `numpy`. Many other functions exist to generate arrays that we won't cover.
 
 
 ---
@@ -283,7 +283,7 @@ Write a function that accepts four arguments ($a$, $b$, $c$, and $x$), and calcu
 
 $$ y = a + b\cdot x +c\cdot x^2 $$
 
-Write this function to utilize matrix multiplication in calculating the answer. 
+Use matrix multiplication to calculate the answer. 
 
 *Hint*: Think about how a dot product might calculate the output of this equation.
 
@@ -302,17 +302,17 @@ def squareFunc(a=1, b=1, c=1, x=1):
 ```
 
 ---
-
+<!--
 ### A Note on SciPy and Linear Algebra
 
 SciPy (as well as NumPy to some extent) contains the basic statistical tools that we need to be able to conduct data analysis.
 
-Unlike `numpy`, `scipy` utilizes Fortran BLAS and LAPACK by default, and it's algorithms typically have greater functionality.
+While `numpy` is written in C (and compiled for very good performance), `scipy` utilizes Fortran BLAS and LAPACK by default.
 
 We will focus on `numpy` for now, but will use `scipy` for its optimization algorithms next week.
 
 
---- 
+--->
 
 
 ### Random Numbers
@@ -337,7 +337,7 @@ In order to generate ANY set of random numbers, it is common to start with a ran
 >>> import numpy as np
 >>> np.random.rand() # Generates a single value
 0.5961376320677276
->>> np.random.rand(3) # Generates any number of values
+>>> np.random.rand(3) # Array of 3 random values
 array([ 0.98936539,  0.82217552,  0.88597465])
 ```
 
@@ -381,7 +381,7 @@ def expD(x): # Define my function
 
 ### Distributional Calculations
 
-Fortunately for us (since most distributions involve a bit more legwork than the exponential distribution), `numpy.random` includes functions for drawing from most distributions:
+Fortunately for us (since most distributions involve a BIT more work than the exponential distribution...), `numpy.random` includes functions for drawing from most distributions:
 
 - Normal Distribution
 - Poisson Distribution
@@ -406,6 +406,15 @@ We can use this functionality when we build out statistical tests on regression 
 
 ### For Lab Today
 
+Work on the homework assignment for the week. You will probably need all the time that you can get, because it is a challenging assignment.
+
+Write a `class` object that will perform regression analysis
+- Take in the arguments needed
+- Process the data
+- Hand-calculate the regression results
+- Print the results
+
+<!--
 There are two goods, pizza (p) and beer (b). **Using matrices**, write code to solve for the price of each good given the following supply and demand functions:
 
 Pizza:
@@ -414,4 +423,4 @@ $Q_{sp} = -20 + 3P_p$
 
 Beer:
 $Q_{db} = 200 + 3P_p - 12P_b$
-$Q_{sb} = 20P_b$
+$Q_{sb} = 20P_b$ -->
