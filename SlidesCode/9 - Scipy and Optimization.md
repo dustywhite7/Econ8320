@@ -260,7 +260,7 @@ Now we are ready to minimize!
 
 What happens if you try a different starting point?
 
----
+<!---
 
 ### For Lab Today
 
@@ -270,3 +270,15 @@ $$ U(x,y) = x^{0.3} y^{0.7}$$
 Income is $500, and the price of x is $3, while the price of y is $20.
 
 See the Lagrangian slide for help setting up the problem.
+
+-->
+
+---
+
+### For Homework
+
+You will add a Logistic Regression method to your `RegressionModel` class. You will need to do the following in order to implement Logistic Regression:
+- Create a function to calculate the log-likelihood function
+- Use gradient descent
+- Calculate the model standard error (for use below)
+- Calculate coefficient standard errors, z-statistics, and p-values
