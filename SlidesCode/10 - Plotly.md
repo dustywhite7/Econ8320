@@ -14,7 +14,7 @@ template: invert
 3. `pygal` - For SVG-based graphics, interactive plots
 4. `plotly` - Based on D3.js, allows for dynamic plotting and data dashboards hosted online
 5. `bokeh` - Also based on D3.js functions
-6. `ggplot` - uses the Grammar of Graphics structure to mimic R's ggplot2
+6. `plotnine/ggplot` - uses the Grammar of Graphics structure to mimic R's ggplot2
 
 ---
 
@@ -26,6 +26,7 @@ Plotly is a good choice for several reasons:
 - Interactive plots can be embedded in notebooks
 - Can be run on a server
 - Plotly has developed a dashboard API to complement their plotting library (similar to Shiny for R)
+- It also has a shorthand library [`plotly_express`](https://plotly.express) for rapid exploration
 
 
 ---
@@ -42,7 +43,6 @@ First, we want to import `plot`, which is needed to generate plots offline. We d
 
 Next, we import the graphing objects, which include things like Scatter plots and Histograms, and allow us to construct our visualization.
 
-We will create a new script for each of our visuals for now.
 
 ---
 
@@ -53,11 +53,10 @@ We will create a new script for each of our visuals for now.
 trace = go.Scatter( # initialize scatter object
   x = list(range(2000,2010)), # pass x, y values
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8])
-  ) 
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 ```
 
 <br>
@@ -77,14 +76,15 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}) # choose a size
+    'size': 20}, # choose a size
+    ) 
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 ```
 
-Your plot should refresh in the browser.
+A new plot should open in the browser.
 
 ---
 
@@ -98,14 +98,14 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     )) 
 
-data=go.Data([trace]) # Process the plot(s)
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plot(s)
+plot(plotdata) # Render the plots
 ```
 
 ---
@@ -121,17 +121,16 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     ),
-    text=['Year: ' + str(i) for i in 
-    	list(range(2000,2010))], # hover text
-    name='PCC') # name for legends) 
+    text=['Year: ' + str(i) for i in list(range(2000,2010))], # hover text
+    name='PCC') # name for legends
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 ```
 
 ---
@@ -141,14 +140,14 @@ plot(data) # Render the plots
 We can add information to our plot by adding `Layout` and `Figure` objects:
 
 ```python
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
 layout=go.Layout(title="Per Capita Cheese Consumption", 
                  # configure the plot
   xaxis={'title':'Year'},  # layout and name
   yaxis={'title':'Pounds of Cheese'})  # the axes.
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 # combine data and layout code
 
 plot(figure) # Render the plots
@@ -167,12 +166,11 @@ trace2 = go.Scatter( # initialize scatter object
   y = [327,456,509,497,596,573,661,741,809,717],
   marker =  {'color': 'grey', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     ),
-    text=['Year: ' + str(i) for i in 
-    	list(range(2000,2010))], # hover text
+    text=['Year: ' + str(i) for i in list(range(2000,2010))], # hover text
     name='DIB',
     yaxis='y2') # name for legends
 ```
@@ -184,7 +182,7 @@ trace2 = go.Scatter( # initialize scatter object
 We also need to update our data and layout objects:
 
 ```python
-data=go.Data([trace, trace2]) # Process the plots
+plotdata=go.Data([trace, trace2]) # Process the plots
 
 layout=go.Layout(title="Per Capita Cheese Consumption", 
                  # configure the plot
@@ -193,7 +191,7 @@ layout=go.Layout(title="Per Capita Cheese Consumption",
   yaxis={'title':'Pounds of Cheese',
          'showgrid':False},
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 # combine data and layout code
 
 plot(figure) # Render the plots
@@ -206,20 +204,18 @@ plot(figure) # Render the plots
 AND we should add a secondary y axis:
 
 ```python
-data=go.Data([trace, trace2]) # Process the plots
+plotdata=go.Data([trace, trace2]) # Process the plots
 
-layout=go.Layout(title=
-	"Cheese Consumption and Bedsheet Tragedies", 
+layout=go.Layout(title="Cheese Consumption and Bedsheet Tragedies", 
                  # configure the plot
   xaxis={'title':'Year',
-         'showgrid':False}, # hide the gridlines  
+         'showgrid':False},  # layout and name
   yaxis={'title':'Pounds of Cheese',
          'showgrid':False},
-  yaxis2={'title': # add secondary axis
-  	  "Deaths due to Becoming Tangled in Bedsheets",
-          'overlaying': 'y', # it is a y, not x, axis
-          'side':'right', # show values on right side
-          'showgrid':False})  # hide gridlines
+  yaxis2={'title':"Deaths due to Becoming Tangled in Bedsheets",
+          'overlaying': 'y',
+          'side':'right',
+          'showgrid':False})  # the axes.
 ```
 
 ---
@@ -268,16 +264,16 @@ trace = go.Scatter( # initialize scatter object
   y = data['hhincome'], 
   marker =  {'color': 'green', 
     'symbol': 0, 
-    'size': "12"},
+    'size': 12},
   mode="markers+lines", 
   name='Household Income Over Time') 
 
-data=go.Data([trace]) 
+plotdata=go.Data([trace]) 
 layout=go.Layout(title="Household Income",
   xaxis={'title':'Year'},  
   yaxis={'title':'Income ($)'})  
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 plot(figure)
 ```
 
@@ -317,12 +313,12 @@ for i in data['statefip'].unique():
     mode="markers+lines", 
     name='Household Income in {}'.format(i)))
 
-data=go.Data(traces) 
+plotdata=go.Data(traces) 
 layout=go.Layout(title="Household Income",
   xaxis={'title':'Year'},  
   yaxis={'title':'Income ($)'})  
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 plot(figure)
 ```
 
@@ -367,8 +363,8 @@ trace1 = go.Box(
   boxmean='sd' # Shows quartiles AND Std Dev on plot
 )
 
-data = go.Data([trace1])
-figure = go.Figure(data=data)
+plotdata = go.Data([trace1])
+figure = go.Figure(data=plotdata)
 plot(figure)
 ```
 
@@ -392,7 +388,7 @@ plot(figure)
 ```python
 trace1 = go.Histogram(
   x=np.random.randn(5000),
-  histnorm='count',
+  histnorm='density',
   xbins=dict( # Declare bin size
     start=-4.0,
     end=4.0,
@@ -404,8 +400,8 @@ trace1 = go.Histogram(
   opacity=0.9
 )
 
-data = go.Data([trace1])
-figure = go.Figure(data=data)
+plotdata = go.Data([trace1])
+figure = go.Figure(data=plotdata)
 plot(figure)
 ```
 
@@ -472,8 +468,8 @@ x = - np.array(x).reshape(28,28)
 
 
 trace = go.Heatmap(z = x, colorscale = "Greys")
-data=[trace]
-plot(data)
+plotdata=[trace]
+plot(plotdata)
 ```
 
 ---
@@ -495,17 +491,17 @@ plot(data)
 ```python
 data = pd.read_csv("corruption2018.csv")
 
-pdata = go.Choropleth(
+plotdata = go.Choropleth(
         locations = data['Abbr'],
         z = data['Index'],
         text = (data['Name'], data['Index']),
         autocolorscale = False,
-        colorscale = 'Virginica',
+        colorscale = 'Picnic',
         showscale = True,
     )
 
 
-figure = go.Figure(data=[pdata])
+figure = go.Figure(data=[plotdata])
 plot(figure)
 ```
 
@@ -547,12 +543,13 @@ layout = go.Layout(
                showcountries = False,
                showframe = False,
                showrivers=False,
-               scope = 'all'
+               scope = 'world'
         )
     )
 
-figure = go.Figure(data=[pdata], layout=layout)
+figure = go.Figure(data=[plotdata], layout=layout)
 plot(figure)
+
 ```
 
 ---
@@ -576,7 +573,7 @@ plot(figure)
 ```python
 data = pd.read_csv("displaced2018.csv")
 
-pdata = go.Scattergeo(
+plotdata = go.Scattergeo(
             locationmode = 'country names',
             locations = data['Name'],
             marker = dict(
@@ -586,7 +583,7 @@ pdata = go.Scattergeo(
             text = data['Displaced']
             )
 
-figure = go.Figure(data=[pdata])
+figure = go.Figure(data=[plotdata])
 plot(figure)
 ```
 
@@ -637,6 +634,6 @@ plot(figure)
 ### For Lab Tonight
 
 Let's make use of this week's and last week's data together! 
-- Draw data from either the ACS database or the NFL database on dadata.cba.edu (you choose the data)
-- Generate five plots that you find interesting.
-- Use at least three different kinds of plots
+- Draw data from any dataset
+- Generate three plots that you find interesting
+- Try to use at least two different kinds of plots, just to get more practice

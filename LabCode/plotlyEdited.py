@@ -14,9 +14,9 @@ trace = go.Scatter( # initialize scatter object
   x = list(range(2000,2010)), # pass x, y values
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8])
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 
 #%%
 
@@ -25,12 +25,12 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     ) 
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 
 #%%
 
@@ -39,14 +39,14 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     )) 
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 
 #%%
 
@@ -55,16 +55,16 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     ),
     text=['Year: ' + str(i) for i in list(range(2000,2010))], # hover text
     name='PCC') # name for legends
 
-data=go.Data([trace]) # Process the plots
+plotdata=go.Data([trace]) # Process the plots
 
-plot(data) # Render the plots
+plot(plotdata) # Render the plots
 
 
 #%%
@@ -74,7 +74,7 @@ trace = go.Scatter( # initialize scatter object
   y = [29.8,30.1,30.5,30.6,31.3,31.7,32.6,33.1,32.7,32.8],
   marker =  {'color': 'green', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     ),
@@ -86,7 +86,7 @@ trace2 = go.Scatter( # initialize scatter object
   y = [327,456,509,497,596,573,661,741,809,717],
   marker =  {'color': 'grey', # choose the marker color
     'symbol': 0, # choose a shape
-    'size': "20"}, # choose a size
+    'size': 20}, # choose a size
     line=dict(
         shape='spline' # spline smoothing
     ),
@@ -94,7 +94,7 @@ trace2 = go.Scatter( # initialize scatter object
     name='DIB',
     yaxis='y2') # name for legends
 
-data=go.Data([trace, trace2]) # Process the plots
+plotdata=go.Data([trace, trace2]) # Process the plots
 
 layout=go.Layout(title="Cheese Consumption and Bedsheet Tragedies", 
                  # configure the plot
@@ -107,7 +107,7 @@ layout=go.Layout(title="Cheese Consumption and Bedsheet Tragedies",
           'side':'right',
           'showgrid':False})  # the axes.
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 # combine data and layout code
 
 plot(figure) # Render the plots
@@ -133,16 +133,16 @@ trace = go.Scatter( # initialize scatter object
   y = data['hhincome'], 
   marker =  {'color': 'green', 
     'symbol': 0, 
-    'size': "12"},
+    'size': 12},
   mode="markers+lines", 
   name='Household Income Over Time') 
 
-data=go.Data([trace]) 
+plotdata=go.Data([trace]) 
 layout=go.Layout(title="Household Income",
   xaxis={'title':'Year'},  
   yaxis={'title':'Income ($)'})  
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 plot(figure)
 
 
@@ -169,12 +169,12 @@ for i in data['statefip'].unique():
     mode="markers+lines", 
     name='Household Income in {}'.format(i)))
 
-data=go.Data(traces) 
+plotdata=go.Data(traces) 
 layout=go.Layout(title="Household Income",
   xaxis={'title':'Year'},  
   yaxis={'title':'Income ($)'})  
 
-figure=go.Figure(data=data,layout=layout)
+figure=go.Figure(data=plotdata,layout=layout)
 plot(figure)
 
 #%%
@@ -188,8 +188,8 @@ trace1 = go.Box(
   boxmean='sd' # Shows quartiles AND Std Dev on plot
 )
 
-data = go.Data([trace1])
-figure = go.Figure(data=data)
+plotdata = go.Data([trace1])
+figure = go.Figure(data=plotdata)
 plot(figure)
 
 #%%
@@ -197,7 +197,7 @@ plot(figure)
 
 trace1 = go.Histogram(
   x=np.random.randn(5000),
-  histnorm='count',
+  histnorm='density',
   xbins=dict( # Declare bin size
     start=-4.0,
     end=4.0,
@@ -209,8 +209,8 @@ trace1 = go.Histogram(
   opacity=0.9
 )
 
-data = go.Data([trace1])
-figure = go.Figure(data=data)
+plotdata = go.Data([trace1])
+figure = go.Figure(data=plotdata)
 plot(figure)
 
 
@@ -241,24 +241,24 @@ x = - np.array(x).reshape(28,28)
 
 
 trace = go.Heatmap(z = x, colorscale = "Greys")
-data=[trace]
-plot(data)
+plotdata=[trace]
+plot(plotdata)
 
 #%%
 
 data = pd.read_csv("corruption2018.csv")
 
-pdata = go.Choropleth(
+plotdata = go.Choropleth(
         locations = data['Abbr'],
         z = data['Index'],
         text = (data['Name'], data['Index']),
         autocolorscale = False,
-        colorscale = 'Virginica',
+        colorscale = 'Picnic',
         showscale = True,
     )
 
 
-figure = go.Figure(data=[pdata])
+figure = go.Figure(data=[plotdata])
 plot(figure)
 
 #%%
@@ -270,11 +270,11 @@ layout = go.Layout(
                showcountries = False,
                showframe = False,
                showrivers=False,
-               scope = 'all'
+               scope = 'world'
         )
     )
 
-figure = go.Figure(data=[pdata], layout=layout)
+figure = go.Figure(data=[plotdata], layout=layout)
 plot(figure)
 
 
@@ -282,7 +282,7 @@ plot(figure)
 
 data = pd.read_csv("displaced2018.csv")
 
-pdata = go.Scattergeo(
+plotdata = go.Scattergeo(
             locationmode = 'country names',
             locations = data['Name'],
             marker = dict(
@@ -292,14 +292,14 @@ pdata = go.Scattergeo(
             text = data['Displaced']
             )
 
-figure = go.Figure(data=[pdata])
+figure = go.Figure(data=[plotdata])
 plot(figure)
 
 #%%
 
 data = pd.read_csv("displaced2018.csv")
 
-pdata = go.Scattergeo(
+plotdata = go.Scattergeo(
             locationmode = 'country names',
             locations = data['Name'],
             marker = dict(
@@ -316,5 +316,5 @@ layout = go.Layout(
         )
     )
 
-figure = go.Figure(data=[pdata], layout=layout)
+figure = go.Figure(data=[plotdata], layout=layout)
 plot(figure)
