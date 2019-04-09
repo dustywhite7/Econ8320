@@ -47,4 +47,4 @@ app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(port=80, host='0.0.0.0')

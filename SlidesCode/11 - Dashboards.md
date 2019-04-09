@@ -75,10 +75,10 @@ First, we need our import statements
 
 ```python
 import dash
-import dash_core_components as dcc
-import dash_html_components as html 
+import dash_core_components as dcc # The dashboard items
+import dash_html_components as html # The backbone
 import pandas as pd
-import plotly.graph_objs as go
+import plotly.graph_objs as go # Our plotting tool
 ```
 
 Because Dash will construct our website for us, we have a lot of imports to make.
@@ -260,11 +260,11 @@ We can also implement [interactivity](https://dash.plot.ly/interactive-graphing)
 
 ---
 
-### [Optional] Lab Today
+### Homework This Week
 
-Pick your favorite dataset from the semester, and create a dashboard that allows an imaginary user (or just yourself!) to interactively explore the data in at least two dimensions. Try including the following:
+Pick your favorite dataset. Using the data that you choose, incorporate three or more plotly  visuals of your data into a dashboard using the `dash` library from class this week.  You need to provide the following:
+- Your code
+- A one page explanation of your dashboard
+- The dataset that you used
 
-1. One plot that responds to inputs
-2. A slider
-3. A dropdown menu
-4. Radio Buttons
+Submit through Canvas (Assignment 11)

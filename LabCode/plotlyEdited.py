@@ -297,7 +297,7 @@ plot(figure)
 
 #%%
 
-data = pd.read_csv("displaced2018.csv")
+data = pd.read_csv("/home/dusty/Econ8320/LabCode/displaced2018.csv")
 
 plotdata = go.Scattergeo(
             locationmode = 'country names',

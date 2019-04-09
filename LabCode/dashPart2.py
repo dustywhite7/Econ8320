@@ -44,6 +44,7 @@ app.layout = html.Div([
     [Input('year-slider', 'value'),
      Input('xaxis-type','value'),
      Input('continents','value')])
+
 def update_figure(selected_year, axis_type, continent):
     if continent=="All":
         filtered_df = df
@@ -80,4 +81,4 @@ def update_figure(selected_year, axis_type, continent):
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(port=80, host='0.0.0.0')
