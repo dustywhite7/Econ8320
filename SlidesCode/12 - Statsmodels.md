@@ -17,7 +17,7 @@ Building our own models is great!
 
 <br>
 
-Unfortunately, it takes a lot of time!
+Unfortunately, it takes a LOT of time!
 
 
 ---
@@ -42,7 +42,7 @@ import statsmodels.formula.api as sm
 import statsmodels.api as sm
 ```
 
-We will focus on option (1)
+We will focus on option (1) for now
 
 
 ---
@@ -332,10 +332,11 @@ We pass a list containing the old design matrix information, as well as the new 
 - Ensures that we always have the same number of categories
 - Maintains consistency in our model
 - Makes our work replicable
+- Can streamline the use of `statsmodels` and `sklearn` in the same workflow
 
 <br>
 
-Using this method to create new datasets from which to generate predictions is extremely valuable
+Using this method to create new samples from which we will make predictions is extremely valuable
 
 ---
 
@@ -400,7 +401,7 @@ Again, available in both [classification](http://scikit-learn.org/stable/modules
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-clf = RandomForestClassifier(n_estimators=100)
+clf = RandomForestClassifier(n_estimators=50)
 clf = clf.fit(x, y)
 
 pred = clf.pred(new_xs)
@@ -429,7 +430,11 @@ Many other tools are also available to aid in the data cleaning process through 
 
 ### Homework
 
-Build an OLS regression and Random Forest using `statsmodels` and `sklearn`
+<br>
+
+Build an OLS regression and Random Forest using `statsmodels` and `sklearn` together with some data on the value of NFL franchises over time.
+
+See Mimir for more details
 
 
 <!---
