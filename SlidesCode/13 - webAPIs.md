@@ -46,6 +46,7 @@ With an API, we can make requests to the server for specific information.
 
 ### Useful APIs
 
+- [Quandl Financial Data](www.quandl.com) - Information on many unique financial metrics
 - [Twitter Search](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html) - Track historic trends on a given topic ([realtime](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview))
 - [Sentiment Analysis](https://www.twinword.com/api/emotion-analysis.php) - What is the sentiment in a given block of text?
 - [Sports Updates](https://www.mysportsfeeds.com/) - API to gather data on US sports teams ([Soccer](https://www.api-football.com/))
@@ -90,7 +91,7 @@ First, head to [console.cloud.google.com](console.cloud.google.com), so we can s
 
 Now, let's go back to the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/start)
 
-- We can use the API key that we just created to complete the link provided
+- We can use the API key that we just created to complete the example link provided in the documentation
 - When we copy and paste the link, we will see a page with JSON in our browser
 
 
@@ -266,7 +267,18 @@ At this point, we will (eventually) get a DataFrame of our results when the func
 2019-04-09 11:40:31.738479 |	1343 |	23942
 2019-04-09 11:41:31.931956 |	1343 |	23942
 
+
 ---
+
+### For Lab This Week
+
+Choose a previous homework assignment to redo. 
+
+You can earn full credit for that assignment, as well as for this week's assignment.
+
+Submit the reworked assignment through Canvas under Assignment 14
+
+<!---
 
 ### For Lab This Week
 
@@ -275,3 +287,5 @@ Choose a route to analyze, and provide code that will sample the length of the r
 - Your starting point should be different from the sample code
 - Your ending point should be different from the sample code
 - Measure all distances in miles
+
+-->
