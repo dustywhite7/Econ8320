@@ -1,7 +1,10 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 1 - Data Types and Documentation
+theme: default
+class: default
+size: 4:3
+---
 
 # ECON 8320
 #### Tools for Data Analysis
@@ -40,20 +43,16 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ### Grade Details
 
-<center>
 
 |Score|Grade|Score|Grade|
 |:-:|:-:|:-:|:-:|
-|\>94%|A|62.5-69.9|D
-|90-93.9|A-|60-62.5|D-
-|87.5-89.9|B+|\<60|F|
-|82.5-87.4|B|
-|80-82.4|B-|
+|\>94%|A|72.5-77.4|C|
+|90-93.9|A-|70-72.4|C-|
+|87.5-89.9|B+|62.5-69.9|D
+|82.5-87.4|B|60-62.5|D-
+|80-82.4|B-|\<60|F|
 |77.5-79.9|C+|
-|72.5-77.4|C|
-|70-72.4|C-|
 
-</center>
 
 ---
 
@@ -61,7 +60,6 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 <br>
 <br>
-<center>
 
 |Assignment|Percent of Grade|
 |:-:|:-:|
@@ -69,7 +67,6 @@ Your ability to use code to solve problems will be the basis for your grade in t
 |Homework|375 points|
 |Final Exam|250 points|
 
-</center>
 
 ---
 
@@ -245,7 +242,7 @@ Strings are collections of characters with defined positions. Strings are also *
 'D'
 ```
 
-==**Note that the first character in the string has position 0!**==
+**Note:** the first character in the string has position 0!
 
 ---
 
@@ -395,7 +392,7 @@ Lists can also have lists as elements, and are then referred to as "a list of li
 [[2, 3, 4, 5], [6, 7, 8, 9]]
 ```
 
-We can embed lists infinitely deep (list of lists of lists...), allowing us to create N-dimensional objects 
+We can embed lists infinitely deep (list of lists of lists...), allowing us to create $n$-dimensional objects 
 - This becomes especially helpful when doing matrix computations, or in more advanced machine learning techniques
 
 ---
@@ -491,7 +488,7 @@ In this case, the module is ```numpy```, a numeric library already mentioned.
 
 DON'T PANIC!
 
-This is a LOT of information! Fortunately, we have ==**DOCUMENTATION**== to help us make sure that we are doing the right thing.
+This is a LOT of information! Fortunately, we have **DOCUMENTATION** to help us make sure that we are doing the right thing.
 
 To get started, let's look at the [Numpy Random Sampling Documentation](https://docs.scipy.org/doc/numpy/reference/routines.random.html)
 
@@ -506,7 +503,7 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 - Take your time
 - Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Google is your friend!)
-- Again, Don't Panic!
+- Don't Panic! 
 
 
 ---
@@ -515,7 +512,7 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 Complete the following:
 
-- Write code that appends the string "Meow!" to an arbitrary string stored in the variable ```myString```
+- Write code (using Mimir or the lab computers) that appends the string "Meow!" to an arbitrary string stored in the variable ```myString```
 - Given two numeric values (```x``` and ```y```), calculate the following
 	- Area of a circle (using ```x``` as the radius)
 	- Area of a triangle (using ```x``` as the base and ```y``` as the height)
