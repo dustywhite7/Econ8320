@@ -1,7 +1,9 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 2 - Loops, Conditions, and Functions
+theme: default
+class: invert
+---
 
 # Week 2 - Loops, Conditions & Functions
 

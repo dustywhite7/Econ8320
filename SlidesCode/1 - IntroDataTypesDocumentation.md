@@ -63,9 +63,8 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 |Assignment|Percent of Grade|
 |:-:|:-:|
-|Lab Work|375 points|
-|Homework|375 points|
-|Final Exam|250 points|
+|Lab Work/Homework |700 points|
+|Final Project|300 points|
 
 
 ---
@@ -75,7 +74,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 <br>
 
 - You will be expected to learn to program during this course
-- Plan on spending **all** of our time in lab working on projects and refining your predictions
+- Plan on spending **all** of our time in lab working on projects and refining your predictions (you'll usually need it!)
 - Take charge of your assignments; they will be open-ended
 
 ---
@@ -305,7 +304,7 @@ False
 
 ### None
 
-Python also has a ```None``` type, that is frequently used to initialize objects, but can also be used to determine if information has been received
+Python also has a ```None``` type that is frequently used to initialize objects. It can also be used to serve functions like determining whether or not information has been received
 
 ```python
 data = None
@@ -512,8 +511,8 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 Complete the following:
 
-- Write code (using Mimir or the lab computers) that appends the string "Meow!" to an arbitrary string stored in the variable ```myString```
-- Given two numeric values (```x``` and ```y```), calculate the following
+- Write code (using Mimir or the lab computers) that appends the string "Meow!" to any string stored in the variable ```myString```
+- Given two numeric values (```x``` and ```y```), calculate the following using Python code:
 	- Area of a circle (using ```x``` as the radius)
 	- Area of a triangle (using ```x``` as the base and ```y``` as the height)
 	- Area of a rectangle (with sides length ```x``` and ```y```)
