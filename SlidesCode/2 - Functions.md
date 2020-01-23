@@ -2,7 +2,8 @@
 marp: true
 title: Week 2 - Loops, Conditions, and Functions
 theme: default
-class: invert
+class: default
+size: 4:3
 ---
 
 # Week 2 - Loops, Conditions & Functions
@@ -50,7 +51,7 @@ Write a ```for``` loop that will square each number between 1 and 10, and print 
 
 ```python
 for i in range(1,11): # range is an iterable, with a lower
-    print(i*i)	      # bound included, and upper bound
+    print(i**2)	      # bound included, and upper bound
     		      # excluded
 ```
 
@@ -84,9 +85,9 @@ myMatrix=[[1,2,3],
 ```python
 for i in range(3): # 3 is the number of elements in a row
     for j in range(3): # 3 elements per column
-        myMatrix[i][j]*=myMatrix[i][j] # row THEN column
+        myMatrix[i][j]**=2 # row THEN column
 ```
-Note: ```*=``` means to multiply and then set equal
+Note: ```*=``` means to multiply and then update the value, and `**=` means exponentiate then update value
 
 ---
 
@@ -115,7 +116,7 @@ This will come in very handy on occasion
 - ```+=``` means to add the second value, and assign the sum to the original variable
 - ```-=``` means to subtract the second value, and assign the difference to the original variable
 - ```*=``` means to multiply the values, and assign the product to the original variable
-- ```*=``` means to divide the first value by the second, and assign the ratio to the original variable
+- ```/=``` means to divide the first value by the second, and assign the ratio to the original variable
 
 ---
 
@@ -193,7 +194,7 @@ Set ```a=12``` and ```b=100```. What happens? What if ```b=12```?
 
 ---
 
-### From Last Week
+### Functions: From Last Week
 
 ```python
 import numpy as np
@@ -212,7 +213,7 @@ def manhattanDistance(coord1, coord2):
 ---
 
 
-### From Last Week
+### Functions: From Last Week
 
 ```python
 def manhattanDistance(coord1, coord2):
@@ -289,7 +290,7 @@ Later, after we have completed the code that runs inside of the function, we wri
 
 ### Exercise
 
-Write a function that returns the product of two numbers (note: the product of x and y is $x\times y$). Name the function ```product```
+Write a function that returns the product of two numbers (note: the product of x and y is $x\times y$). Name the function ```product```.
 
 <br>
 
