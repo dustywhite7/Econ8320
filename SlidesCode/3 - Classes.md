@@ -1,7 +1,10 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 3 - Classes
+theme: default
+class: default
+size: 4:3
+---
 
 # Week 3 - Classes (not the school kind)
 
@@ -40,7 +43,7 @@ class Sandwich(object):
 		self.toppings = []
 ```
 
-The FIRST thing we need to do is to initialize an object of class ```Sandwich```. We do this by using the ```__init__()``` method (methods are functions assigned to a particular class of objects)
+The FIRST thing we need to do is to initialize an object of class ```Sandwich```. We do this by using the ```__init__()``` method (methods are functions assigned to a class object)
 - We tell our object what arguments to expect, and store these values as **attributes** of our object
 
 ---
@@ -59,18 +62,18 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 
 ---
 
-### Magic Methods (more [here](https://www.python-course.eu/python3_magic_methods.php))
+### Magic Methods (MANY more [here](https://www.python-course.eu/python3_magic_methods.php))
 
-![](magicMethodsClasses.png)
-
----
-
-### Magic Methods Note
-
-In Python 3, there are 2 different division magic methods:
-
-- `__truediv__` represents the functionality of the '/' operator
-- `__floordiv__` represents the functionality of the '//' operator
+| Operator | Method                                |
+|----------|---------------------------------------|
+| +        | object.\_\_add\_\_(self, other)           |
+| -        | object.\_\_sub\_\_(self, other)           |
+| *        | object.\_\_mul\_\_(self, other)           |
+| //       | object.\_\_floordiv\_\_(self, other)      |
+| /        | object.\_\_truediv\_\_(self, other)       |
+| %        | object.\_\_mod\_\_(self, other)           |
+| **       | object.\_\_pow\_\_(self, other[, modulo]) |
+| &        | object.\_\_and\_\_(self, other)           |
 
 ---
 
@@ -264,15 +267,26 @@ class Sandwich(object):
 
 ###### Extra Practice!
 
-<font size=4>
 
 Create your own ``ComplexNumber`` class!
 1. Complex numbers have a real and an imaginary part. The ``__init__()`` method should therefore accept two numbers. Store the first as self.real and the second as self.imag.
 2. Implement a ``conjugate()`` method that returns the object's complex conjugate (as a new ``ComplexNumber`` object). Recall that $a + bi = a - bi$.
-3. Add the following magic methods:
+
+
+---
+
+###### More Practice
+
+3. Add the following magic methods to your `ComplexNumber` class:
  	- ``__abs__()`` determines the output of the builtin ``abs()`` function (absolute value). Implement ``__abs__()`` so that it returns the magnitude of the complex number. Recall that $|a + bi| = \sqrt{a^2 + b^2}$.
  	- Implement ``__lt__()`` and ``__gt__()`` so that ``ComplexNumber`` objects can be compared by their magnitudes. That is, $(a + bi) < (c + di)$ if and only if $|a + bi| < |c + di|$, and so on.
- 	- Implement ``__eq__()`` and ``__ne__()`` so that two ``ComplexNumber`` objects are equal if and only if they have the same real and imaginary parts.
+ 	
+   
+---
+
+###### Even More Practice
+
+3. Add the following magic methods to your `ComplexNumber` class:
+   - Implement ``__eq__()`` and ``__ne__()`` so that two ``ComplexNumber`` objects are equal if and only if they have the same real and imaginary parts.
  	-  Implement ``__add__()``, ``__sub__()``, ``__mul__()``, and ``__div__()`` appropriately. Each of these should return a new ``ComplexNumber`` object.
 
-</font>
