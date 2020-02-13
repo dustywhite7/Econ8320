@@ -1,9 +1,11 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 5 - Regular Expressions
+theme: default
+class: default
+---
 
-### Analyzing Text With Regular Expressions
+# Week 5 -  Analyzing Text With Regular Expressions
 
 ---
 
@@ -75,7 +77,7 @@ To use Regular Expression in Python,
 import re
 ```
 
-We will work through examples in the Python Console (either in Spyder or a terminal)
+We can work through examples in Mimir notebooks (or in Spyder or a terminal)
 
 ---
 
