@@ -1,7 +1,10 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 5 - Regular Expressions
+theme: default
+class: default
+---
+
 
 ### Web Scraping for Data Collection
 ###### Inspired by code from [tsvm](https://github.com/tsvm/scrapy-etsy-demo/blob/master/etsydemo/spiders/etsy_spider.py) and [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-crawl-a-web-page-with-scrapy-and-python-3)
@@ -36,7 +39,7 @@ Dungeons and Dragons Your Stick Figure Family rolled a 1 / D20 vinyl  Dragon dec
 <span class="screen-reader-only">5 out of 5 stars</span>
 ```
 
-[Searched "dungeons and dragons" on Etsy](https://www.etsy.com/search?q=dungeons%20and%20dragons&ref=auto1&as_prefix=dun)
+[Search results for  "dungeons and dragons" on Etsy](https://www.etsy.com/search?q=dungeons%20and%20dragons&ref=auto1&as_prefix=dun)
 
 
 ---
@@ -108,7 +111,7 @@ We need to
 
 <br>
 
-Let's go to the [Brickset website](https://brickset.com/sets/year-2016) to find what we are looking for
+Let's go to the [Brickset website 2016 collection](https://brickset.com/sets/year-2016) to find what we are looking for
 
 ---
 
@@ -125,7 +128,13 @@ Right click on the name ("10251: Brick Bank") of the first lego set after you fo
 
 ### Our Objects of Interest
 
-<img src="brickBank.png" width=800></img>
+```html
+<h1>
+  <a href="/sets/10251-1/Brick-Bank">
+    <span>10251: </span> Brick Bank
+  </a>
+</h1>
+```
 
 We can see that the set's name is inside of an `<h1>` tag, as well as an `<a>` tag (header and link tags, respectively)
 
@@ -135,15 +144,37 @@ We can see that the set's name is inside of an `<h1>` tag, as well as an `<a>` t
 
 If we continue further, we will see that most other information is contained in a list:
 
-<center>
-<img src="listBrick.png" width=500></img>
-</center>
+```html
+<dl>
+<dt>Pieces</dt>
+  <dd><a class="plain" href="/inventories/10251-1">2380</a></dd>
+<dt>Minifigs</dt>
+  <dd><a class="plain" href="/minifigs/inset-10251-1">5</a></dd>
+<dt>RRP</dt>
+  <dd>$169.99, 149.99€ | <a class="popuplink plain" href="prices?set=10251-1">More</a></dd>
+<dt>PPP</dt>
+  <dd>7.1c, 6.3c</dd>
+<dt>Packaging</dt>
+  <dd>Box</dd>
+<dt>Availability</dt>
+  <dd>Retail - limited</dd>
+<dt>First sold</dt>
+  <dd>USA: Jan 16, UK/EU: Jan 16</dd>
+<dt>Instructions</dt>
+  <dd><a class="popuplink plain" href="instructions2?set=10251-1&amp;s=1">Yes</a></dd>
+<dt>Additional images</dt>
+  <dd><a class="plain" href="/sets/10251-1?more-images">26</a></dd>
+<dt>Set type</dt>
+  <dd>Normal</dd>
+</dl>
+```
+
 
 ---
 
 ### Extracting the Data
 
-In order to write code that will retrieve this data from each search result, we will use the `scrapy` library.
+In order to write code that will retrieve this data from each search result, we will use the `scrapy` library. Unfortunately, this cannot be easily done in a notebook.
 
 1) Create our spider (code to **crawl** a **web**site) as a **subclass** of the `scrapy.Spider` class
 2) Customize that class to detect the data we care about
@@ -216,6 +247,17 @@ def parse(self, response):
 
 ---
 
+### CSS vs XPath Selectors
+
+ - CSS selectors allow us to use CSS tags to denote the elements from which we would like to retrive information.
+   - Helpful when we have unique CSS tags associated with the information that we want to collect
+   - Use `______.css()` to work with these selectors
+ - XPath selectors allow us to direct our scrape through specific HTML tags or labels
+   - Typically more robust
+   - Use `______.xpath()` to work with these selectors
+
+---
+
 ### Extracting the Data
 
 Now, we need to collect the information we care about, extract the values, and then store them as a row in our new csv.
@@ -239,7 +281,7 @@ def parse(self, response):
 
 ### Extracting the Data
 
-Finally, if our results spill beyond a single page, we need to specify how to move to the next page of results.
+Finally, if our results spill beyond a single page, we need to specify how to move to the next page of results. This will initiate a new crawl of the next search result page:
 
 ```python
 def parse(self, response):
@@ -264,8 +306,7 @@ In order to run our Spider, we will need to open a Terminal/PowerShell/Command P
 
 Lab Computers/Windows:
 ```powershell
-python C:\ProgramFiles\Anaconda3\Scripts\scrapy 
-                                  runspider bricks.py
+python C:\ProgramFiles\Anaconda3\Scripts\scrapy runspider bricks.py
 ```
 
 Mac/Unix/Linux:
@@ -273,7 +314,7 @@ Mac/Unix/Linux:
 scrapy runspider bricks.py
 ```
 
-In both cases, we need to be in the directory containing our `bricks.py` script
+In both cases, we MUST be in the directory containing our `bricks.py` script
 
 
 ---
