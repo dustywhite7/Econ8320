@@ -1,7 +1,10 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 7 - Pandas
+theme: default
+class: default
+---
+
 
 # Week 7 - Pandas, SQL
 
@@ -12,7 +15,6 @@ template: invert
 What are the ways that we have learned so far to handle data?
 
 - Flat Files
-- Numpy arrays
 - Lists of lists
 - Dictionaries
 
@@ -50,12 +52,12 @@ Create an empty Data Frame:
 data = pd.DataFrame()
 ```
 
-A Data Frame is a class that accepts the following:
-- data (typically as a numpy array)
-- index (if you don't want this to be created for you)
-- columns (so you can name your variables)
-- dtype (specify the **kind** of data for each variable)
-- copy (whether or not the data should be copied)
+A Data Frame is a class that accepts the following parameters:
+- `data`
+- `index` (for referencing individual rows)
+- `columns` (so you can name your variables)
+- `dtype` (specify the **kind** of data for each column/variable)
+- `copy` (whether or not the data should be copied)
 
 ---
 
@@ -251,6 +253,8 @@ data.describe().T[['count','mean','std','min','max']]
 # Add a .to_csv('myfile.csv') to that line to save
 ```
 
+<!-- FOR USING MySQL
+
 ---
 
 ### Using SQL with Python
@@ -261,7 +265,6 @@ Here is a link to analogous code for many other database types:
 [http://docs.sqlalchemy.org/en/latest/core/engines.html](http://docs.sqlalchemy.org/en/latest/core/engines.html)
 
 ---
-
 
 ### Using SQL with Python
 
@@ -314,7 +317,31 @@ engine = create_engine(engineStr) # Start the Engine
 Last, we just need to include the database that we wish to access on the server. In this case, we can use `ACS`
 
 ---
+ -->
+---
 
+### Using SQL with Python
+
+In order to handle data on a large scale, we will frequently rely on SQL databases. In this class, we will practice with SQLite.
+
+Here is a link to the documentation:
+[https://docs.python.org/3/library/sqlite3.html](https://docs.python.org/3/library/sqlite3.html)
+
+---
+
+### Using SQL with Python
+
+The first thing we need to do is to establish a connection to our database:
+
+
+```python
+import sqlite3
+engine = sqlite3.connect('nebraska.db')
+```
+
+We are using `mysql` via the `mysqlconnector` module. Next, we provide our `username:password`, which in this case is "viewer," with no password, so we do not enter text after the colon.
+
+---
 
 ### Retrieve SQL Data with Pandas
 

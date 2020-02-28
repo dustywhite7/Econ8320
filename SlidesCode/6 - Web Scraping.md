@@ -1,6 +1,6 @@
 ---
 marp: true
-title: Week 5 - Regular Expressions
+title: Week 6 - Web Scraping
 theme: default
 class: default
 ---
