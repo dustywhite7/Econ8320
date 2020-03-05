@@ -1,17 +1,15 @@
+---
+marp: true
+title: Week 8.2 - OLS Primer
+theme: default
+class: default
+---
+
+
 
 # A Quick Guide/Refresh on OLS Estimation
 
 ---
-
-
-### Remembering OLS...
-
-- Ordinary Least Squares (OLS) is the foundation of regression analysis, and an excellent starting point for this course
-- Estimates the expected outcome ($\hat{y}$) given the inputs ($x$)
-
-
----
-
 
 ### Remembering OLS...
 
@@ -115,21 +113,6 @@ $$ t_j = \frac{\hat{\beta}_j}{\hat{\sigma}_j}$$
 
 Where $\hat{\sigma}_j$ is the square root of the j-th element on the main diagonal of $Cov(\hat{\beta})$.
 
-
----
-
-
-### Generating an OLS Results Table
-
-We now have enough information to create a results table after performing OLS estimation:
-
-|Coefficient|Std. Error|t-stat|P-value|
-|:-:|:-:|:-:|:-:|
-|$\hat{\beta}_j$|$\hat{\sigma}_j$|$t_j$|$P(\mid\hat{\beta}_j\mid>0\mid t_j)$|
-|...|...|...|...|
-
-
-
 ---
 
 
@@ -146,5 +129,20 @@ pval = t.sf(tstat, df)
 
 We use the `sf` (denoting *survival function*) method of the t-distribution object to return 1-CDF of the t-distribution given our calculated t-statistic and our degrees of freedom $(n-k)$.
 
-**Note**: this will only generate a one-tailed t-test, so if we want to calculate a two-tailed t-test, we need to multiply the p-value by two.
+**Note**: this will only generate a one-tailed t-test, so if we want to calculate a two-tailed t-test, we need to multiply the p-value by two (the t-distribution is symmetric).
+
+
+---
+
+
+### Generating an OLS Results Table
+
+We now have enough information to create a results table after performing OLS estimation:
+
+||Coefficient|Std. Error|t-stat|P-value|
+|:-:|:-:|:-:|:-:|:-:|
+|Some_Variable|$\hat{\beta}_j$|$\hat{\sigma}_j$|$t_j$|$P(\mid\hat{\beta}_j\mid>0\mid t_j)$|
+|...|...|...|...|...|
+
+
 

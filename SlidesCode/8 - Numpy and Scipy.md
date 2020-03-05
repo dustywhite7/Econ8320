@@ -1,9 +1,13 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 8 - Numpy, Scipy
+theme: default
+class: default
+---
 
-# Numeric Python (NumPy) and Scientific Python (SciPy)
+
+
+# Week 8 - Numeric Python (NumPy) and Scientific Python (SciPy)
 
 ---
 
@@ -14,7 +18,7 @@ While we know that arrays and lists exist in Python, we have not yet tried to do
 Let's get started by doing some simple computations:
 
 - Calculate the dot product of two vectors of equal length
-- Multiply two conforming matrices
+<!-- - Multiply two conforming matrices -->
 
 ---
 
@@ -123,9 +127,8 @@ We calculate all elements of $C$ in this manner
 
 ### Matrix Multiplication
 
-<center>
-<img src="matMult.png" width = 700></img>
-</center>
+![](matMult.png)
+
 
 ---
 
@@ -180,7 +183,7 @@ It is great that Python is so flexible that we can quickly write functions to do
 
 ### Numeric Python (Numpy)
 
-Even better than writing our own algorithms are libraries with pre-written (and far more efficient) algorithms to solve complex mathematical problems.
+Instead of writing our own algorithms, sometimes we prefer libraries with pre-written (and far more efficient) algorithms to solve complex mathematical problems.
 
 The `numpy` library is the principal library for mathematical computation in Python.
 
@@ -190,7 +193,10 @@ The `numpy` library is the principal library for mathematical computation in Pyt
 
 ### Numpy - Arrays
 
-The building blocks of `numpy` are arrays. Arrays are a special object type that takes data and stores it in formats that allow us to more easily apply mathematical functions to that data. We will focus on creating arrays in two ways:
+The building blocks of `numpy` are arrays. Arrays can essentially be treated as equivalent to mathematical matrices, and are a special object type that takes data and stores it in formats that allow us to more easily apply mathematical functions to that data. 
+
+
+We will focus on creating arrays in two ways:
 1) Creating arrays by coercing lists and tuples to the array type
 2) Creating arrays using `numpy` commands
 
