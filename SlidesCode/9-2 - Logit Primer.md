@@ -1,3 +1,10 @@
+---
+marp: true
+title: Week 9.2 - Logit Primer
+theme: default
+class: default
+---
+
 # Logistic Regression Primer
 ### Or, how to implement your own Logit
 

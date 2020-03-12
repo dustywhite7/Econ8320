@@ -1,9 +1,12 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 9 - Scipy and Optimization
+theme: default
+class: default
+---
 
-# Week 5 - SciPy and (Mathematical) Optimization
+
+# Week 9 - SciPy and (Mathematical) Optimization
 
 ---
 
@@ -53,7 +56,7 @@ $$ I=p_x \cdot x + p_y \cdot y $$
 ### Utility Maximization
 
 The two equations represent a **constrained optimization** problem.
-- Want to consume $\infty$, but can't afford to.
+- Want to consume **all the things**, but can't afford to.
 - How happy can we be, given a limited amount of money?
 
 Stated mathematically:
@@ -78,9 +81,8 @@ Let's walk through the solution.
 
 ### Geometrically
 
-<center>
-<img src="paraboloid.png" height=400></img>
-</center>
+![width:500px](paraboloid.png)
+
 
 In an optimization problem, we need to find a way to get ourselves to the minimum, and to know when we get there.
 
@@ -88,9 +90,7 @@ In an optimization problem, we need to find a way to get ourselves to the minimu
 
 ### Geometrically
 
-<center>
-<img src="gradDesc.png" height=400></img>
-</center>
+![width:500px](gradDesc.png)
 
 Typically, we use some form of **gradient descent** to find our way to the minimum value of a function.
 
@@ -122,9 +122,7 @@ We can use the gradient to determine the linear approximation of a function at a
 
 ### Gradient Descent
 
-<center>
-<img src="gradDesc.png" height=300></img>
-</center>
+![width:500px](gradDesc.png)
 
 
 **Gradient Descent** is a technique in which we algorithmically choose to move toward what we believe to be the minimum value of our function based on the current slope of our function.
