@@ -1,9 +1,11 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 10 - Plotly
+theme: default
+class: default
+---
 
-# Week 8 - Plotting with the Plotly API
+# Week 10 - Plotting with the Plotly API
 
 ---
 
@@ -35,11 +37,13 @@ Plotly is a good choice for several reasons:
 ### Getting Started
 
 ```python
-from plotly.offline import plot
+from plotly.offline import iplot
 import plotly.graph_objs as go
 ```
 
-First, we want to import `plot`, which is needed to generate plots offline. We don't want to use the Plotly servers at the moment.
+First, we want to import `iplot`, which is needed to generate plots offline, and render them inline within our notebook. We don't want to use the Plotly servers at the moment.
+
+If you would prefer plots be rendered in a separate browser tab, import `plot` instead.
 
 Next, we import the graphing objects, which include things like Scatter plots and Histograms, and allow us to construct our visualization.
 
@@ -56,7 +60,7 @@ trace = go.Scatter( # initialize scatter object
 
 plotdata=go.Data([trace]) # Process the plots
 
-plot(plotdata) # Render the plots
+iplot(plotdata) # Render the plots
 ```
 
 <br>
@@ -65,6 +69,11 @@ In this (very) simple example, we plot some time series data. Our plot is provid
 
 ---
 
+![width:700px](plotly1.png)
+
+In this (very) simple example, we plot some time series data. Our plot is provided as an html page opened in the default browser.
+
+---
 
 ### Creating Plot Objects
 
@@ -81,10 +90,14 @@ trace = go.Scatter( # initialize scatter object
 
 plotdata=go.Data([trace]) # Process the plots
 
-plot(plotdata) # Render the plots
+iplot(plotdata) # Render the plots
 ```
 
-A new plot should open in the browser.
+---
+
+Let's add some formatting. First, we can change the marker size and the color of our plot:
+
+![width:700px](plotly2.png)
 
 ---
 
@@ -105,15 +118,22 @@ trace = go.Scatter( # initialize scatter object
 
 plotdata=go.Data([trace]) # Process the plots
 
-plot(plotdata) # Render the plots
+iplot(plotdata) # Render the plots
 ```
+
+---
+
+Next, we can smooth our line between markers:
+
+
+![width:700px](plotly3.png)
 
 ---
 
 
 ### Creating Plot Objects
 
-We can add text to our markers:
+We can add text to our markers that can be seen when mousing over the points:
 
 ```python
 trace = go.Scatter( # initialize scatter object
@@ -130,7 +150,7 @@ trace = go.Scatter( # initialize scatter object
 
 plotdata=go.Data([trace]) # Process the plots
 
-plot(plotdata) # Render the plots
+iplot(plotdata) # Render the plots
 ```
 
 ---
@@ -150,9 +170,15 @@ layout=go.Layout(title="Per Capita Cheese Consumption",
 figure=go.Figure(data=plotdata,layout=layout)
 # combine data and layout code
 
-plot(figure) # Render the plots
+iplot(figure) # Render the plots
 ```
+**Note**: this code should be used with the code from the previous slide.
 
+---
+
+We can add information to our plot by adding `Layout` and `Figure` objects:
+
+![width:700px](plotly4.png)
 
 ---
 
@@ -179,43 +205,28 @@ trace2 = go.Scatter( # initialize scatter object
 
 ### Creating Plot Objects
 
-We also need to update our data and layout objects:
+We also need to update our data and layout objects AND add a secondary y axis:
 
 ```python
 plotdata=go.Data([trace, trace2]) # Process the plots
 
-layout=go.Layout(title="Per Capita Cheese Consumption", 
-                 # configure the plot
-  xaxis={'title':'Year',
-         'showgrid':False}, # hide the gridlines  
-  yaxis={'title':'Pounds of Cheese',
-         'showgrid':False},
-
-figure=go.Figure(data=plotdata,layout=layout)
-# combine data and layout code
-
-plot(figure) # Render the plots
-```
-
----
-
-### Creating Plot Objects
-
-AND we should add a secondary y axis:
-
-```python
-plotdata=go.Data([trace, trace2]) # Process the plots
-
-layout=go.Layout(title="Cheese Consumption and Bedsheet Tragedies", 
+layout=go.Layout(title="Per Capita Cheese Consumption and Bedsheet Tragedies", 
                  # configure the plot
   xaxis={'title':'Year',
          'showgrid':False},  # layout and name
-  yaxis={'title':'Pounds of Cheese',
+  yaxis={'title':'Pounds of Cheese Consumed per Person',
          'showgrid':False},
   yaxis2={'title':"Deaths due to Becoming Tangled in Bedsheets",
           'overlaying': 'y',
           'side':'right',
           'showgrid':False})  # the axes.
+
+figure=go.Figure(data=plotdata,layout=layout)
+# combine data and layout code
+
+figure.update_layout(legend=dict(x=0, y=1)) # Make Legend Readable by relocating
+
+iplot(figure) # Render the plots
 ```
 
 ---
@@ -224,18 +235,14 @@ layout=go.Layout(title="Cheese Consumption and Bedsheet Tragedies",
 
 Our plot now looks something like this:
 
-<center>
-
-![](plotly1.png)
-
-</center>
+![width:700px](plotly5.png)
 
 ---
 
 ### Using Existing Data
 
 
-Let's import average household income data for Nebraska using the ACS data at dadata.cba.edu:
+Let's import average household income data for Nebraska using the ACS data at dadata.cba.edu (accessible through VPN connection to Mammel Hall):
 
 ```python
 from sqlalchemy import create_engine
@@ -326,11 +333,9 @@ plot(figure)
 
 ### Let's Use More States!
 
-<center>
 
 ![](NEandIA.png)
 
-</center>
 
 ---
 
@@ -373,11 +378,9 @@ plot(figure)
 ### Box Plots
 
 <br>
-<center>
 
 ![](boxPlot.png)
 
-</center>
 
 
 ---
@@ -411,11 +414,9 @@ plot(figure)
 ### Histograms
 
 <br>
-<center>
 
 ![](histogram.png)
 
-</center>
 
 
 
@@ -448,11 +449,9 @@ plot(fig)
 ### Histograms and Distributions
 
 <br>
-<center>
 
 ![](distributionPlot.png)
 
-</center>
 
 
 ---
@@ -463,9 +462,10 @@ plot(fig)
 
 ```python
 # Create an array of data (its from MNIST)
-x = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,116,125,171,255,255,150,93,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,169,253,253,253,253,253,253,218,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,169,253,253,253,213,142,176,253,253,122,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,250,253,210,32,12,0,6,206,253,140,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,77,251,210,25,0,0,0,122,248,253,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,18,0,0,0,0,209,253,253,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,117,247,253,198,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,247,253,231,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,128,253,253,144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,246,253,159,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,234,253,233,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,198,253,253,141,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,78,248,253,189,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,200,253,253,141,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,134,253,253,173,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,248,253,253,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,248,253,253,43,20,20,20,20,5,0,5,20,20,37,150,150,150,147,10,0,0,0,0,0,0,0,0,0,248,253,253,253,253,253,253,253,168,143,166,253,253,253,253,253,253,253,123,0,0,0,0,0,0,0,0,0,174,253,253,253,253,253,253,253,253,253,253,253,249,247,247,169,117,117,57,0,0,0,0,0,0,0,0,0,0,118,123,123,123,166,253,253,253,155,123,123,41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-x = - np.array(x).reshape(28,28)
+# x = list of 784 elements between 0 and 255, 
+#     indicating the pixel's darkness 
 
+x = - np.array(x).reshape(28,28)
 
 trace = go.Heatmap(z = x, colorscale = "Greys")
 plotdata=[trace]
@@ -477,11 +477,9 @@ plot(plotdata)
 ### Heatmaps
 
 <br>
-<center>
 
 ![](heatmap.png)
 
-</center>
 
 
 ---
@@ -512,11 +510,9 @@ Map data from the [INFORM Index](http://www.inform-index.org/Results/Global)
 ### Choropleth Maps
 
 <br>
-<center>
 
 ![](choropleth1.png)
 
-</center>
 
 ---
 
@@ -558,11 +554,8 @@ plot(figure)
 ### Choropleth Maps
 
 <br>
-<center>
 
 ![](choropleth2.png)
-
-</center>
 
 
 ---
@@ -592,11 +585,9 @@ plot(figure)
 ### Bubble Maps
 
 <br>
-<center>
 
 ![](bubble1.png)
 
-</center>
 
 ---
 
@@ -622,11 +613,9 @@ plot(figure)
 ### Bubble Maps
 
 <br>
-<center>
 
 ![](bubble2.png)
 
-</center>
 
 
 ---
@@ -635,5 +624,5 @@ plot(figure)
 
 Let's make use of this week's and last week's data together! 
 - Draw data from any dataset
-- Generate three plots that you find interesting
-- Try to use at least two different kinds of plots, just to get more practice
+- Generate three plots that you find interesting **using Plotly**
+- Try to use a different kind of plot for each figure, just to get more practice

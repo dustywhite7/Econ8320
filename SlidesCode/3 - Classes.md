@@ -3,7 +3,6 @@ marp: true
 title: Week 3 - Classes
 theme: default
 class: default
-size: 4:3
 ---
 
 # Week 3 - Classes (not the school kind)

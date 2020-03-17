@@ -3,7 +3,6 @@ marp: true
 title: Week 1 - Data Types and Documentation
 theme: default
 class: default
-size: 4:3
 ---
 
 # ECON 8320
