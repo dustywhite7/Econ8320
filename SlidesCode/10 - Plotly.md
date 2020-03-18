@@ -487,7 +487,8 @@ plot(plotdata)
 ### Choropleth Maps
 
 ```python
-data = pd.read_csv("corruption2018.csv")
+data = pd.read_csv(
+  "https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/corruption2018.csv")
 
 plotdata = go.Choropleth(
         locations = data['Abbr'],
@@ -564,7 +565,8 @@ plot(figure)
 ### Bubble Maps
 
 ```python
-data = pd.read_csv("displaced2018.csv")
+data = pd.read_csv(
+  "https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/displaced2018.csv")
 
 plotdata = go.Scattergeo(
             locationmode = 'country names',
