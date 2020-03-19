@@ -1,7 +1,9 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 11 - Dashboards
+theme: default
+class: default
+---
 
 ### Dashboards with [Plotly](https://plot.ly/python/)/[Dash](https://plot.ly/products/dash/)
 
@@ -25,9 +27,7 @@ template: invert
 
 <br>
 
-<center>
-<img src="tableau.jpg" width=800></img>
-</center>
+![width:800px](tableau.jpg)
 
 
 ---
@@ -36,9 +36,7 @@ template: invert
 
 <br>
 
-<center>
-<img src="powerbi.png" width=800></img>
-</center>
+![width:800px](powerbi.png)
 
 
 ---
@@ -47,9 +45,7 @@ template: invert
 
 <br>
 
-<center>
-<img src="qlik.png" width=800></img>
-</center>
+![width:800px](qlik.png)
 
 
 ---
@@ -98,7 +94,7 @@ df = pd.read_csv(
   'gdp-life-exp-2007.csv')
 ```
 
-Here, we are just initiating our dashboard application, and importing a csv reflecting life expectancy by country.
+Here, we create an instance of the `Dash` class (that will hold our dashboard), and import a csv reflecting life expectancy by country.
 
 ---
 
@@ -121,7 +117,7 @@ dashData = [
   ]
 ```
 
-Our Data and Layout look just like Plotly here!
+Our data object is structured just like Plotly
 
 ---
 
@@ -137,7 +133,7 @@ dashLayout = go.Layout(
   )
 ```
 
-Our Data and Layout look just like Plotly here!
+And Layout looks just like Plotly as well!
 
 This is because Plotly is the underlying graphing library that we are using to generate the graphs.
 
@@ -164,6 +160,18 @@ We need to organize our plot inside of the HTML structure. We can start with an 
 
 ---
 
+### Serve the Dashboard!
+
+Now we are ready to serve our first dashboard. This code can be run inside a Jupyter Notebook or a script on your **local machine**. 
+
+If you need, you can run your Dash app from the Mimir IDE, by replacing the `app.runserver()` line with
+
+`app.run_server(host='0.0.0.0', port=80, debug=False)`
+
+Then, under the "View" menu, choose "View Port" and select "Port 80"
+
+---
+
 ### Using Object ID's
 
 In the code on the last slide, we assign the `dcc.Graph` object an `id` attribute:
@@ -174,15 +182,15 @@ dcc.Graph(
     ...
 ```
 
-This `id` allows us to manipulate the contents of this object as we design our visual for interactivity. We will be able to refer back to this `dcc.Graph` object using its `id` whenever we want to modify it.
+This `id` allows us to manipulate the contents of this object as we design our visual for interactivity. We will be able to refer back to this `dcc.Graph` object using its `id` whenever we want to modify or update it. (We WILL want to as we build out our dashboard!)
 
 ---
 
 ### Quick Note: `html.Div`
 
-What is a `Div`? This (newish) HTML tag is used to organize websites, and is particularly valuable when using CSS (cascading style-sheets) to format the website.
+What is a `Div`? This HTML tag is used to organize websites, and is particularly valuable when using CSS (cascading style-sheets) to format a website.
 
-In Dash, they will be used as containers for different kinds of objects on our dashboard. We can even replace their contents based on input from the user if we so choose.
+In Dash, they will be used as containers for different kinds of objects on our dashboard. We can even replace all of their contents based on input from the user if we so choose.
 
 ---
 
@@ -216,21 +224,17 @@ This dataset will offer us more information on life expectancy, so that we can i
 
 ### Dash - Adding Controls
 
-From here, we need to look at the script as a whole, since our code will all work together to generate our interactive plot.
+From here, we need to look at the [script](https://github.com/dustywhite7/Econ8320/blob/master/LabCode/dashPart2.py) as a whole, since our code will all work together to generate our interactive plot.
 
-<center>
-<img src="mydash.png" width=500></img>
-</center>
+![height:500px](mydash.png)
 
 ---
 
 ### Dash - Another Example
 
-Let's take a look at a different example using movie rating information:
+Let's take a look at a [different example](https://github.com/dustywhite7/Econ8320/blob/master/LabCode/dashMovies.py) using movie rating information:
 
-<center>
-<img src="mydash2.png" width=500></img>
-</center>
+![height:500px](mydash2.png)
 
 ---
 
@@ -245,6 +249,13 @@ Let's take a look at a different example using movie rating information:
 	- Interactive Tables
 	- Checkboxes and Radio Buttons
 
+---
+
+### Dash - Many Controls
+
+- While we can only use one output per callback, we can create multiple callback functions to update our model and figures. For example, we could
+  - Create a callback to tie a dropdown menu to Genre
+  - Create radio buttons to hide or unhide a Table of the data presented in our dashboard
 
 ---
 
@@ -262,9 +273,11 @@ We can also implement [interactivity](https://dash.plot.ly/interactive-graphing)
 
 ### Homework This Week
 
-Pick your favorite dataset. Using the data that you choose, incorporate three or more plotly  visuals of your data into a dashboard using the `dash` library from class this week.  You need to provide the following:
+Use your data from last week. Incorporate three or more plotly  visuals of your data into a dashboard using the `dash` library from class this week.  You need to provide the following:
 - Your code
 - A one page explanation of your dashboard
 - The dataset that you used
 
-Submit through Canvas (Assignment 11)
+Your dashboard should have at least one form of interactivity (a series of button controls, a dropdown list, or a way that interacting with one visual affects the others).
+
+Submit through Canvas! (Assignment 11)
