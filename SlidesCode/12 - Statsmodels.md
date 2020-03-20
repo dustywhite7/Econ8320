@@ -1,9 +1,10 @@
-<!--
-$theme: gaia
-template: invert
--->
-
-### Week 9 - Modeling through Statsmodels, Sklearn
+---
+marp: true
+title: Week 12 - Statsmodels and Sklearn
+theme: default
+class: default
+---
+### Week 12 - Modeling through Statsmodels, Sklearn
 
 ---
 
@@ -65,20 +66,10 @@ Our code so far might look something like:
 
 ```python
 import statsmodels.formula.api as sm
-from sqlalchemy import create_engine
 import pandas as pd, numpy as np
 
-engine = create_engine(
-  'mysql+mysqlconnector://viewer:@dadata.cba.edu:3306/ACS'
- 	  )
-      
-SELECT = """SELECT AVG(hhincome) AS hhincome, year,
-    statefip
-  FROM ACS
-  GROUP BY year, statefip 
-  ORDER BY year, statefip"""
-
-data = pd.read_sql(SELECT, engine)
+data = pd.read_csv("https://github.com/dustywhite7/Econ8320/blob/"
+		+ "master/AssignmentData/assignment8Data.csv?raw=true")
 ```
 
 
@@ -150,7 +141,7 @@ reg = sm.ols("np.log(hhincome) ~ year + C(statefip)",
 reg.get_robustcov_results(cov_type='HC0')
 print(reg.summary())
 
---------------------------------------------------------
+# --------------------------------------------------------
 
 reg = sm.ols("np.log(hhincome) ~ year + C(statefip)", 
 	data=data).fit()
@@ -176,8 +167,12 @@ Below are some of the [covariance options](http://www.statsmodels.org/dev/genera
 
 We have multiple time series options available.
 
+- [ARIMA](http://www.statsmodels.org/dev/generated/statsmodels.tsa.arima_model.ARIMA.html) models
+- [VAR](http://www.statsmodels.org/dev/generated/statsmodels.tsa.vector_ar.var_model.VAR.html) models
+- [Exponential Smoothing](https://www.statsmodels.org/stable/tsa.html#exponential-smoothing) models
 
-To implement an [ARIMA](http://www.statsmodels.org/dev/generated/statsmodels.tsa.arima_model.ARIMA.html)(1,1,0) model:
+
+<!--
 
 ```python
 from statsmodels.tsa.arima_model import ARIMA
@@ -206,7 +201,7 @@ print(reg.summary())
 ```
 
 The VAR model will optimize its own order (number of lags included) based on information criteria estimates.
-
+-->
 
 ---
 
@@ -221,16 +216,14 @@ stats.chisqprob = lambda chisq,
                     df: stats.chi2.sf(chisq, df)
 # Previous lines fix a temporary problem between 
 #   statsmodels and scipy's chi square distribution
-data = pd.read_csv("auto-mpg.csv")
-data['highMPG'] = (data['mpg']>30).astype(np.int)
 
-myformula="highMPG ~ cylinders + displacement + weight"
+myformula="married ~ hhincome + C(statefip) + C(year) + educ"
 model= sm.Logit.from_formula(myformula, data=data).fit()
 ```
 
 ---
 
-### Modeling Discrete Outcomes
+### Modeling Count Data
 
 When modeling count data, we have options such as [Poisson](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.Poisson.html#statsmodels.discrete.discrete_model.Poisson) and [Negative Binomial](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html#statsmodels.discrete.discrete_model.NegativeBinomial) models.
 
@@ -243,7 +236,7 @@ stats.chisqprob = lambda chisq,
 #   statsmodels and scipy's chi square distribution
 data = pd.read_csv("auto-mpg.csv")
 
-myformula="mpg ~ cylinders + displacement + weight"
+myformula="nchild ~ hhincome + C(statefip) + C(year) + educ + married"
 model= sm.Poisson.from_formula(myformula, data=data).fit()
 ```
 
@@ -255,7 +248,7 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 
 ### Why Use Patsy?
 
-- We could just select our variables manually, and creating a column of ones is trivial
+- We could just select our variables manually, and creating a column of ones is trivial (remember??)
 - Patsy allows us to separate our endogenous and exogenous variables AND to
 	- "Dummy out" categorical variables
 	- Easily transform variables (square, or log transforms, etc.)
@@ -270,14 +263,15 @@ import patsy as pt
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv("wagePanelData.csv")
+data = pd.read_csv("https://github.com/dustywhite7/Econ8320/blob/"
+		+ "master/AssignmentData/assignment8Data.csv?raw=true")
 
 # To create y AND x matrices
-y, x = pt.dmatrices("LWAGE ~ TIME + EXP + UNION + ED", 
+y, x = pt.dmatrices("hhincome ~ year + educ + married + age", 
 		data = data)
         
 # To create ONLY an x matrix
-x = pt.dmatrix("~ TIME + EXP + UNION + ED", 
+x = pt.dmatrix("~ year + educ + married + age", 
 		data = data)
 ```
 
@@ -289,13 +283,13 @@ These regression equations automatically include an intercept term.
 
 ```python
 # To create y AND x matrices
-eqn = "LWAGE ~ C(ID) + TIME + EXP + UNION + ED + C(OCC)"
+eqn = "hhincome ~ C(year) + educ + married + age"
 y, x = pt.dmatrices(eqn, data = data)
 ```
 
 Categorical variables can be broken out into binary variables using the `C()` syntax inside of the regression equation. 
 
-In this case, there would be binary variables for each unique value of `ID` and `OCC`.
+In this case, there would be binary variables for each unique value of `year`.
 
 ---
 
@@ -303,17 +297,17 @@ In this case, there would be binary variables for each unique value of `ID` and 
 
 ```python
 # To create y AND x matrices
-eqn = "I(np.log(LWAGE)) ~ C(ID) + TIME + EXP + I(EXP**2)"
+eqn = "I(np.log(hhincome)) ~ C(year) + educ + married + age + I(age**2)"
 y, x = pt.dmatrices(eqn, data = data)
 ```
 
 We can transform variables using the `I()` syntax inside of the regression equation. We then use any numeric transformation that we choose to impose on our data. 
 
-In this case, we logged our dependent variable, `LWAGE`, and squared the `EXP` term.
+In this case, we logged our dependent variable, `hhincome`, and added the square of our `age` term.
 
 ---
 
-### Same Transformation on New Data!
+### SUPER IMPORTANT $\rightarrow$ Same Transformation on New Data!
 
 ```python
 # To create a new x matrix based on our previous version
@@ -327,7 +321,7 @@ We pass a list containing the old design matrix information, as well as the new 
 
 ---
 
-### Why does Design Info Matter?
+### Why Does Recreating our `x` array Matter?
 
 - Ensures that we always have the same number of categories
 - Maintains consistency in our model
@@ -434,7 +428,7 @@ Many other tools are also available to aid in the data cleaning process through 
 
 Build an OLS regression and Random Forest using `statsmodels` and `sklearn` together with some data on the value of NFL franchises over time.
 
-See Mimir for more details
+See Mimir for more details, and to submit your work.
 
 
 <!---
