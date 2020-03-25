@@ -1,7 +1,9 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 13 - WebAPIs
+theme: default
+class: default
+---
 
 ### Week 13 - Using Web API's with Python
 
@@ -62,7 +64,7 @@ Let's walk through using an API with the [Google Distance Matrix API](https://de
 First, let's get set up:
 - Need a Google account
 - Need to register on Google Developer services
-- Need to set up an API Key (ties our requests to us for billing purposes, but we get a $200 credit per month for maps API requests)
+- Need to set up an API Key (ties our requests to us for billing purposes, but Google offers everyone a $200 credit per month for maps API requests)
 
 ---
 
@@ -80,9 +82,9 @@ Using APIs frequently requires setting up a billing account.
 
 First, head to [console.cloud.google.com](console.cloud.google.com), so we can set up our accounts.
 
-- You will get a $300 credit to play around with on the platform, but we won't need it, since maps API's get their own monthly credit
+- You will get a $300 credit to play around with on the platform, but we won't need it, since the Maps API offers its own monthly credit
 - We need to create a project (do this in the blue bar)
-- Head to the API's menu, and choose credentials
+- Head to the API menu, and choose credentials
 - Follow the create credentials instructions for an API key
 
 ---
@@ -104,7 +106,7 @@ When we want to request data from the Google Maps API, we do so with a custom UR
 - the information we would like to collect
 - additional parameters to clarify our request
 
-The response provided when accessing that URL give us the information that we requested from the API.
+The response provided when accessing that URL gives us the information that we requested from the API.
 
 ---
 
@@ -172,9 +174,9 @@ results = pd.DataFrame(results)
 ### Automating API Requests
 
 ```python
-api_key = "AIzaSyAwVHvWNPNOV05zA-hXBHC7DxOBK8AT0qs"
-origin = '6708+Pine+Street+Omaha+NE' #work
-destination = '20856+Honeysuckle+Drive+Elkhorn+NE' #home
+api_key = "AIzaSyAwVHvWNPNOV05zA-hXBHC7DxOBK8AT0qs" # example key (not valid)
+origin = '6708+Pine+Street+Omaha+NE' # work
+destination = '2010+184th+Ave+NE+Redmond+WA' #my childhood home
 
 site = "https://maps.googleapis.com" + 
   "/maps/api/distancematrix/json?"
@@ -245,7 +247,7 @@ We now have the functions in place to make queries automatically:
 ```python
 api_key = input('Please Enter Your API Key: ')
 origin = '6708+Pine+Street+Omaha+NE' # work
-destination = '20856+Honeysuckle+Drive+Elkhorn+NE' # home
+destination = '2010+184th+Ave+NE+Redmond+WA' #my childhood home
 frequency = 5 # In minutes
 duration = 24 # In hours
 
@@ -276,7 +278,7 @@ Choose a previous homework assignment to redo.
 
 You can earn full credit for that assignment, as well as for this week's assignment.
 
-Submit the reworked assignment through Canvas under Assignment 14
+Submit the reworked assignment through Canvas under Assignment 13
 
 <!---
 
