@@ -3,6 +3,7 @@ marp: true
 title: Week 1 - Data Types and Documentation
 theme: default
 class: default
+size: 4:3
 ---
 
 # ECON 8320
@@ -18,21 +19,21 @@ Dustin White
 Mammel Hall 332M
 
 **Office Hours**:
-4:30 - 5:30 PM on Tuesday
+4:30 - 5:30 PM on Thursday
 
 **Contact Info**:
 drwhite@unomaha.edu
 
 ---
 
-### Quick Note
+# Quick Note
 
 This class does not require that you **already** know how to program, but you will know how by the end of the term. The class was actually designed **because** we do not expect that you already know how to program.
 - Spend time outside class practicing (by time I mean hours, and not just a few)
 
 ---
 
-### Quick Note
+# Quick Note
 
 <br>
 
@@ -40,7 +41,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### Grade Details
+# Grade Details
 
 
 |Score|Grade|Score|Grade|
@@ -55,7 +56,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### Grade Details
+# Grade Details
 
 <br>
 <br>
@@ -68,7 +69,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### My Expectations
+# My Expectations
 
 <br>
 
@@ -78,7 +79,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### Expectations of Me
+# Expectations of Me
 
 <br>
 
@@ -88,11 +89,11 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### Week 1 - Data Types and Documentation
+# Week 1 - Data Types and Documentation
 
 ---
 
-### Introducing... Python!
+# Introducing... Python!
 
 - A dynamically typed language
 - High-level
@@ -103,7 +104,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### Getting Started in Python
+# Getting Started in Python
 
 - Open Spyder (locally), or the Mimir IDE
 	- Mimir allows us to execute code on a remote server, processing the code on more powerful machines
@@ -112,7 +113,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 ---
 
-### A simple program in Python
+# A simple program in Python
 
 <br>
 
@@ -133,7 +134,7 @@ def manhattanDistance(coord1, coord2):
 
 ---
 
-### A simple program in Python
+# A simple program in Python
 
 ```python
 import numpy as np
@@ -145,7 +146,7 @@ import numpy as np
 
 ---
 
-### A simple program in Python
+# A simple program in Python
 
 ```python
 def manhattanDistance(coord1, coord2):
@@ -161,7 +162,7 @@ Functions accept arguments, and can be made to **return** values, as well.
 
 ---
 
-### A simple program in Python
+# A simple program in Python
 
 ```python
 if len(coord1)==len(coord2):
@@ -176,7 +177,7 @@ We can easily incorporate different kinds of conditions into our code using ```i
 
 ---
 
-### A simple program in Python
+# A simple program in Python
 
 ```python
 for i in range(len(coord1)):
@@ -189,7 +190,7 @@ For loops allow us to repeat code multiple times with minor variations, so that 
 
 ---
 
-### Core Data Types in Python
+# Core Data Types in Python
 
 Core types are the base types that everything else in Python will be built upon:
 1) Numbers, Strings, Booleans, None
@@ -199,7 +200,7 @@ Core types are the base types that everything else in Python will be built upon:
 
 ---
 
-### Numbers
+# Numbers
 
 **Common**
 
@@ -213,7 +214,7 @@ Core types are the base types that everything else in Python will be built upon:
 
 ---
 
-### Numbers
+# Numbers
 
 Numbers support basic arithmetic like we are familiar with:
 <br>
@@ -228,7 +229,7 @@ We will also be able to import greater functionality from modules like ```numpy`
 
 ---
 
-### Strings
+# Strings
 
 Strings are collections of characters with defined positions. Strings are also **immutable**, meaning that they cannot be modified, only replaced.
 
@@ -244,7 +245,7 @@ Strings are collections of characters with defined positions. Strings are also *
 
 ---
 
-### Strings
+# Strings
 
 We can access elements of strings using index values beginning at 0, **or** we can access them by giving negative index values to indicate that we are counting from the end of the string to the front. An index of ```-1``` refers to the last element in the string.
 
@@ -260,7 +261,7 @@ We can access elements of strings using index values beginning at 0, **or** we c
 
 ---
 
-### Strings
+# Strings
 
 We can **slice** a string, selecting a series of elements from within the string together.
 
@@ -281,7 +282,7 @@ We can also **concatenate** strings:
 
 ---
 
-### Booleans
+# Booleans
 
 Booleans are data types that only permit storage of a binary value:
 
@@ -301,7 +302,7 @@ False
 
 ---
 
-### None
+# None
 
 Python also has a ```None``` type that is frequently used to initialize objects. It can also be used to serve functions like determining whether or not information has been received
 
@@ -315,7 +316,7 @@ else:
 
 ---
 
-### Lists
+# Lists
 
 Like strings, lists contain multiple elements. Unlike strings, these can be any type of data. Lists can also be modified in place (**mutable**).
 
@@ -332,7 +333,7 @@ Like strings, lists contain multiple elements. Unlike strings, these can be any 
 
 ---
 
-### Lists
+# Lists
 
 Lists can be **iterated** on:
 
@@ -356,7 +357,7 @@ They can be appended to:
 
 ---
 
-### Lists
+# Lists
 
 Lists can be "popped":
 
@@ -380,7 +381,7 @@ myList.reverse()
 
 ---
 
-### Lists
+# Lists
 
 Lists can also have lists as elements, and are then referred to as "a list of lists"
 
@@ -395,7 +396,7 @@ We can embed lists infinitely deep (list of lists of lists...), allowing us to c
 
 ---
 
-### Tuples
+# Tuples
 
 Tuples are **immutable** lists. They cannot be modified in place, and are useful when you don't want to accidentally change any values.
 <br>
@@ -410,7 +411,7 @@ TypeError: 'tuple' object does not support item assignment
 
 ---
 
-### Dictionaries
+# Dictionaries
 
 While strings, lists and tuples have specific orders, dictionaries approach the organization of data differently, using a `key:pair` combination to store data that can be found using the index provided by the programmer to the dictionary.
 
@@ -426,7 +427,7 @@ KeyError: 0
 
 ---
 
-### Dictionaries
+# Dictionaries
 
 Like lists, dictionaries can be nested, iterated and are mutable.
 
@@ -444,7 +445,7 @@ Like lists, dictionaries can be nested, iterated and are mutable.
 
 ---
 
-### Dictionaries
+# Dictionaries
 
 Two examples of iterating on a dictionary:
 
@@ -467,7 +468,7 @@ White
 
 ---
 
-### Modules
+# Modules
 
 Modules are pre-written code that can be imported to make your life easier.
 
@@ -482,7 +483,7 @@ In this case, the module is ```numpy```, a numeric library already mentioned.
 
 ---
 
-### What if I can't remember all this?
+# What if I can't remember all this?
 
 DON'T PANIC!
 
@@ -495,7 +496,7 @@ Keep in mind, [StackOverflow](stackoverflow.com) is a great website to help us f
 
 ---
 
-### Documentation
+# Documentation
 
 Learning to read documentation is a critical component of becoming a programmer, or using programming for pretty much any purpose.
 
@@ -506,13 +507,4 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 ---
 
-### For Lab Today (Turn in tonight for up to 5 bonus points!)
-
-Complete the following:
-
-- Write code (using Mimir or the lab computers) that appends the string "Meow!" to any string stored in the variable ```myString```
-- Given two numeric values (```x``` and ```y```), calculate the following using Python code:
-	- Area of a circle (using ```x``` as the radius)
-	- Area of a triangle (using ```x``` as the base and ```y``` as the height)
-	- Area of a rectangle (with sides length ```x``` and ```y```)
-
+# Lab Time!
