@@ -3,6 +3,7 @@ marp: true
 title: Week 3 - Classes
 theme: default
 class: default
+size: 4:3
 ---
 
 # Week 3 - Classes (not the school kind)
@@ -11,7 +12,7 @@ class: default
 
 ---
 
-### What are Classes
+# What are Classes
 
 - A critical element of object-oriented programming
 - Directions for creating objects
@@ -20,7 +21,7 @@ class: default
 
 ---
 
-### Classes
+# Classes
 
 Let's imagine we work at a cafeteria, and that we want to represent a sandwich as code. There are certain things we would want to know about every sandwich:
 1) Whose is it?
@@ -32,7 +33,7 @@ How can we start designing our sandwich code?
 
 ---
 
-### Creating a New Class
+# Creating a New Class
 
 ```python
 class Sandwich(object):
@@ -47,7 +48,7 @@ The FIRST thing we need to do is to initialize an object of class ```Sandwich```
 
 ---
 
-### Creating a New Class
+# Creating a New Class
 
 ```python
 >>> mine = Sandwich('Dusty')
@@ -61,7 +62,7 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 
 ---
 
-### Magic Methods (MANY more [here](https://www.python-course.eu/python3_magic_methods.php))
+# Magic Methods (MANY more [here](https://www.python-course.eu/python3_magic_methods.php))
 
 | Operator | Method                                |
 |----------|---------------------------------------|
@@ -72,17 +73,16 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 | /        | object.\_\_truediv\_\_(self, other)       |
 | %        | object.\_\_mod\_\_(self, other)           |
 | **       | object.\_\_pow\_\_(self, other[, modulo]) |
-| &        | object.\_\_and\_\_(self, other)           |
 
 ---
 
-### Magic Methods
+# Magic Methods
 
 Not all of the magic methods will make sense for all classes. Which standard operations do you think would make sense for our ```Sandwich``` class?
 
 ---
 
-### Magic Methods
+# Magic Methods
 
 Not all of the magic methods will make sense for all classes. Which standard operations do you think would make sense for our ```Sandwich``` class?
 
@@ -94,7 +94,7 @@ Not all of the magic methods will make sense for all classes. Which standard ope
 
 ---
 
-### Magic Methods - Adding
+# Magic Methods - Adding
 
 ```python
 class Sandwich(object):
@@ -110,7 +110,7 @@ Here, we add the magic method for addition to our class, and state that the ```+
 
 ---
 
-### Magic Methods - Subtracting
+# Magic Methods - Subtracting
 
 ```python
 class Sandwich(object):
@@ -131,7 +131,7 @@ Subtracting is trickier, but we need to declare that the ```-``` operator should
 
 ---
 
-### Magic Methods - (In)Equality
+# Magic Methods - (In)Equality
 
 ```python
 class Sandwich(object):
@@ -150,11 +150,11 @@ class Sandwich(object):
     return not (self == other)
 ```
 
-Remember that we have to declare both ``=`` and ``!=``
+Note that we have to declare both ``=`` and ``!=``
 
 ---
 
-### Magic Methods - Strings
+# Magic Methods - Strings
 
 ```python
 class Sandwich(object):
@@ -175,7 +175,7 @@ Now we can print our sandwich!
 
 ---
 
-### Methods - Try It!
+# Methods - Try It!
 
 We can also create methods that are based on the unique functionality of our class of objects. Since we are working at a *store*, we might care about pricing a given sandwich.
 - Let's call the method ``get_price``, and have it take two arguments (itself and a discount) with a default value of ``0``, and store ``price`` as an attribute
@@ -185,7 +185,7 @@ We can also create methods that are based on the unique functionality of our cla
 
 ---
 
-### Methods
+# Methods
 
 Possible Answer:
 
@@ -209,7 +209,7 @@ class Sandwich(object):
  
  ---
  
- ### Documenting
+ # Documenting
  
  When we create a class, a function, or a method, we should be sure to **document** that object!
  - We can then remember how to use it after long breaks
@@ -219,7 +219,7 @@ We can document by modifying the *docstring* of an object.
 
 ---
 
-### Documenting
+# Documenting
 
 ```python
 class Sandwich(object):
@@ -240,7 +240,7 @@ class Sandwich(object):
 
 ---
 
-### Documenting
+# Documenting
 
 ```python
 class Sandwich(object):
@@ -264,7 +264,11 @@ class Sandwich(object):
 
 ---
 
-###### Extra Practice!
+# Lab Time!
+
+---
+
+# Extra Practice!
 
 
 Create your own ``ComplexNumber`` class!
@@ -274,7 +278,7 @@ Create your own ``ComplexNumber`` class!
 
 ---
 
-###### More Practice
+# More Practice
 
 3. Add the following magic methods to your `ComplexNumber` class:
  	- ``__abs__()`` determines the output of the builtin ``abs()`` function (absolute value). Implement ``__abs__()`` so that it returns the magnitude of the complex number. Recall that $|a + bi| = \sqrt{a^2 + b^2}$.
@@ -283,7 +287,7 @@ Create your own ``ComplexNumber`` class!
    
 ---
 
-###### Even More Practice
+# Even More Practice
 
 3. Add the following magic methods to your `ComplexNumber` class:
    - Implement ``__eq__()`` and ``__ne__()`` so that two ``ComplexNumber`` objects are equal if and only if they have the same real and imaginary parts.
