@@ -225,7 +225,6 @@ data = pd.DataFrame(data, columns = ['Set', 'Price_Euro'])
 |  2 | Fiat 500                             | 77.97        |
 | ... | ... | ...|
 
-*NOTE: We will discuss DataFrames in detail next class!*
 
 ---
 
@@ -251,9 +250,6 @@ Once we find the next page links, we can run the code we have already written fo
 data = pd.concat([data, newData], axis=0).reset_index(drop=True)
 ```
 
-<br>
-
-*NOTE: We will discuss DataFrames in detail next class!*
 
 ---
 
