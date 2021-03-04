@@ -3,6 +3,7 @@ marp: true
 title: Week 8 - Numpy, Scipy
 theme: default
 class: default
+size: 4:3
 ---
 
 
@@ -11,7 +12,7 @@ class: default
 
 ---
 
-### Arrays and Math
+# Arrays and Math
 
 While we know that arrays and lists exist in Python, we have not yet tried to do any real computation with those tools.
 
@@ -22,7 +23,7 @@ Let's get started by doing some simple computations:
 
 ---
 
-### Dot Product
+# Dot Product
 
 The **dot product** of two vectors is the sum of the products of the corresponding elements in each vector. We can write it as follows:
 
@@ -32,7 +33,7 @@ Take 5 minutes, and write a function (or at least some pseudocode) to take two v
 
 ---
 
-### Dot Product
+# Dot Product
 
 ```python
 def dotProd(v1, v2): # Define our function and arguments
@@ -49,7 +50,7 @@ This code allows us to calculate the dot product.
 
 ---
 
-### Matrix Multiplication
+# Matrix Multiplication
 
 We can multiply two matrices when the number of columns in the first matrix are equal to the number of rows in the second matrix:
 
@@ -63,7 +64,7 @@ In this case, the matrices are conforming, and can be multiplied together
 
 ---
 
-### Matrix Multiplication
+# Matrix Multiplication
 
 $$
 A =
@@ -98,7 +99,7 @@ $$
 
 ---
 
-### Matrix Multiplication
+# Matrix Multiplication
 
 $$
 A =
@@ -125,14 +126,14 @@ We calculate all elements of $C$ in this manner
 
 ---
 
-### Matrix Multiplication
+# Matrix Multiplication
 
 ![](matMult.png)
 
 
 ---
 
-### Matrix Multiplication
+# Matrix Multiplication
 
 Matrix $A$ has $m$ columns, and $B$ has $m$ rows (conforming). C will have shape $n \times p$
 
@@ -143,6 +144,8 @@ $$
 Write an algorithm (or at least some pseudocode, again) to perform arbitrary matrix multiplication given two conforming matrices.
 
 ---
+
+# Matrix Multiplication
 
 ```python
 def matMul(a, b): # Define function, take 2 matrices
@@ -170,7 +173,7 @@ def matMul(a, b): # Define function, take 2 matrices
 
 ---
 
-### Computations and Python
+# Computations and Python
 
 It is great that Python is so flexible that we can quickly write functions to do calculations like matrix multiplication.
 - Do we WANT to write out functions to do all of the mathematical processes we need for different kinds of analysis?
@@ -178,10 +181,13 @@ It is great that Python is so flexible that we can quickly write functions to do
 	- Matrix inversion algorithms?
 	- Solving matrix equalities?
 
+---
+
+![w:500](https://steamuserimages-a.akamaihd.net/ugc/1002555926635405089/63B75F86672E6D0197144382C960EAF51DFF5E21/)
 
 ---
 
-### Numeric Python (Numpy)
+# Numeric Python (Numpy)
 
 Instead of writing our own algorithms, sometimes we prefer libraries with pre-written (and far more efficient) algorithms to solve complex mathematical problems.
 
@@ -191,7 +197,7 @@ The `numpy` library is the principal library for mathematical computation in Pyt
 
 ---
 
-### Numpy - Arrays
+# Numpy - Arrays
 
 The building blocks of `numpy` are arrays. Arrays can essentially be treated as equivalent to mathematical matrices, and are a special object type that takes data and stores it in formats that allow us to more easily apply mathematical functions to that data. 
 
@@ -202,7 +208,7 @@ We will focus on creating arrays in two ways:
 
 ---
 
-### Numpy Arrays - List Coercion
+# Numpy Arrays - List Coercion
 
 ```python
 >>> import numpy as np # import library as np object
@@ -219,7 +225,7 @@ We can use the `np.array` function to generate an array from any arbitrary list 
 
 ---
 
-### Numpy Arrays - Using Commands
+# Numpy Arrays - Using Commands
 
 ```python
 >>> np.array([1,2,3,4]) # Specify each element
@@ -239,7 +245,7 @@ The `array`, `zeros`, and `eye` functions are all ways to create arrays in `nump
 
 ---
 
-### Numpy Arrays - Manipulation
+# Numpy Arrays - Manipulation
 
 ```python
 >>> myArray = np.array([1,2,3,4]) # Specify each element
@@ -262,7 +268,7 @@ array([[1],
 
 ---
 
-### Numpy Arrays - Operations
+# Numpy Arrays - Operations
 
 Add a scalar to an array:
 ```python
@@ -283,7 +289,7 @@ Matrix Multiplication:
 
 ---
 
-### Exercise
+# Exercise
 
 Write a function that accepts four arguments ($a$, $b$, $c$, and $x$), and calculates the output ($y$) of the following functional form:
 
@@ -295,7 +301,7 @@ Use matrix multiplication to calculate the answer.
 
 ___
 
-### Exercise - Answer
+# Exercise - Answer
 
 <br>
 
@@ -306,6 +312,8 @@ def squareFunc(a=1, b=1, c=1, x=1):
   return coef.dot(xs)
   # OR return coef @ xs
 ```
+
+Why write this with arrays? Because vectorized math using `numpy` is FAR more efficient computationally. This doesn't matter for our current use case, but is very important when writing large scale code!
 
 ---
 <!--
@@ -321,7 +329,7 @@ We will focus on `numpy` for now, but will use `scipy` for its optimization algo
 --->
 
 
-### Random Numbers
+# Random Numbers
 
 We generate random numbers for all sorts of tasks:
 
@@ -335,7 +343,7 @@ We generate random numbers for all sorts of tasks:
 --- 
 
 
-### Random Numbers
+# Random Numbers
 
 In order to generate ANY set of random numbers, it is common to start with a random number on the unit interval $[0, 1)$. This is easily done in `numpy`:
 
@@ -352,7 +360,7 @@ This function draws from the uniform distribution, and can be utilized as the ba
 
 ---
 
-### Exercise - Inverse Transform Sampling
+# Exercise - Inverse Transform Sampling
 
 Using the function `np.random.rand`, generate a sample of 10 observations from the *Exponential Distribution*, where $\lambda = 1$.
 
@@ -362,13 +370,14 @@ Hint: Look up the CDF of the Exponential Distribution, and use it to generate yo
 
 ---
 
-### Exercise - Inverse Transform Sampling
+# Exercise - Inverse Transform Sampling
 
 CDF: $F = 1-e^{-\lambda x}=y \rightarrow x = - ln(1-y)$
 
 ```python
 def expD(x): # Define my function
-  if len(x)==1: # Test if argument is list or not
+  if isinstance(x, float) | isinstance(x, int): 
+      # Test if argument is list or not
     return -1*np.log(1-x) # Return single value
   else: # If list
     return [-1*np.log(1-y) for y in x] # Return values
@@ -385,9 +394,9 @@ def expD(x): # Define my function
 
 ---
 
-### Distributional Calculations
+# Distributional Calculations
 
-Fortunately for us (since most distributions involve a BIT more work than the exponential distribution...), `numpy.random` includes functions for drawing from most distributions:
+Fortunately for us (since most distributions involve a BIT more work than the exponential distribution...), `numpy.random` includes functions for sampling from most distributions:
 
 - Normal Distribution
 - Poisson Distribution
@@ -397,7 +406,7 @@ Fortunately for us (since most distributions involve a BIT more work than the ex
 
 ---
 
-### Distributional Calculations
+# Distributional Calculations
 
 Even greater statistical functionality is available through the `scipy.stats` module, which provides helper functions for many distributions.
 
@@ -410,6 +419,9 @@ We can use this functionality when we build out statistical tests on regression 
 
 ---
 
+# Lab Time!
+
+<!-- 
 ### For Lab Today
 
 Work on the homework assignment for the week. You will probably need all the time that you can get, because it is a challenging assignment.
@@ -429,4 +441,4 @@ $Q_{sp} = -20 + 3P_p$
 
 Beer:
 $Q_{db} = 200 + 3P_p - 12P_b$
-$Q_{sb} = 20P_b$ -->
+$Q_{sb} = 20P_b$ --\> -->
