@@ -3,6 +3,7 @@ marp: true
 title: Week 9.2 - Logit Primer
 theme: default
 class: default
+size: 4:3
 ---
 
 # Logistic Regression Primer

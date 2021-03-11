@@ -3,6 +3,7 @@ marp: true
 title: Week 9 - Scipy and Optimization
 theme: default
 class: default
+size: 4:3
 ---
 
 
@@ -118,6 +119,8 @@ $$ \nabla f = \left[ \begin{matrix} \frac{\partial f}{\partial x} \\ \\ \frac{\p
 
 We can use the gradient to determine the linear approximation of a function at any given point.
 
+Think about it as the slope and direction of a hill you are hiking on.
+
 ---
 
 ### Gradient Descent
@@ -138,7 +141,7 @@ We can use the gradient to determine the linear approximation of a function at a
 - Determine how far to move in that direction
 - Move to new point
 - Reevaluate the gradient
-- Stop moving when gradient is within tolerance from 0
+- Stop moving when gradient is within a margin of error from 0
 
 
 ---
