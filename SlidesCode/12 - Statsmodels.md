@@ -3,12 +3,14 @@ marp: true
 title: Week 12 - Statsmodels and Sklearn
 theme: default
 class: default
+size: 4:3
 ---
-### Week 12 - Modeling through Statsmodels, Sklearn
+
+# Week 12 - Modeling through Statsmodels, Sklearn
 
 ---
 
-### Customization vs Rapid Development
+# Customization vs Rapid Development
 
 <br>
 
@@ -23,11 +25,13 @@ Unfortunately, it takes a LOT of time!
 
 ---
 
-## Statsmodels
+# Statsmodels
+
+Let's make statistics in Python easy!
 
 ---
 
-### Importing Statsmodels
+# Importing Statsmodels
 
 We can import `statsmodels` in one of two ways:
 
@@ -49,7 +53,7 @@ We will focus on option (1) for now
 ---
 
 
-### Preparing a Dataset
+# Preparing a Dataset
 
 When using formulas, we prepare our dataset by importing the data into a Pandas `DataFrame`. We should take care that each of our variables has a name with 
 1) **No spaces**
@@ -60,12 +64,12 @@ When using formulas, we prepare our dataset by importing the data into a Pandas 
 ---
 
 
-### Preparing a Dataset
+# Preparing a Dataset
 
 Our code so far might look something like:
 
 ```python
-import statsmodels.formula.api as sm
+import statsmodels.formula.api as smf
 import pandas as pd, numpy as np
 
 data = pd.read_csv("https://github.com/dustywhite7/Econ8320/blob/"
@@ -75,32 +79,42 @@ data = pd.read_csv("https://github.com/dustywhite7/Econ8320/blob/"
 
 ---
 
+# Regression Equations
 
-### Implementing a Model
+`statsmodels` incorporates `R`-style regression equations by using the `patsy` library behind the scenes:
+
+<br>
+
+```independent variable ~ dependent variable + another dependent variable + any other dependent variables```
+
+---
+
+
+# Implementing a Model
 
 The first thing we might try is a simple linear regression:
 
 ```python
-reg = sm.ols("hhincome ~ year", data=data).fit()
+reg = smf.ols("hhincome ~ year", data=data).fit()
 print(reg.summary())
 ```
 
 Or, I might want to try regressing year on the logged average household incomes:
 
 ```python
-reg = sm.ols("np.log(hhincome) ~ year", data=data).fit()
+reg = smf.ols("np.log(hhincome) ~ year", data=data).fit()
 print(reg.summary())
 ```
 
 ---
 
 
-### Advancing our Model
+# Advancing our Model
 
 It might be useful to create state-level fixed effects by including dummy variables for the states in our `statefip` column.
 
 ```python
-reg = sm.ols("np.log(hhincome) ~ year + C(statefip)", 
+reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
 	data=data).fit()
 print(reg.summary())
 ```
@@ -109,41 +123,45 @@ The `C()` command indicates that we would like to consider the `statefip` variab
 
 ---
 
-### Additional Transformations
+# Additional Transformations
 
 Sometimes we want to include transformed variables in our model:
 
 ```python
 # Square a variable using the I() function for
 #   mathematical transformations
-reg = sm.ols("np.log(hhincome) ~ age + I(age**2)", 
+reg = smf.ols("np.log(hhincome) ~ age + I(age**2)", 
 	data=data).fit()
 ```
 
 ```python
 # Combine variables using the I() function for
 #   mathematical transformations
-reg = sm.ols("np.log(hhincome) ~ I(age-education-5)", 
+reg = smf.ols("np.log(hhincome) ~ I(age-education-5)", 
 	data=data).fit()
 ```
 
 
 ---
 
-### Robust Modeling
+# Robust Modeling
 
 If we want to utilize robust standard errors, we can update our regression results:
 
 ```python
-reg = sm.ols("np.log(hhincome) ~ year + C(statefip)", 
+reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
 	data=data).fit()
 # Use White's (1980) Standard Error
 reg.get_robustcov_results(cov_type='HC0')
 print(reg.summary())
+```
 
-# --------------------------------------------------------
+---
 
-reg = sm.ols("np.log(hhincome) ~ year + C(statefip)", 
+# More robust modeling
+
+```python
+reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
 	data=data).fit()
 # Use Cluster-robust Standard Errors
 reg.get_robustcov_results(cov_type='cluster', 
@@ -153,7 +171,7 @@ print(reg.summary())
 
 ---
 
-### Robust Modeling
+# Robust Modeling
 
 Below are some of the [covariance options](http://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.RegressionResults.get_robustcov_results.html) that we have:
 1) `HC0`: White's (1980) Heteroskedasticity robust standard errors
@@ -163,7 +181,7 @@ Below are some of the [covariance options](http://www.statsmodels.org/dev/genera
 
 ---
 
-### Time Series Models
+# Time Series Models
 
 We have multiple time series options available.
 
@@ -206,16 +224,12 @@ The VAR model will optimize its own order (number of lags included) based on inf
 ---
 
 
-### Modeling Discrete Outcomes
+# Modeling Discrete Outcomes
 
 If we have a binary dependent variable, we are able to use either [Logit]() or [Probit]() models to estimate the effect of exogenous variables on our outcome of interest. To fit a Logit model:
 
 ```python
-from scipy import stats
-stats.chisqprob = lambda chisq, 
-                    df: stats.chi2.sf(chisq, df)
-# Previous lines fix a temporary problem between 
-#   statsmodels and scipy's chi square distribution
+import statsmodels.api as sm
 
 myformula="married ~ hhincome + C(statefip) + C(year) + educ"
 model= sm.Logit.from_formula(myformula, data=data).fit()
@@ -223,17 +237,12 @@ model= sm.Logit.from_formula(myformula, data=data).fit()
 
 ---
 
-### Modeling Count Data
+# Modeling Count Data
 
 When modeling count data, we have options such as [Poisson](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.Poisson.html#statsmodels.discrete.discrete_model.Poisson) and [Negative Binomial](http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html#statsmodels.discrete.discrete_model.NegativeBinomial) models.
 
 
 ```python
-from scipy import stats
-stats.chisqprob = lambda chisq, 
-                    df: stats.chi2.sf(chisq, df)
-# Previous lines fix a temporary problem between 
-#   statsmodels and scipy's chi square distribution
 data = pd.read_csv("auto-mpg.csv")
 
 myformula="nchild ~ hhincome + C(statefip) + C(year) + educ + married"
@@ -242,11 +251,13 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 
 ---
 
-### Patsy: Using Regression Equations
+# `patsy`: Using Regression Equations
+
+Breaking out our regression equations!
 
 ---
 
-### Why Use Patsy?
+# Why use `patsy`?
 
 - We could just select our variables manually, and creating a column of ones is trivial (remember??)
 - Patsy allows us to separate our endogenous and exogenous variables AND to
@@ -256,7 +267,13 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 
 ---
 
-### Getting Started
+# Why use `patsy` when `statsmodels` handles it for us?
+
+By breaking out our regression equations, we can use the same data splits and processing steps for both `statsmodels` and for `sklearn` (which does not use `patsy`)!
+
+---
+
+# Getting Started
 
 ```python
 import patsy as pt
@@ -279,7 +296,7 @@ These regression equations automatically include an intercept term.
 
 ---
 
-### Categorical Variables
+# Categorical Variables
 
 ```python
 # To create y AND x matrices
@@ -293,7 +310,7 @@ In this case, there would be binary variables for each unique value of `year`.
 
 ---
 
-### Transforming Variables
+# Transforming Variables
 
 ```python
 # To create y AND x matrices
@@ -307,7 +324,7 @@ In this case, we logged our dependent variable, `hhincome`, and added the square
 
 ---
 
-### SUPER IMPORTANT $\rightarrow$ Same Transformation on New Data!
+# SUPER IMPORTANT $\rightarrow$ Same Transformation on New Data!
 
 ```python
 # To create a new x matrix based on our previous version
@@ -321,25 +338,25 @@ We pass a list containing the old design matrix information, as well as the new 
 
 ---
 
-### Why Does Recreating our `x` array Matter?
+# Why Does Recreating our `x` array Matter?
 
 - Ensures that we always have the same number of categories
 - Maintains consistency in our model
 - Makes our work replicable
-- Can streamline the use of `statsmodels` and `sklearn` in the same workflow
-
-<br>
-
-Using this method to create new samples from which we will make predictions is extremely valuable
+- AGAIN - :heart: streamlines the use of `statsmodels` and `sklearn` in the same workflow :heart:
 
 ---
 
 
-## scikit-learn
+# scikit-learn
+
+see :robot: learn
+
+learn, :robot:, learn!
 
 ---
 
-### Predictive Modeling
+# Predictive Modeling
 
 What `statsmodels` does for regression analysis, `sklearn` does for predictive analytics and machine learning.
 
@@ -349,7 +366,7 @@ What `statsmodels` does for regression analysis, `sklearn` does for predictive a
 
 ---
 
-### Decision Tree Classification (and Regression)
+# Decision Tree Classification (and Regression)
 
 [Classification](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier) and [Regression](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor) Trees (CARTs) are the standard jumping-off point for exploring machine learning. They are very easy to implement in `sklearn`:
 
@@ -367,7 +384,7 @@ print(accuracy_score(new_ys, pred)
 
 ---
 
-### Support Vector Machines
+# Support Vector Machines
 
 We also implement [Support Vector Machines](http://scikit-learn.org/stable/modules/svm.html#svm) for both [classification](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC) and [regression](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR):
 
@@ -387,7 +404,7 @@ Can you see the API pattern yet?
 
 ---
 
-### Random Forest Models
+# Random Forest Models
 
 Again, available in both [classification](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier) and [regression](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor) flavors, these models are aggregations of many randomized Decision Trees.
 
@@ -407,7 +424,7 @@ There MUST be a pattern here...
 
 ---
 
-### Data Preprocessing
+# Data Preprocessing
 
 Many other tools are also available to aid in the data cleaning process through `sklearn`. Some of these are:
 
@@ -422,21 +439,4 @@ Many other tools are also available to aid in the data cleaning process through 
 
 ---
 
-### Homework
-
-<br>
-
-Build an OLS regression and Random Forest using `statsmodels` and `sklearn` together with some data on the value of NFL franchises over time.
-
-See Mimir for more details, and to submit your work.
-
-
-<!---
-
-### For Lab Today
-
-Work on the homework assignment. You will practice using both `statsmodels` and `sklearn` in order to apply regression and predictive models to data.
-
-You will want to make sure that you collect the data before you leave the lab, since the homework will require data from the databases available through the data server here in Mammel Hall.
-
--->
+# Lab time!
