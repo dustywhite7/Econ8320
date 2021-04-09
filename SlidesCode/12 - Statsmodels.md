@@ -377,9 +377,9 @@ from sklearn.metrics import accuracy_score
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 ```
 
 ---
@@ -395,9 +395,9 @@ from sklearn.metrics import accuracy_score
 clf = svm.SVC()
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 ```
 
 Can you see the API pattern yet?
@@ -415,9 +415,9 @@ from sklearn.metrics import accuracy_score
 clf = RandomForestClassifier(n_estimators=50)
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 ```
 There MUST be a pattern here...
 

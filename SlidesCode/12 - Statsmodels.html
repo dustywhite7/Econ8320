@@ -255,9 +255,9 @@ xNew = pt.build_design_matrices([x.design_info], dataNew)
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 </span></span></foreignObject></svg></code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="28" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
@@ -269,9 +269,9 @@ print(accuracy_score(new_ys, pred)
 clf = svm.SVC()
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 </span></span></foreignObject></svg></code></pre>
 <p>Can you see the API pattern yet?</p>
 </section>
@@ -284,9 +284,9 @@ print(accuracy_score(new_ys, pred)
 clf = RandomForestClassifier(n_estimators=<span class="hljs-number">50</span>)
 clf = clf.fit(x, y)
 
-pred = clf.pred(new_xs)
+pred = clf.predict(new_xs)
 
-print(accuracy_score(new_ys, pred)
+print(accuracy_score(new_ys, pred))
 </span></span></foreignObject></svg></code></pre>
 <p>There MUST be a pattern here...</p>
 </section>
