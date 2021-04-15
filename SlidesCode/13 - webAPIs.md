@@ -3,13 +3,14 @@ marp: true
 title: Week 13 - WebAPIs
 theme: default
 class: default
+size: 4:3
 ---
 
-### Week 13 - Using Web API's with Python
+# Week 13 - Using Web APIs with Python
 
 ---
 
-### What is an API?
+# What is an API?
 
 **API: Application programming interface**
 
@@ -24,7 +25,7 @@ This is how applications do things like
 
 ---
 
-### Why use an API?
+# Why use an API?
 
 If we wanted to, we could scrape web pages for most of the data that we want.
 
@@ -36,7 +37,7 @@ This means loading lots of unnecessary data, as well as being restricted to (mos
 
 ---
 
-### Why use an API?
+# Why use an API?
 
 With an API, we can make requests to the server for specific information.
 
@@ -46,7 +47,7 @@ With an API, we can make requests to the server for specific information.
 
 ---
 
-### Useful APIs
+# Useful APIs
 
 - [Quandl Financial Data](www.quandl.com) - Information on many unique financial metrics
 - [Twitter Search](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html) - Track historic trends on a given topic ([realtime](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview))
@@ -57,7 +58,7 @@ With an API, we can make requests to the server for specific information.
 
 ---
 
-### Cool! So how can I use one?
+# Cool! So how can I use one?
 
 Let's walk through using an API with the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/start).
 
@@ -68,7 +69,7 @@ First, let's get set up:
 
 ---
 
-### WARNING
+# WARNING
 
 Using APIs frequently requires setting up a billing account.
 
@@ -78,7 +79,7 @@ Using APIs frequently requires setting up a billing account.
 
 ---
 
-### Setting up a Google Developer API
+# Setting up a Google Developer API
 
 First, head to [console.cloud.google.com](console.cloud.google.com), so we can set up our accounts.
 
@@ -89,7 +90,7 @@ First, head to [console.cloud.google.com](console.cloud.google.com), so we can s
 
 ---
 
-### Using our API
+# Using our API
 
 Now, let's go back to the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/start)
 
@@ -99,7 +100,7 @@ Now, let's go back to the [Google Distance Matrix API](https://developers.google
 
 ---
 
-### Making Requests via URLs
+# Making Requests via URLs
 
 When we want to request data from the Google Maps API, we do so with a custom URL that specifies
 
@@ -110,47 +111,44 @@ The response provided when accessing that URL gives us the information that we r
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
-import urllib
+import requests
 import json
 import time
 import datetime
 import pandas as pd
 ```
 
-- `urllib` enables Python to process url requests
+- `requests` enables Python to process url requests
 - `json` provides native JSON handling
 - `time` helps us to check the system clock
 - `datetime` provides the ability to parse dates and times.
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
 def fetch_data(url):
     success = False
     while success is False:
         try:
-            response = urllib.request.urlopen(url)
+            response = requests.get(url)
             
-            if response.getcode() == 200:
+            if response.status_code == 200:
                 success = True
-        except e:
-            print(e)
+        except:
             time.sleep(5)
-            
-            print("Error for URL {0}: {1}".format(
-            	url, datetime.datetime.now()))
-            print("Retrying")
-    return response.read()
+
+            print("Error... Retrying")
+    return response.text
 ```
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
 results = {"timestamp" : [], 
@@ -171,7 +169,7 @@ results = pd.DataFrame(results)
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
 api_key = "AIzaSyAwVHvWNPNOV05zA-hXBHC7DxOBK8AT0qs" # example key (not valid)
@@ -191,7 +189,7 @@ We can start to see how we can use parameters to create an automated URL builder
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
 def map_data(api_key, origin, destination, 
@@ -215,7 +213,7 @@ def map_data(api_key, origin, destination,
 
 ---
 
-### Automating API Requests
+# Automating API Requests
 
 ```python
 def map_data(api_key, origin, destination,
@@ -240,45 +238,62 @@ def map_data(api_key, origin, destination,
 
 ---
 
-### Executing our Query
+# Executing our Query
 
 We now have the functions in place to make queries automatically:
 
 ```python
-api_key = input('Please Enter Your API Key: ')
-origin = '6708+Pine+Street+Omaha+NE' # work
-destination = '2010+184th+Ave+NE+Redmond+WA' #my childhood home
-frequency = 5 # In minutes
-duration = 24 # In hours
+from ipywidgets import widgets
 
+api_key = widgets.Text(placeholder="API Key")
+origin = widgets.Text(placeholder="Origin Address")
+destination = widgets.Text(placeholder="Destination Address")
+frequency = widgets.Text(placeholder="Frequency (in minutes)")
+duration = widgets.Text(placeholder="Duration (in hours)")
+
+elements = [api,origin, destination, frequency, duration]
+widgets.Box(elements)
+```
+
+---
+
+# Executing our Query
+
+We now have the functions in place to make queries automatically:
+
+
+```python
 if __name__ == '__main__':
   data = map_data(api_key, origin, destination, 
     frequency, duration)
 ```
 
-At this point, we will (eventually) get a DataFrame of our results when the function terminates (in 24 hrs)
+At this point, we will (eventually) get a DataFrame of our results when the function terminates
 
 ---
-### Results
+# Results
 
 | timestamp | travel_time | distance |
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 2019-04-09 11:37:30.747668 |	1343 |	23942
 2019-04-09 11:38:30.958629 |	1343 |	23942
 2019-04-09 11:39:31.504978 |	1343 |	23942
 2019-04-09 11:40:31.738479 |	1343 |	23942
 2019-04-09 11:41:31.931956 |	1343 |	23942
+... | ... | ...
 
 
 ---
 
-### For Lab This Week
+# Lab Time!
+
+<!-- # For Lab This Week
 
 Choose a previous homework assignment to redo. 
 
 You can earn full credit for that assignment, as well as for this week's assignment.
 
-Submit the reworked assignment through Canvas under Assignment 13
+Submit the reworked assignment through Canvas under Assignment 13 -->
 
 <!---
 
