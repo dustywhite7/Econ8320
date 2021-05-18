@@ -93,7 +93,7 @@ Note: ```*=``` means to multiply and then update the value, and `**=` means expo
 
 # Some Shorthand
 
-We can also write for loops as **list comprehensions** in order to use them to quickly create lists:
+We can also write for loops as **list comprehensions** in order to quickly create lists:
 
 ```python
 myList = [x**2 for x in range(1,11)]
@@ -126,7 +126,7 @@ for i in range(1,11):
 - **While** the statement is true, the loop continues to execute
 	- When the condition no longer holds, the loop terminates
 - This is typically where programmers create "infinite loops"
-	- Always remember to update your condition variable in each iteration!
+	- Always remember to update your stopping-condition variable in each iteration!
 
 
 ---
@@ -151,7 +151,7 @@ Is the line ```x+=1``` necessary? Discuss with your neighbor.
 
 We often want to use logical statements (a test of whether or not some condition holds) to determine what our program should do.
 
-Here is some pseudocode (a framework of what we want our code to do, but not written in code yet):
+Here is some pseudocode (a framework of what we want our code to do, but not written in true code yet):
 
 ```text
 if condition1 is true
@@ -179,7 +179,7 @@ else:
     print("Equal!")
 ```
 
-Set ```a=12``` and ```b=100```. What happens? What if ```b=12```?
+Assign ```a=12``` and ```b=100```. What happens? What if ```b=12```?
 
 ---
 

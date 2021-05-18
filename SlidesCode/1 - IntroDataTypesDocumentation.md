@@ -19,7 +19,7 @@ Dustin White
 Mammel Hall 332M
 
 **Office Hours**:
-4:30 - 5:30 PM on Thursday
+4:30 - 5:30 PM on class days
 
 **Contact Info**:
 drwhite@unomaha.edu
@@ -63,8 +63,11 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 |Assignment|Percent of Grade|
 |:-:|:-:|
-|Lab Work/Homework |700 points|
-|Final Project|300 points|
+|Lab Work/Homework |60\% |
+|Final Project|30\%|
+|Participation|10\%|
+
+*Note: No matter what Mimir says an assignment is worth, all homework assignments will have equal impact on your final grade*
 
 
 ---
@@ -74,7 +77,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 <br>
 
 - You will be expected to learn to program during this course
-- Plan on spending **all** of our time in lab working on projects and refining your predictions (you'll usually need it!)
+- Plan on spending **all** of our time in lab working on projects and refining your predictions (you'll need it!)
 - Take charge of your assignments; they will be open-ended
 
 ---
@@ -106,9 +109,8 @@ Your ability to use code to solve problems will be the basis for your grade in t
 
 # Getting Started in Python
 
-- Open Spyder (locally), or the Mimir IDE
-	- Mimir allows us to execute code on a remote server, processing the code on more powerful machines
-	- The computers here in the lab are just virtual instances, and are slower at running code, but may be easier to use as you get started
+- Open the Mimir IDE
+	- Mimir allows us to execute code on a remote server, processing the code on uniform machines
 - Let's write some Python!
 
 ---
@@ -142,7 +144,7 @@ import numpy as np
 
 ```import``` statements allow us to use pre-written (and typically optimized) code within our own programs
 - ```numpy``` itself is an excellent mathematics library (NUM-eric PY-thon)
-- imported libraries are often written in languages like C++ and Fortran, giving a tremendous speed advantage, as well!
+- Imported libraries are often written in languages like C++ and Fortran, giving a tremendous speed advantage, as well!
 
 ---
 
@@ -299,6 +301,8 @@ True
 >>> 3==2
 False
 ```
+
+*Note: ALL OF PYTHON is case sensitive!!*
 
 ---
 
@@ -458,6 +462,8 @@ last
 hobbies
 ```
 
+This prints the `keys`
+
 ```python
 >>> for i in myDict:
 ...     print(myDict[i])
@@ -465,6 +471,8 @@ Dusty
 White
 {1: 'Sleeping', 2: 'Food'}
 ```
+
+This prints the `values` assigned to the keys
 
 ---
 

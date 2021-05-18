@@ -1,15 +1,18 @@
-<!--
-$theme: gaia
-template: invert
--->
+---
+marp: true
+title: Week 14 - Multiprocessing
+theme: default
+class: default
+size: 4:3
+---
 
-# Week 6 - Multiprocessing
+# Week 14 - Multiprocessing
 
-###### Based on notes from sebastianraschka.com: [Link](http://sebastianraschka.com/Articles/2014_multiprocessing.html)
+###### Based on notes from [sebastianraschka.com](http://sebastianraschka.com/Articles/2014_multiprocessing.html)
 
 ---
 
-### How do Programs Work?
+# How do Programs Work?
 
 1) Computer allocates memory to the program
 2) Program issues a series of instructions to the processor
@@ -20,7 +23,7 @@ template: invert
 
 ---
 
-### How do Programs Work?
+# How do Programs Work?
 
 It is important to note that when a program is running, it typically has a single space in memory in which it stores all relevant information.
 
@@ -31,7 +34,7 @@ It is important to note that when a program is running, it typically has a singl
 
 ---
 
-### Aside: Scope
+# Aside: Scope
 
 **Scope** is a term used to define the areas in which a given value in memory is accessible.
 
@@ -41,58 +44,67 @@ It is important to note that when a program is running, it typically has a singl
 
 ---
 
-### Serial vs Parallel
+# Serial vs Parallel
 
 ![](serialParallel.png)
 
 
 ---
 
-### Serial Programs
+# Serial Programs
 
 When we perform tasks, some steps MUST be performed sequentially.
 
-- We need to aim our Halo rocket launcher prior to pulling the trigger
+- We need to aim our penalty shot in FIFA before taking the kick
 - We need to estimate regression coefficients before we can estimate standard errors on those coefficients
 - We need to fit a machine learning model before we can use it to make predictions
 
 
 ---
 
-### Serial Programs
+# Serial Programs
 
-Generally, many tasks are required to be performed sequentially, since subsequent actions or calculations are dependent on the result of prior calculations.
+Many tasks are required to be performed sequentially, since subsequent actions or calculations are dependent on the result of prior calculations.
 
 - It is critical that the results of one calculation be within the **scope** of the other calculations
 - If one calculation cannot view the results of the other, then the second function typically cannot be completed
 
 ---
 
-### Parallel Programs
+# Parallel Programs
 
 Some calculations can be performed independent of the results of other steps:
 
 - Batch processing of files
 - Non-sequential simulations
+- Serving recommended products to many users
 - Repeated random draws
 - Rendering polygons
 
 
 ---
 
-### Parallel Programs
+# Parallel Programs
 
-The key difference between serial and parallel programs is determining the dependency of calculations on the results of calculations previously completed.
+The key difference between serial and parallel programs is determining the dependency of calculations on the results of previous calculations.
 
 - Serial programs tend to rely on previous results
-- Parallel programs do not depend on the results of other calculations
+- Parallel programs depend much less on the results of other calculations
 
 Parallel programs can (obviously) occur simultaneously, allowing us to accelerate execution
 
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration
+
+Used for
+- Estimating Producer/Consumer Surplus
+- Calculating probabilities from frequency tables
+
+---
+
+# Example - Numeric Integration
 
 Often, when integrating complicated functions, there is no **algebraic** solution to the integral. This means that we need to estimate the value of the integral **numerically**.
 
@@ -103,13 +115,13 @@ Often, when integrating complicated functions, there is no **algebraic** solutio
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration
 
 ![](integralProcess.png)
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 
 ```python
@@ -128,7 +140,7 @@ The ``multiprocessing`` library is designed to create separate instances of the 
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def integral(nSample, f, xmin, xmax):
@@ -146,13 +158,13 @@ This is our function for actually integrating a function `f` from `xmin` to `xma
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ![](integral.png)
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def serial(samples, f, lb, ub):
@@ -171,7 +183,7 @@ We specify two functions to estimate integrals of `f`. One does so using serial 
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def multiprocess(processes, samples, f, lb, ub):
@@ -186,7 +198,7 @@ The `multiprocessing.Pool` class allows us to define the degree to which we want
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def multiprocess(processes, samples, f, lb, ub):
@@ -202,7 +214,7 @@ We next use the `apply_async` method to pass the values that we want our pooled 
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def multiprocess(processes, samples, f, lb, ub):
@@ -215,7 +227,7 @@ The next step is to use the `get()` method on each element of our returned proce
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def multiprocess(processes, samples, f, lb, ub):
@@ -227,7 +239,7 @@ Remember when we included two elements in our `return` statement for the `integr
 
 ---
 
-### Example - Numeric Integration
+# Example - Numeric Integration Convergence
 
 ```python
 def multiprocess(processes, samples, f, lb, ub):
@@ -240,7 +252,7 @@ We don't need the first element in each array anymore (it's already sorted), so 
 
 ---
 
-### Example - Timing it
+# Example - Timing it
 
 ```python
 import timeit # library for timing execution of code
@@ -263,23 +275,13 @@ benchmarks.append(timeit.Timer(
 
 ---
 
-<!--
-$theme
-template:
--->
-
-### Example - Timing it
+# Example - Timing it
 
 <img src="performance.png" width=750>
 
 ---
 
-<!--
-$theme:gaia
-template: invert
--->
-
-### Example - Timing it
+# Example - Timing it
 
 The parallel version of this problem executes over 5x faster than the serial version
 
@@ -293,20 +295,19 @@ mp.cpu_count() # Tells us the number of available CPUs
 
 ---
 
-#### Lab Today
+# Another Example - Bootstrapping
 
-<font size=5>
+---
 
-Simulate 100,000 draws from a multivariate normal distribution
+# Lab Today
 
-$$ y_i = \alpha + x_{1i} + 2\cdot x_{2i} + \frac{1}{2}x_{3i} + \epsilon_i $$
+Simulate 100,000 draws of $y$ from the multivariate normal distribution
 
+$$ y_i = \alpha + x_{1i} + 2\cdot x_{2i} + \frac{1}{2}x_{3i} + \epsilon_i $$ 
 where
 
-$$ \alpha \sim \mathcal{N}(15,2) $$
-$$ x_1 \sim \mathcal{N}(3,5) $$
-$$ x_2 \sim \mathcal{N}(10,1) $$
-$$ x_3 \sim \mathcal{N}(8,8) $$
+$$ \alpha \sim \mathcal{N}(15,2),\;\; x_1 \sim \mathcal{N}(3,5) $$
+$$ x_2 \sim \mathcal{N}(10,1) ,\;\; x_3 \sim \mathcal{N}(8,8) $$
 $$ \epsilon \sim \mathcal{N}(0,1) $$
 
-Write functions to generate all values and calculate $y$. Test and time these draws using serial and parallel programming (2 cores), and report the difference in performance between the two versions.
+Test and time these draws using serial and parallel programming (2 cores), and report the difference in performance between the two versions.
