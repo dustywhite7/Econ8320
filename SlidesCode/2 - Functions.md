@@ -386,7 +386,7 @@ $$2! = 2 \times 1$$
 $$3! = 3\times 2 \times 1 $$
 $$n! = n\times n-1 \times n-2 \times ... \times 1$$
 
-How can we write a function to determine an arbitrary Fibonacci number?
+How can we write a function to determine an arbitrary factorial?
 
 
 ---

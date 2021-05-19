@@ -497,10 +497,10 @@ DON'T PANIC!
 
 This is a LOT of information! Fortunately, we have **DOCUMENTATION** to help us make sure that we are doing the right thing.
 
-To get started, let's look at the [Numpy Random Sampling Documentation](https://docs.scipy.org/doc/numpy/reference/routines.random.html)
+To get started, let's look at the [Numpy Random Sampling Documentation](https://docs.scipy.org/doc/numpy-1.10.1/reference/generated/numpy.random.rand.html#numpy.random.rand)
 
 
-Keep in mind, [StackOverflow](stackoverflow.com) is a great website to help us figure out what to do when we have an error.
+Keep in mind, [StackOverflow](https://stackoverflow.com/questions/tagged/python) is a great website to help us figure out what to do when we have an error.
 
 ---
 

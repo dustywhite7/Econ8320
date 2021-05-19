@@ -178,7 +178,7 @@ Now we can print our sandwich!
 # Methods - Try It!
 
 We can also create methods that are based on the unique functionality of our class of objects. Since we are working at a *store*, we might care about pricing a given sandwich.
-- Let's call the method ``get_price``, and have it take two arguments (itself and a discount) with a default value of ``0``, and store ``price`` as an attribute
+- Let's call the method ``get_price``, and have it take two arguments (`self` and a `discount`) with `discount` having a default value of ``0``, and store ``price`` as an attribute of our sandwich object
 - Each topping costs $1
 - Specialty bread (not white bread) is $2, white bread is provided at no cost
 
@@ -209,7 +209,7 @@ class Sandwich(object):
  
  ---
  
- # Documenting
+ # Documentation
  
  When we create a class, a function, or a method, we should be sure to **document** that object!
  - We can then remember how to use it after long breaks
