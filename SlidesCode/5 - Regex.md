@@ -10,7 +10,7 @@ size: 4:3
 
 ---
 
-### Dealing with Text
+# Dealing with Text
 
 How have you dealt with text in Python so far?
 
@@ -20,7 +20,7 @@ How have you dealt with text in Python so far?
 
 How have you dealt with text in Python so far?
 
-- Reading/Writing CSVs
+<!-- - Reading/Writing CSVs -->
 - Test equality
 - Passing arguments to functions
 - Other ways?
