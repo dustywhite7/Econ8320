@@ -15,17 +15,17 @@ size: 4:3
 
 What are the ways that we have learned so far to handle data?
 
-- Flat Files (we kind of skipped this)
+<!-- - Flat Files (we kind of skipped this) -->
 - Lists of lists
 - Dictionaries
 
-None of these are particularly conducive to data exploration and quick manipulation
+Neither of these are particularly conducive to data exploration and quick manipulation
 
 ---
 
 # Introducing Data Frames
 
-When we want to manipulate data in a clean and efficient manner, we want to start thinking about data in terms of vectors:
+When we want to manipulate data sets in a clean and efficient manner, we want to start thinking about data in terms of vectors:
 
 - Each variable can be considered a vector
 - Operations on a variable can be applied to all observations uniformly
@@ -64,7 +64,7 @@ A Data Frame is a class that accepts the following parameters:
 
 # Creating a Data Frame
 
-We can also use pandas to easily read many types of files, and import them as Data Frames:
+We can also use pandas to easily read many types of files, and use them to create Data Frames containing the information stored in the file:
 
 ```python
 # CSV
@@ -90,13 +90,13 @@ To access a list of all of the column names in your Data Frame:
 data.columns
 ```
 
-To then reference a single column:
+To then access (slice) a single column:
 
 ```python
 data['Column_Name']
 ```
 
-To reference several columns, pass a list of column names:
+To slice several columns at once into a new Data Frame, pass a list of column names:
 ```python
 data[['Column1','Column2']]
 ```
@@ -121,7 +121,7 @@ data.iloc[:, 0] # Selects all rows, and first column
 
 # Slicing the Data Frame
 
-Two selection (or slicing) tools allow us to quickly subset our data.
+Two selection (or slicing) tools allow us to quickly subset our data across both axes.
 
 ```python
 data.loc[row_selection, column_selection]
@@ -137,7 +137,7 @@ data.loc[:, 'ColumnName'] # Selects all rows, one column
 
 # Slicing the Data Frame
 
-Two selection (or slicing) tools allow us to quickly subset our data.
+Two selection (or slicing) tools allow us to quickly subset our data across both axes.
 
 ```python
 data.loc[row_selection, column_selection]
@@ -167,6 +167,7 @@ data.loc[:,'Column1'] = np.log(data['Column1'])
 data['newColumn'] = data['Column1'] - data['Column2']
 # Because the variable doesn't exist yet, we don't use
 #   the .loc syntax here
+# Instead, we just create a new column by naming it! Super easy!
 ```
 
 
@@ -186,7 +187,7 @@ Or, we can establish a multi-level index by passing a list of columns:
 data.set_index(['year', 'month', 'day'])
 ```
 
-Remember! Indices should be unique values!
+Remember! Indices MUST be unique values! In the case of a multi-level index, the combination of values from the multiple columns must be unique for each row to be a valid index.
 
 ---
 
@@ -213,7 +214,7 @@ data['day'] = data['myDate'].dt.day
 
 <br>
 
-A full list of the ways you can process dates is available at [https://pandas.pydata.org/pandas-docs/stable/api.html#datetimelike-properties](https://pandas.pydata.org/pandas-docs/stable/api.html#datetimelike-properties).
+A full list of the ways you can process dates is available at [https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-date-components).
 
 
 
@@ -239,7 +240,7 @@ data['Column'].fillna(method='pad') # fill values forward
 
 # Generating Summary Statistics
 
-Using the `describe` funtion to create summary tables easily, and can even export them to csv for use in reports.
+Using the `describe` funtion will create summary tables easily, and Pandas can even export them to csv for use in reports (this is true of ANY data frame in general, too!).
 
 ```python
 data.describe()
