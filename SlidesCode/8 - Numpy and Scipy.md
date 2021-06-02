@@ -295,7 +295,7 @@ Write a function that accepts four arguments ($a$, $b$, $c$, and $x$), and calcu
 
 $$ y = a + b\cdot x +c\cdot x^2 $$
 
-Use matrix multiplication to calculate the answer. 
+Try to use matrix multiplication to calculate the answer. 
 
 *Hint*: Think about how a dot product might calculate the output of this equation.
 
@@ -310,7 +310,8 @@ def squareFunc(a=1, b=1, c=1, x=1):
   coef = np.array([a, b, c])
   xs = np.array([1, x, x**2])
   return coef.dot(xs)
-  # OR return coef @ xs
+  # OR 
+  # return coef @ xs
 ```
 
 Why write this with arrays? Because vectorized math using `numpy` is FAR more efficient computationally. This doesn't matter for our current use case, but is very important when writing large scale code!
@@ -357,6 +358,16 @@ array([ 0.98936539,  0.82217552,  0.88597465])
 
 This function draws from the uniform distribution, and can be utilized as the basis for ANY other random process.
 
+---
+
+# Random Numbers and Pandas!
+
+This random number generation is the basis for the sampling algorithm in `pandas`:
+
+```python
+sampled_data = full_data_name.sample(10000, replace=False)
+```
+
 
 ---
 
@@ -366,7 +377,7 @@ Using the function `np.random.rand`, generate a sample of 10 observations from t
 
 <br>
 
-Hint: Look up the CDF of the Exponential Distribution, and use it to generate your values
+Hint: Look up the CDF of the Exponential Distribution, solve for $x$, and use it to generate your values
 
 ---
 
