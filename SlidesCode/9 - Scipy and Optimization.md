@@ -11,7 +11,7 @@ size: 4:3
 
 ---
 
-### Optimization in Math/Economics
+# Optimization in Math/Economics
 
 Many critical problems in analysis are framed as optimization problems.
 
@@ -23,17 +23,17 @@ Many critical problems in analysis are framed as optimization problems.
 
 ---
 
-### Optimization
+# Optimization
 
-Stating a problem as a case of optimization provides an intuitive way to solve a problem, and (typically) clear indications of when a solution has been reached
+Framing a problem as a case of optimization provides an intuitive way to solve it, and (typically) clear indications of when a solution has been reached
 
 - What mathematical conditions allow us to establish the existence of a minimum value?
 
 ---
 
-### Optimization
+# Optimization
 
-Stating a problem as a case of optimization provides an intuitive way to solve a problem, and (typically) clear indications of when a solution has been reached
+Framing a problem as a case of optimization provides an intuitive way to solve it, and (typically) clear indications of when a solution has been reached
 
 - What mathematical conditions allow us to establish the existence of a minimum value?
 	- First derivative(s) equal to 0
@@ -41,7 +41,7 @@ Stating a problem as a case of optimization provides an intuitive way to solve a
 
 ---
 
-### Optimization in Economics - Utility Maximization
+# Optimization in Economics - Utility Maximization
 
 Consider an individual choosing consumption of two goods in order to maximize utility:
 
@@ -54,7 +54,7 @@ $$ I=p_x \cdot x + p_y \cdot y $$
 
 ---
 
-### Utility Maximization
+# Utility Maximization
 
 The two equations represent a **constrained optimization** problem.
 - Want to consume **all the things**, but can't afford to.
@@ -66,7 +66,7 @@ $$ I=p_x \cdot x + p_y \cdot y $$
 
 ---
 
-### Utility Maximization
+# Utility Maximization
 
 We can rewrite these two equations as a single problem in order to find the maximum:
 
@@ -80,16 +80,16 @@ Let's walk through the solution.
 
 ---
 
-### Geometrically
+# Geometrically
 
 ![width:500px](paraboloid.png)
 
 
-In an optimization problem, we need to find a way to get ourselves to the minimum, and to know when we get there.
+In a computational optimization problem, we need to find a way to get ourselves to the minimum, and to know when we get there.
 
 ---
 
-### Geometrically
+# Geometrically
 
 ![width:500px](gradDesc.png)
 
@@ -97,7 +97,7 @@ Typically, we use some form of **gradient descent** to find our way to the minim
 
 ---
 
-### What is a gradient?
+# What is a gradient?
 
 Consider a function, $f$, with two variables $x$ and $y$. This function has two partial derivatives:
 
@@ -111,7 +111,7 @@ Each partial derivative tells us how $f$ changes as we move in a particular dime
 
 ---
 
-### What is a gradient?
+# What is a gradient?
 
 The **gradient**, then, is the vector of all partial derivatives of a given function at any point along the function:
 
@@ -123,7 +123,7 @@ Think about it as the slope and direction of a hill you are hiking on.
 
 ---
 
-### Gradient Descent
+# Gradient Descent
 
 ![width:500px](gradDesc.png)
 
@@ -133,9 +133,9 @@ Think about it as the slope and direction of a hill you are hiking on.
 
 ---
 
-### Gradient Descent
+# Gradient Descent
 
-#### Steps to gradient descent algorithm:
+#### Steps of a gradient descent algorithm:
 - Evaluate the gradient of the function
 - Find the direction of steepest descent
 - Determine how far to move in that direction
@@ -146,7 +146,7 @@ Think about it as the slope and direction of a hill you are hiking on.
 
 ---
 
-### Exercise
+# Exercise
 
 Estimate the gradient of the following function (using Python!):
 
@@ -160,7 +160,7 @@ Hint: try changing $x$ and $z$ by small amounts, and evaluating the difference
 
 ---
 
-### Exercise Answer
+# Exercise Answer
 
 ```python
 import numpy as np
@@ -180,7 +180,7 @@ def y(x, z):
 
 ---
 
-### Gradients and Optimization in Scipy
+# Gradients and Optimization in Scipy
 
 When we need to optimize a function, we can easily do so using Scipy's built-in `optimize` module.
 
@@ -195,7 +195,7 @@ Why?
 
 ---
 
-### Gradients and Optimization in Scipy
+# Gradients and Optimization in Scipy
 
 When we need to optimize a function, we can easily do so using Scipy's built-in `optimize` module.
 
@@ -210,7 +210,7 @@ Why? Because any maximization problem can be restated as a minimization problem!
 
 ---
 
-### Optimizing our exercise function
+# Optimizing our exercise function
 
 ```python
 def y(x, z):
@@ -225,7 +225,7 @@ There are two problems with our function that we need to resolve:
 
 ---
 
-### Optimizing our exercise function
+# Optimizing our exercise function
 
 ```python
 def y(x, z):
@@ -241,7 +241,7 @@ Now we are ready to minimize!
 
 ---
 
-### Optimizing our exercise function
+# Optimizing our exercise function
 
 ```python
 >>> res = minimize(q, [0,0]) # provide function and
@@ -276,7 +276,7 @@ See the Lagrangian slide for help setting up the problem.
 
 ---
 
-### For Homework
+# For Lab/Homework
 
 You will add a Logistic Regression method to your `RegressionModel` class. You will need to do the following in order to implement Logistic Regression:
 - Create a function to calculate the log-likelihood function

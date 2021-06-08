@@ -17,7 +17,7 @@ Plotly is a good choice for several reasons:
 - It allows for easy interactive plotting
 - Interactive plots can be embedded in notebooks
 - Can be run on a server
-- Plotly has developed a dashboard API to complement their plotting library (similar to Shiny for R)
+- Plotly has developed a [dashboard API](https://dash.plotly.com/introduction) to complement their plotting library (similar to Shiny for R)
 - It also has a shorthand library [`plotly_express`](https://plotly.express) for rapid exploration
 
 
