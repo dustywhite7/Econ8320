@@ -22,7 +22,7 @@ Natural Language Processing (NLP) is a tool similar to regex, but allowing us to
 | --- | --- |
 | Create patterns to match in text | Identify the structure of text and use that to refine information|
 | Used to verify or find data | Used to analyze data |
-| Uses user-defined rules | Relies heavily on ML-based (or other) models |
+| Applies user-defined rules | Relies heavily on ML-based (or other) models |
 
 ---
 
@@ -134,6 +134,18 @@ When we have words with many forms (verbs, plurals, etc.), we want to work with 
 
 ---
 
+# Noun chunks
+
+Sometimes, you want to be able to see a "complete" noun, and noun chunks are the tool to use!
+
+```python
+[i for i in doc.noun_chunks]
+```
+
+Noun chunks include all of the modifiers for a given noun, and make it easier to build a more complete understanding of the references being made.
+
+---
+
 # Mapping a sentence
 
 ```python
@@ -147,31 +159,34 @@ displacy.serve(sent, style="dep")
 
 # Sentiment Analysis
 
-Here, we are going to use `
-
-
----
-
-# Install `textblob`
-
-```
-! pip install textblob
-! python -m textblob.download_corpora
-```
-
-#### Note: only use the `!` characters if installing from inside of jupyter notebook or other python interpreter (not when installing from shell/command prompt)
-
----
-
-# Use `textblob` for sentiment analysis
+Here, we are going to use `spacytextblob` to increase the functionality of our NLP model. Install with the following command:
 
 ```python
-from textblob import TextBlob
+! pip install pip install spacytextblob
+```
+#### Note: only use the `!` characters if installing from inside of jupyter notebook or other python interpreter (not when installing from shell/command prompt)
 
-blob = TextBlob(doc.text)
 
-for sentence in blob.sentences:
-    print(sentence.sentiment)
+---
+
+# Use `spacytextblob` for sentiment analysis
+
+```python
+import spacy
+from spacytextblob.spacytextblob import SpacyTextBlob
+import requests
+
+jane = requests.get(
+"https://github.com/dustywhite7/Econ8320/raw/master/AssignmentData/janeEyreCh1to3.txt"
+).text
+
+nlp = spacy.load('en_core_web_sm')
+nlp.add_pipe('spacytextblob')
+
+blob = nlp(jane)
+
+for sentence in blob.sents:
+    print("Polarity: {0:3.2f}, Subjectivity: {1:3.2f}".format(sentence._.polarity, sentence._.subjectivity))
 ```
 
 ---
