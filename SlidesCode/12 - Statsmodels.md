@@ -14,7 +14,7 @@ size: 4:3
 
 <br>
 
-Building our own models is great!
+Building our own models is great*!
 - Understand the assumptions
 - Get EXACTLY what you need
 
@@ -22,6 +22,10 @@ Building our own models is great!
 
 Unfortunately, it takes a LOT of time!
 
+<br>
+<br>
+
+<small>*HAHAHAHAHAHAHAHAHAHA.... :sob:</small>
 
 ---
 
@@ -47,7 +51,7 @@ import statsmodels.formula.api as sm
 import statsmodels.api as sm
 ```
 
-We will focus on option (1) for now
+Let's start with option 1...
 
 
 ---
@@ -76,16 +80,21 @@ data = pd.read_csv("https://github.com/dustywhite7/Econ8320/blob/"
 		+ "master/AssignmentData/assignment8Data.csv?raw=true")
 ```
 
+Assuming that our data set has already been cleaned
 
 ---
 
 # Regression Equations
 
-`statsmodels` incorporates `R`-style regression equations by using the `patsy` library behind the scenes:
+`statsmodels` incorporates `R`-style regression equations by using the `patsy` library behind the scenes. The pattern is as follows:
 
 <br>
 
-```independent variable ~ dependent variable + another dependent variable + any other dependent variables```
+```"independent variable ~ dependent variable + another dependent variable + any other dependent variables"```
+
+<br>
+
+The regression equation will be held in a string (unlike in `R`)
 
 ---
 
@@ -246,6 +255,7 @@ When modeling count data, we have options such as [Poisson](http://www.statsmode
 data = pd.read_csv("auto-mpg.csv")
 
 myformula="nchild ~ hhincome + C(statefip) + C(year) + educ + married"
+
 model= sm.Poisson.from_formula(myformula, data=data).fit()
 ```
 
@@ -254,6 +264,7 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 # `patsy`: Using Regression Equations
 
 Breaking out our regression equations!
+
 
 ---
 
@@ -424,7 +435,7 @@ There MUST be a pattern here...
 
 ---
 
-# Data Preprocessing
+# More from `sklearn`
 
 Many other tools are also available to aid in the data cleaning process through `sklearn`. Some of these are:
 
@@ -434,7 +445,7 @@ Many other tools are also available to aid in the data cleaning process through 
 - [Hyperparameter Tuning](http://scikit-learn.org/stable/modules/grid_search.html)
    - Finding the correct parameters for a decision tree or random forest, for example
 - [Model Evaluation Tools](http://scikit-learn.org/stable/modules/model_evaluation.html)
-
+- [Plotting decision trees](https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html#sklearn.tree.plot_tree)
 
 
 ---
