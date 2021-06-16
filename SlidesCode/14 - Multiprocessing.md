@@ -28,7 +28,7 @@ size: 4:3
 It is important to note that when a program is running, it typically has a single space in memory in which it stores all relevant information.
 
 - This allows the information to be used by whichever part of the program requires that information to use it.
-	- This is true for globally defined values
+	- Things that are accessible across the program are called **globally defined values**
 	- Variables with reduced **scope** are not available to all segments of a program
 
 
@@ -292,15 +292,15 @@ The parallel version of this problem executes over 5x faster than the serial ver
 ```python 
 mp.cpu_count() # Tells us the number of available CPUs
 ```
-
+<!-- 
 ---
 
-# Another Example - Bootstrapping
+# Another Example - Bootstrapping -->
 
 ---
 
 # Lab Today
-
+<!-- 
 Simulate 100,000 draws of $y$ from the multivariate normal distribution
 
 $$ y_i = \alpha + x_{1i} + 2\cdot x_{2i} + \frac{1}{2}x_{3i} + \epsilon_i $$ 
@@ -310,4 +310,4 @@ $$ \alpha \sim \mathcal{N}(15,2),\;\; x_1 \sim \mathcal{N}(3,5) $$
 $$ x_2 \sim \mathcal{N}(10,1) ,\;\; x_3 \sim \mathcal{N}(8,8) $$
 $$ \epsilon \sim \mathcal{N}(0,1) $$
 
-Test and time these draws using serial and parallel programming (2 cores), and report the difference in performance between the two versions.
+Test and time these draws using serial and parallel programming (2 cores), and report the difference in performance between the two versions. -->
