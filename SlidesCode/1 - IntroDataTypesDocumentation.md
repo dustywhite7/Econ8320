@@ -15,11 +15,11 @@ size: 4:3
 
 **Instructor**: 
 
-Dustin White
+Dustin White (he/him/his)
 Mammel Hall 332M
 
 **Office Hours**:
-4:30 - 5:30 PM on class days
+By appointment
 
 **Contact Info**:
 drwhite@unomaha.edu
