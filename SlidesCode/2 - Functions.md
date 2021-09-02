@@ -194,6 +194,35 @@ Assign ```a=12``` and ```b=100```. What happens? What if ```b=12```?
 
 ---
 
+# Logical Rules
+
+1. `==` denotes a test of equality (assigning a value to a variable uses a single `=` instead)
+2. `>` tests whether the value to left is greater than the value to the right
+3. `>=` tests whether the value to left is greater than  OR EQUAL TO the value to the right
+4. `<` tests whether the value to left is less than the value to the right
+5. `<=` tests whether the value to left is less than  OR EQUAL TO the value to the right
+
+---
+
+# Combining Rules
+
+We can also create conditions based on multiple logical statements:
+
+`&` is the logical "and", and requires that BOTH the condition to the left and the condition to the right be `True` before the overall statement can be evaluated as `True`
+
+---
+
+# Combining Rules
+
+We can also create conditions based on multiple logical statements:
+
+`|` is the logical "or", and requires that EITHER the condition to the left OR the condition to the right be `True` before the overall statement can be evaluated as `True`
+
+`|` is also evaluated as `True` if both conditions are true
+
+---
+
+
 # Conditions in List Comprehensions
 
 ```python
@@ -291,7 +320,7 @@ What might go wrong with the code on the previous slide?
 
 # Starting to Write Functions
 
-```
+```python
 def myFunction(arguments_go_here):
 ```
 
