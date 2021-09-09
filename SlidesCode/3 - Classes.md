@@ -12,6 +12,15 @@ size: 4:3
 
 ---
 
+# What Can I do with this?
+
+Make a list of things that you can do with each individual item below:
+- A Table
+- A laptop computer
+- An Apple
+
+---
+
 # What are Classes
 
 - A critical element of object-oriented programming
@@ -71,8 +80,8 @@ So, I created a delicious sandwich class, but I can't print anything about it!
 | *        | object.\_\_mul\_\_(self, other)           |
 | //       | object.\_\_floordiv\_\_(self, other)      |
 | /        | object.\_\_truediv\_\_(self, other)       |
-| %        | object.\_\_mod\_\_(self, other)           |
 | **       | object.\_\_pow\_\_(self, other[, modulo]) |
+| print()  | object.\_\_repr\_\_(self)                 |
 
 ---
 
@@ -90,7 +99,7 @@ Not all of the magic methods will make sense for all classes. Which standard ope
 - Subtracting (we can REMOVE toppings)
 - Equality (we can determine if two sandwiches are the same)
 	- If we define equality, we should also define when two sandwiches are NOT equal.
-- A string format for printing (not on our list above)
+- A formatted representation for printing
 
 ---
 
@@ -177,7 +186,7 @@ Now we can print our sandwich!
 
 # Methods - Try It!
 
-We can also create methods that are based on the unique functionality of our class of objects. Since we are working at a *store*, we might care about pricing a given sandwich.
+We can also create methods that are based on the unique functionality of our class of objects. Since we are [pretending to be] working at a store, we might care about pricing a given sandwich.
 - Let's call the method ``get_price``, and have it take two arguments (`self` and a `discount`) with `discount` having a default value of ``0``, and store ``price`` as an attribute of our sandwich object
 - Each topping costs $1
 - Specialty bread (not white bread) is $2, white bread is provided at no cost
@@ -273,7 +282,7 @@ class Sandwich(object):
 
 Create your own ``ComplexNumber`` class!
 1. Complex numbers have a real and an imaginary part. The ``__init__()`` method should therefore accept two numbers. Store the first as self.real and the second as self.imag.
-2. Implement a ``conjugate()`` method that returns the object's complex conjugate (as a new ``ComplexNumber`` object). Recall that $a + bi = a - bi$.
+2. Implement a ``conjugate()`` method that returns the object's complex conjugate (as a new ``ComplexNumber`` object). Recall that $x = a + bi \implies \bar{x} = a - bi$, where $\bar{x}$ is the complex conjugate of $x$.
 
 
 ---
