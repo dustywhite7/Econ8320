@@ -99,17 +99,50 @@ Let's walk through factoring these problems
 
 <br>
 
-In order to be better able to use these functions, we need to leave Mimir Notebooks behind (although it is all [possible](http://www.christianlong.com/blog/ipdb-the-ipython-debugger.html) there, just harder to work with).
+In order to be better able to use these functions, we may need to leave Mimir Notebooks behind (although it is all [possible](http://www.christianlong.com/blog/ipdb-the-ipython-debugger.html) there, just harder to work with).
 
 Let's work through some code, in order to learn how to debug it.
 
-Here is the [file](https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/debuggingExercise.py)
+---
 
-Let's work with it here: [Python Online Debugger](https://www.onlinegdb.com/online_python_debugger)
+# Doing Debugging in Notebooks
 
 ---
 
-# Doing Debugging
+# Debugging in Notebooks
+
+Use `%debug` to enter debug mode in the notebook
+- Do this when you experience an error to explore around the error!
+
+---
+
+# Debugging in Notebooks
+
+Use `_ih` to access a list of recently run cells
+
+```python
+_ih[-5:] # Access the last 5 cells that have been run
+```
+
+This is useful to make sure your code was run in order and that you are processing data correctly
+
+---
+
+# Debugging in Notebooks
+### Use the variable explorer!
+
+---
+# Debugging in Notebooks
+You can also set debugging traces in your code:
+
+```python
+from IPython.core.debugger import set_trace
+
+# Chunk of your code goes here
+set_trace()
+# Rest of your code here
+```
+The trace will kick your program to a debugger at the point in which the trace is inserted into your code
 
 ---
 
