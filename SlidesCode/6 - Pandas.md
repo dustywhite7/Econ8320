@@ -238,6 +238,14 @@ data['Column'].fillna(method='pad') # fill values forward
 
 ---
 
+# Map and Apply
+
+`.map()` enables us to apply a function to each value item-by-item in a single column
+
+`.apply()` provides the same functionality column-by-column or row-by-row (use the `axis` parameter to specify), with each row being the input to the funtion, rather than a single value in one column
+
+---
+
 # Generating Summary Statistics
 
 Using the `describe` funtion will create summary tables easily, and Pandas can even export them to csv for use in reports (this is true of ANY data frame in general, too!).
@@ -256,6 +264,26 @@ data.describe().T[['count','mean','std','min','max']]
 ```
 
 <!-- FOR USING MySQL, USE SLIDES BELOW -->
+
+---
+
+# Other summary functions
+
+Count unique values in a field:
+```python
+data['column_of_interest'].nunique()
+```
+
+Show unique values in a field:
+```python
+data['column_of_interest'].unique()
+```
+
+Show dimensions of a Data Frame:
+```python
+data.shape
+```
+
 
 ---
 

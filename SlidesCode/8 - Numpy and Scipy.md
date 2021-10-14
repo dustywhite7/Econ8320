@@ -128,7 +128,7 @@ We calculate all elements of $C$ in this manner
 
 # Matrix Multiplication
 
-![](matMult.png)
+![](https://github.com/dustywhite7/Econ8320/raw/master/SlidesCode/matMult.png)
 
 
 ---
