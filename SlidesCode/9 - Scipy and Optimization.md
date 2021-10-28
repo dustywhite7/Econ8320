@@ -279,7 +279,7 @@ See the Lagrangian slide for help setting up the problem.
 # For Lab/Homework
 
 You will add a Logistic Regression method to your `RegressionModel` class. You will need to do the following in order to implement Logistic Regression:
-- Create a function to calculate the log-likelihood function
+- Create a function to calculate the log-likelihood function (see [these slides](https://github.com/dustywhite7/Econ8320/blob/master/SlidesPDF/9-2%20-%20Logit%20Primer.pdf) for a guide)
 - Use gradient descent
 - Calculate the model standard error (for use below)
 - Calculate coefficient standard errors, z-statistics, and p-values
