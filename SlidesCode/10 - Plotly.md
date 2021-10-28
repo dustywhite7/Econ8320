@@ -42,8 +42,9 @@ Let's import a `pandas` Data Frame to play with some :fish: data:
 ```python
 import pandas as pd
 
-data = pd.read_csv(
-    "https://github.com/dustywhite7/pythonMikkeli/raw/master/exampleData/fishWeight.csv")
+data = pd.read_csv( # put link back on one line!
+    "https://github.com/dustywhite7/pythonMikkeli/
+    raw/master/exampleData/fishWeight.csv")
 ```
 
 
@@ -58,7 +59,7 @@ px.scatter(data, x='Length1', y='Weight')
 
 <br>
 
-In this (very) simple example, we plot some time series data. Our figure is rendered in the notebook.
+In this (very) simple example, we plot some data about length and weight. Our figure is rendered in the notebook.
 
 ---
 
@@ -128,14 +129,14 @@ px.line(data, x='Length1', y='Weight',
 
 ![width:900px](plotly4.png)
 
-### Clearly, not helpful here...
+### Clearly, not helpful here... (our data is not ordinal)
 
 
 ---
 
 # Creating Plot Objects
 
-Let's mark multiple series by separating our observations by fish species:
+Let's show multiple series by separating our observations according to species:
 
 ```python
 px.scatter(data, x='Length1', y='Weight',
