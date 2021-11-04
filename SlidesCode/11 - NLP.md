@@ -48,7 +48,9 @@ First, we will need to install the right libraries (and a corpus!):
 !python -m spacy download en_core_web_sm
 ```
 
-A corpus is the body of knowledge that our NLP library (`spacy`) needs in order to be able to process the english language. We will use the smallest english corpus for now.
+A corpus is the body of knowledge that our NLP library (`spacy`) needs in order to be able to process the english language. We will use the smallest english corpus for now. 
+
+The `web` part means that it was trained on web content, and will perform best when applied to similar material.
 
 ---
 
@@ -95,7 +97,7 @@ Our new parsed document (`doc` in this case), has some important **attributes**:
 - `lemma_` - the "root word" from which a token/word is derived
 - `pos_` - the part of speech of a token/word
 - `dep_` - the relationship of dependent tokens to the parent token (adjectives to nouns, etc.)
-- `like_email`/`like_num`/`like_url` - check if a token is like an email, number, or url
+- `like_email`/`like_num`/`like_url` - check if a token is like an email, number, or url (unlikely in Jane Eyre)
 
 ---
 
