@@ -6,7 +6,7 @@ class: default
 size: 4:3
 ---
 
-# Week 13 - Using Web APIs with Python
+# Using Web APIs with Python
 
 ---
 
@@ -54,13 +54,14 @@ With an API, we can make requests to the server for specific information.
 - [Sentiment Analysis](https://www.twinword.com/api/emotion-analysis.php) - What is the sentiment in a given block of text?
 - [Sports Updates](https://www.mysportsfeeds.com/) - API to gather data on US sports teams ([Soccer](https://www.api-football.com/))
 - [Mapping Data](https://developers.google.com/maps/documentation/) - Collect information on routes, distances, directions, etc.
+- [Spotify](https://developer.spotify.com/documentation/web-api/) - Check out song, album, and playlist info
 
 
 ---
 
 # Cool! So how can I use one?
 
-Let's walk through using an API with the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/start).
+Let's walk through API use in Python with the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/start).
 
 First, let's get set up:
 - Need a Google account
