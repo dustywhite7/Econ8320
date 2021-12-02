@@ -277,7 +277,7 @@ benchmarks.append(timeit.Timer(
 
 # Example - Timing it
 
-<img src="performance.png" width=750>
+![w:750](performance.png)
 
 ---
 
@@ -299,7 +299,7 @@ mp.cpu_count() # Tells us the number of available CPUs
 
 ---
 
-# Lab Today
+# Lab Time!
 <!-- 
 Simulate 100,000 draws of $y$ from the multivariate normal distribution
 
