@@ -11,8 +11,6 @@ size: 4:3
 
 ---
 
-<br>
-
 **Instructor**: 
 
 Dustin White (he/him/his)
@@ -28,16 +26,19 @@ drwhite@unomaha.edu
 
 # Quick Note
 
-This class does not require that you **already** know how to program, but you will know how by the end of the term. The class was actually designed **because** we do not expect that you already know how to program.
+This class does not require that you **already** know how to program, but you will know how by the end of the term. The class was actually designed **because** I do not expect that you already know how to program.
 - Spend time outside class practicing (by time I mean hours, and not just a few)
 
 ---
 
 # Quick Note
 
-<br>
 
 Your ability to use code to solve problems will be the basis for your grade in this course, so if you cannot commit the time to practice coding, you are not likely to pass this class.
+
+<br>
+
+You wouldn't study French and not set aside time to practice. The same applies here!
 
 ---
 
@@ -77,7 +78,7 @@ Your ability to use code to solve problems will be the basis for your grade in t
 <br>
 
 - You will be expected to learn to program during this course
-- Plan on spending **all** of our time in lab working on projects and refining your predictions (you'll need it!)
+- Plan on spending **all** of our time in class/lab working on projects and refining your code (you'll need it!)
 - Take charge of your assignments; they will be open-ended
 
 ---
@@ -417,7 +418,7 @@ TypeError: 'tuple' object does not support item assignment
 
 # Dictionaries
 
-While strings, lists and tuples have specific orders, dictionaries approach the organization of data differently, using a `key:pair` combination to store data that can be found using the index provided by the programmer to the dictionary.
+While strings, lists and tuples have specific orders, dictionaries approach the organization of data differently, using a `key:value` pair to store data that can be found using the index provided by the programmer to the dictionary.
 
 ```python
 >>> myDict = {"first": "Dusty", "last": "White"}
@@ -501,6 +502,16 @@ To get started, let's look at the [Numpy Random Sampling Documentation](https://
 
 
 Keep in mind, [StackOverflow](https://stackoverflow.com/questions/tagged/python) is a great website to help us figure out what to do when we have an error.
+
+---
+
+# Using the help tools
+
+We can quickly see information about a Python object by using the `help()` function:
+
+```py
+help(np.random) # or help(np.random.random)
+```
 
 ---
 
