@@ -10,7 +10,7 @@ size: 4:3
 
 ---
 
-# Tools We Can Use: Loops
+# Kicking off
 
 Sometimes, we need to execute code multiple times, or need to run that code until some condition is met.
 
@@ -147,7 +147,7 @@ Is the line ```x+=1``` necessary? Discuss with your neighbor.
 
 ---
 
-# Tools We Can Use: Conditions
+# Next up: Conditions
 
 We often want to use logical statements (a test of whether or not some condition holds) to determine what our program should do.
 
