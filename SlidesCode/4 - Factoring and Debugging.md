@@ -95,7 +95,7 @@ Let's walk through factoring these problems
 
 ---
 
-# Moving from Mimir Notebooks to a Debugger
+<!-- # Moving from Mimir Notebooks to a Debugger
 
 <br>
 
@@ -103,11 +103,12 @@ In order to be better able to use these functions, we may need to leave Mimir No
 
 Let's work through some code, in order to learn how to debug it.
 
----
+--- 
 
 # Doing Debugging in Notebooks
 
 ---
+-->
 
 # Debugging in Notebooks
 
@@ -147,6 +148,18 @@ The trace will kick your program to a debugger at the point in which the trace i
 ---
 
 # Doing Unit Tests
+
+```python
+import unittest
+
+class TestComNum(unittest.TestCase):
+    
+    def test_ne(self):
+        self.assertNotEqual(ComplexNumber(4,3), ComplexNumber(4,-3))
+        
+
+unittest.main(argv=[''], verbosity=2, exit=False)
+```
 
 ---
 
