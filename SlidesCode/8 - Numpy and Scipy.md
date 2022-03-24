@@ -8,7 +8,7 @@ size: 4:3
 
 
 
-# Week 8 - Numeric Python (NumPy) and Scientific Python (SciPy)
+# Numeric Python (NumPy) and Scientific Python (SciPy)
 
 ---
 

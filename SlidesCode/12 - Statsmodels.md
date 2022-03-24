@@ -90,7 +90,7 @@ Assuming that our data set has already been cleaned
 
 <br>
 
-```"independent variable ~ dependent variable + another dependent variable + any other dependent variables"```
+```"dependent variable ~ independent variable + another independent variable + any other independent variables"```
 
 <br>
 
