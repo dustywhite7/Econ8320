@@ -7,7 +7,7 @@ size: 4:3
 ---
 
 
-# Week 9 - SciPy and (Mathematical) Optimization
+# SciPy and Optimization
 
 ---
 
@@ -18,7 +18,7 @@ Many critical problems in analysis are framed as optimization problems.
 - Classification Models
 - Regression Models
 - Utility Maximization
-- General Equilibrium Problems
+- Oligopoly Best Response Functions
 - Dynamic Programming
 
 ---
@@ -76,7 +76,7 @@ $$ \mathcal{L} = x^\alpha y^\beta + \lambda(I- p_x \cdot x - p_y \cdot y)  $$
 
 This is the **Lagrangian** expression of our optimization problem.
 
-Let's walk through the solution.
+<!-- Let's walk through the solution. -->
 
 ---
 
@@ -99,7 +99,7 @@ Typically, we use some form of **gradient descent** to find our way to the minim
 
 # What is a gradient?
 
-Consider a function, $f$, with two variables $x$ and $y$. This function has two partial derivatives:
+A function, $f$, with two variables $x$ and $y$ has two partial derivatives:
 
 <br>
 
@@ -107,7 +107,7 @@ $$ \frac{\partial f}{\partial x} \text{ and } \frac{\partial f}{\partial y} $$
 
 <br>
 
-Each partial derivative tells us how $f$ changes as we move in a particular dimension **all else constant**.
+Each partial derivative tells us how $f$ changes as we move in a particular dimension **while remaining stationary in the other**.
 
 ---
 
@@ -281,5 +281,5 @@ See the Lagrangian slide for help setting up the problem.
 You will add a Logistic Regression method to your `RegressionModel` class. You will need to do the following in order to implement Logistic Regression:
 - Create a function to calculate the log-likelihood function (see [these slides](https://github.com/dustywhite7/Econ8320/blob/master/SlidesPDF/9-2%20-%20Logit%20Primer.pdf) for a guide)
 - Use gradient descent
-- Calculate the model standard error (for use below)
+- Calculate the model standard error (see Logit primer slides above)
 - Calculate coefficient standard errors, z-statistics, and p-values
