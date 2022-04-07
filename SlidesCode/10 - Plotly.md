@@ -329,7 +329,8 @@ px.choropleth(data, locations = 'Abbr',
 
 ```python
 data = pd.read_csv(
-  "https://raw.githubusercontent.com/dustywhite7/Econ8320/master/LabCode/displaced2018.csv")
+  "https://raw.githubusercontent.com/dustywhite7/Econ8320/
+  master/LabCode/displaced2018.csv")
 
 px.scatter_geo(data, locations="Abbr", 
                      hover_name="Name", size="Displaced",
