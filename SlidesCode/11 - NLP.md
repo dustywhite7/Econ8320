@@ -12,7 +12,7 @@ size: 4:3
 
 # What even is it?
 
-Natural Language Processing (NLP) is a tool similar to regex, but allowing us to take our text analytics to entirely new levels.
+Natural Language Processing (NLP) is a tool similar to regex, but allows us to take our text analytics to entirely new levels
 
 ---
 
@@ -59,9 +59,8 @@ The `web` part means that it was trained on web content, and will perform best w
 ```python
 import requests
 
-jane = requests.get(
-"https://github.com/dustywhite7/Econ8320/raw/master/AssignmentData/janeEyreCh1to3.txt"
-).text
+jane = requests.get("https://github.com/dustywhite7/Econ8320/
+raw/master/AssignmentData/janeEyreCh1to3.txt").text
 ```
 
 This file contains chapters 1 to 3 of Jane Eyre
@@ -88,8 +87,9 @@ Here, we are pointing to the language file we want to use, and then parsing our 
 Our new parsed document (`doc` in this case), has some important **attributes**:
 
 - `sents` - a generator function to iterate over each sentence in the document
-- `token` - each individual element of the document
+- tokens - each individual element of the document
     - Elements exist at the word/punctuation level
+    - Access via `for i in doc`-style loops
 
 ---
 
@@ -179,16 +179,18 @@ from spacytextblob.spacytextblob import SpacyTextBlob
 import requests
 
 jane = requests.get(
-"https://github.com/dustywhite7/Econ8320/raw/master/AssignmentData/janeEyreCh1to3.txt"
-).text
+"https://github.com/dustywhite7/Econ8320/raw/master
+/AssignmentData/janeEyreCh1to3.txt").text
 
 nlp = spacy.load('en_core_web_sm')
 nlp.add_pipe('spacytextblob')
-
 blob = nlp(jane)
 
 for sentence in blob.sents:
-    print("Polarity: {0:3.2f}, Subjectivity: {1:3.2f}".format(sentence._.polarity, sentence._.subjectivity))
+    print("Polarity: {0:3.2f}, 
+    Subjectivity: {1:3.2f}".format(
+        sentence._.polarity, 
+        sentence._.subjectivity))
 ```
 
 ---
