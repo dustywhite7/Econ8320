@@ -6,7 +6,7 @@ class: default
 size: 4:3
 ---
 
-# Week 12 - Modeling through Statsmodels, Sklearn
+# Modeling through Statsmodels/Sklearn
 
 ---
 
