@@ -64,11 +64,11 @@ You wouldn't study French and not set aside time to practice. The same applies h
 
 |Assignment|Percent of Grade|
 |:-:|:-:|
-|Lab Work/Homework |60\% |
+|Lab Work/Homework |50\% |
 |Final Project|30\%|
-|Participation|10\%|
+|Participation|20\%|
 
-*Note: No matter what Mimir says an assignment is worth, all homework assignments will have equal impact on your final grade*
+*Note: No matter what Codio says an assignment is worth, all homework assignments will have equal impact on your final grade*
 
 
 ---
@@ -78,8 +78,8 @@ You wouldn't study French and not set aside time to practice. The same applies h
 <br>
 
 - You will be expected to learn to program during this course
-- Plan on spending **all** of our time in class/lab working on projects and refining your code (you'll need it!)
-- Take charge of your assignments; they will be open-ended
+<!-- - Plan on spending **all** of our time in class/lab working on projects and refining your code (you'll need it!) -->
+- Take charge of your assignments; they will be open-ended, and will often require **significant** effort
 
 ---
 
@@ -88,7 +88,7 @@ You wouldn't study French and not set aside time to practice. The same applies h
 <br>
 
 - I will work through examples of code in class
-- I will be available during office hours to help you with assignments
+- I will be available to help you with assignments
 - I will revise the course material as needed to suit your interests
 
 ---
@@ -110,8 +110,8 @@ You wouldn't study French and not set aside time to practice. The same applies h
 
 # Getting Started in Python
 
-- Open the Mimir IDE
-	- Mimir allows us to execute code on a remote server, processing the code on uniform machines
+- Open the Codio IDE from the Canvas home page
+	- Codio allows us to execute code on a remote server, processing the code on uniform machines
 - Let's write some Python!
 
 ---

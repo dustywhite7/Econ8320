@@ -204,7 +204,7 @@ Assign ```a=12``` and ```b=100```. What happens? What if ```b=12```?
 
 ---
 
-# Combining Rules
+# Combining Logic
 
 We can also create conditions based on multiple logical statements:
 
@@ -212,7 +212,7 @@ We can also create conditions based on multiple logical statements:
 
 ---
 
-# Combining Rules
+# Combining Logic
 
 We can also create conditions based on multiple logical statements:
 
@@ -304,9 +304,8 @@ What might go wrong with the code on the previous slide?
 
 ---
 
-# Nature of Functions
+# The Nature of Functions
 
-<br>
 
 - Allow for reuse of code
 	- Can import this code in other programs!
