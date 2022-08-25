@@ -8,11 +8,11 @@ size: 4:3
 
 # Week 3 - Classes (not the school kind)
 
-###### Based on notes from BYU's ACME Program: [Link](http://www.acme.byu.edu/wp-content/uploads/2016/08/OOP.pdf)
+###### Inspired by class notes from BYU's ACME Program: [Link](http://www.acme.byu.edu/wp-content/uploads/2016/08/OOP.pdf)
 
 ---
 
-# What Can I do with this?
+# What can I do with this?
 
 Make a list of things that you can do with each individual item below:
 - A Table
@@ -21,7 +21,7 @@ Make a list of things that you can do with each individual item below:
 
 ---
 
-# What are Classes
+# What are classes
 
 - A critical element of object-oriented programming
 - Directions for creating objects
@@ -42,7 +42,7 @@ How can we start designing our sandwich code?
 
 ---
 
-# Creating a New Class
+# Creating a new class
 
 ```python
 class Sandwich(object):
@@ -65,7 +65,7 @@ The FIRST thing we need to do is to initialize an object of class ```Sandwich```
 <__main__.Sandwich object at 0x7f83ba7cc390>
 ```
 
-So, I created a delicious sandwich class, but I can't print anything about it!
+So, I created a delicious sandwich class, but I can't print anything useful about it!
 - We have to explain to the interpreter how to implement basic functions using our object
 - We can declare basic functionality using *magic methods*
 
@@ -112,7 +112,7 @@ class Sandwich(object):
     self.bread = bread
     self.toppings = []
   def __add__(self, topping):
-    return self.toppings.append(topping)
+    self.toppings.append(topping)
 ```
 
 Here, we add the magic method for addition to our class, and state that the ```+``` operator should append the topping that follows it to our list of toppings, then return that updated list.
@@ -128,15 +128,15 @@ class Sandwich(object):
     self.bread = bread
     self.toppings = []
   def __add__(self, topping):
-    return self.toppings.append(topping)
+    self.toppings.append(topping)
   def __sub__(self, topping):
     if topping in self.toppings:
-      return self.toppings.remove(topping)
+      self.toppings.remove(topping)
     else:
       print("Topping not present, and can't be removed.")
 ```
 
-Subtracting is trickier, but we need to declare that the ```-``` operator should check for a topping in our list, and remove it if present.
+Subtracting is trickier, but we need to declare that the ```-``` operator should check for a topping in our list, and remove it **if present**.
 
 ---
 
@@ -159,11 +159,11 @@ class Sandwich(object):
     return not (self == other)
 ```
 
-Note that we have to declare both ``=`` and ``!=``
+Note that we have to define both ``=`` and ``!=``
 
 ---
 
-# Magic Methods - Strings
+# Magic Methods - Representations
 
 ```python
 class Sandwich(object):
@@ -186,10 +186,10 @@ Now we can print our sandwich!
 
 # Methods - Try It!
 
-We can also create methods that are based on the unique functionality of our class of objects. Since we are [pretending to be] working at a store, we might care about pricing a given sandwich.
+We can also create methods that are based on the unique functionality of our class of objects. Since we are [pretending to be] working at a store, we might care about pricing a sandwich.
 - Let's call the method ``get_price``, and have it take two arguments (`self` and a `discount`) with `discount` having a default value of ``0``, and store ``price`` as an attribute of our sandwich object
 - Each topping costs $1
-- Specialty bread (not white bread) is $2, white bread is provided at no cost
+- Specialty bread (not "white" bread) is $2, white bread is provided at no cost
 
 
 ---
