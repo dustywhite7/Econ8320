@@ -139,7 +139,7 @@ Use `%debug` to enter debug mode in IPython after an error
 
 ---
 
-# Debugging in Notebooks
+# Debugging in IPython
 
 Use `_ih` to access a list of recently run commands
 
@@ -150,7 +150,7 @@ _ih[-5:] # Access the last 5 commands that have been run
 This is useful to make sure your code was run in order and that you are processing data correctly
 
 ---
-# Debugging in Notebooks
+# Debugging in Scripts
 You can also set debugging traces in your code:
 
 ```python
