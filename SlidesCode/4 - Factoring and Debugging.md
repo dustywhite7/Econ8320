@@ -37,13 +37,11 @@ We write a series of logical steps that can be taken (given assumed inputs) in o
 # Factoring Recent Assignments
 
 1) `StudentRecord` and `Course` classes
-<br>
-
 2) Recursive Functions
 
-<br>
-
 Let's walk through factoring these problems
+
+**NOTE: DON'T PROCEEED WITH THIS VIDEO UNLESS YOU HAVE COMPLETED ASSIGNMENT 3**
 
 
 ---
@@ -70,7 +68,7 @@ Let's walk through factoring these problems
 - What needs to be fixed?
 
 
-*Note: The name has its origins in the physical removal of bugs from giant vaccuum-tube computers in the early/mid 20th century*
+*Note: Anecdotally, "debugging" has its origins in the physical removal of bugs from giant vaccuum-tube computers in the early/mid 20th century, and is attributed to Grace Hopper*
 
 ---
 
@@ -88,7 +86,7 @@ Let's walk through factoring these problems
 
 <br>
 
-- **Debugging** is critical, since our code will not work if it contains bugs. At the very least, it will not work as we expect it to
+- **Debugging** is critical, since our code will not work if it contains bugs. At the very least, it will not work as we want/expect it to
 - **Unit Testing** is how we understand where our code fails to prepare for any possible case that could occur
 	- We need this if we want to prevent "Garbage In, Garbage Out" problems in the future
 
@@ -110,27 +108,46 @@ Let's work through some code, in order to learn how to debug it.
 ---
 -->
 
-# Debugging in Notebooks
+# Debugging in IPython
 
-Use `%debug` to enter debug mode in the notebook
-- Do this when you experience an error to explore around the error!
+From inside an IPython console, we can run our script using 
+
+```python
+%run my_script_name.py
+```
+
+This will run the script inside our console, and all variables will then be available to us for exploration afterwards
+
+---
+
+# Debugging in IPython
+
+We can also run our script as
+
+```python
+%run -d -bX my_script_name.py
+```
+
+`X` should be an integer. This will open the debugger at line `X` in our script after running all previous lines
+
+---
+
+# Debugging in IPython
+
+Use `%debug` to enter debug mode in IPython after an error
+- Allows you to explore around the error!
 
 ---
 
 # Debugging in Notebooks
 
-Use `_ih` to access a list of recently run cells
+Use `_ih` to access a list of recently run commands
 
 ```python
-_ih[-5:] # Access the last 5 cells that have been run
+_ih[-5:] # Access the last 5 commands that have been run
 ```
 
 This is useful to make sure your code was run in order and that you are processing data correctly
-
----
-
-# Debugging in Notebooks
-### Use the variable explorer!
 
 ---
 # Debugging in Notebooks
@@ -152,7 +169,7 @@ The trace will kick your program to a debugger at the point in which the trace i
 ```python
 import unittest
 
-class TestComNum(unittest.TestCase):
+class TestComNum(unittest.TestCase): 
     
     def test_ne(self):
         self.assertNotEqual(ComplexNumber(4,3), ComplexNumber(4,-3))
@@ -160,6 +177,8 @@ class TestComNum(unittest.TestCase):
 
 unittest.main(argv=[''], verbosity=2, exit=False)
 ```
+
+Let's look at the unittests used for grading a past assignment to learn more.
 
 ---
 
