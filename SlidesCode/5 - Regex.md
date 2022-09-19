@@ -77,7 +77,7 @@ To use Regular Expression in Python,
 import re
 ```
 
-We can work through examples in Mimir notebooks (or in Spyder or a terminal)
+We can work through examples in notebooks, in Spyder or a terminal. I'll use Codio's terminal.
 
 ---
 
@@ -513,7 +513,7 @@ The `re` library offers several functions:
 
 # Quick Iterations
 
-With regular expression, you might want to try lots of things and fail quickly (over and over, because that is how learning works!).
+With regular expression, you might want to try lots of things and fail quickly (over and over, because that's how learning works!).
 
 [regexr.com](https://regexr.com) is a great place to put some sample data into a website and play around with regular expression
 

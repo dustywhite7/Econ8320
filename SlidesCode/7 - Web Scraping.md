@@ -35,18 +35,10 @@ myPage = requests.get("https://brickset.com/sets/year-2020")
 # Brickset
 
 Great website for learning web scraping!
-- ~~There is was a CSV export tool built into the website~~ :grimacing:
-- ~~We can compare our results against a CSV of the *correct* results~~ :rage:
-- Those things used to be possible, but at least it is still an easy page to parse!
+- It is a really easy page to parse!
 - Also, it's about Legos!
 
 Let's [visit the page](https://brickset.com/)
-
----
-
-# How I felt on that last slide...
-
-[![](https://i.imgflip.com/rlgzn.jpg)](https://www.youtube.com/watch?v=Bh7bYNAHXxw)
 
 ---
 

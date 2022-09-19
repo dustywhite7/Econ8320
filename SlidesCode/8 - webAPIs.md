@@ -241,35 +241,9 @@ def map_data(api_key, origin, destination,
 
 # Executing our Query
 
-We now have the functions in place to make queries automatically:
+We now have the functions in place to make queries automatically.
 
-```python
-from ipywidgets import widgets
-
-api_key = widgets.Text(placeholder="API Key")
-origin = widgets.Text(placeholder="Origin Address")
-destination = widgets.Text(placeholder="Destination Address")
-frequency = widgets.Text(placeholder="Frequency (in minutes)")
-duration = widgets.Text(placeholder="Duration (in hours)")
-
-elements = [api,origin, destination, frequency, duration]
-widgets.Box(elements)
-```
-
----
-
-# Executing our Query
-
-We now have the functions in place to make queries automatically:
-
-
-```python
-if __name__ == '__main__':
-  data = map_data(api_key, origin, destination, 
-    frequency, duration)
-```
-
-At this point, we will (eventually) get a DataFrame of our results when the function terminates
+If we call our function, we will (eventually) get a DataFrame of our results when the function terminates
 
 ---
 # Results

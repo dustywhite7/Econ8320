@@ -287,18 +287,17 @@ data.shape
 
 ---
 
-# Using SQL with Python
+# Using SQL with Python (optional!)
 
-In order to handle data on a large scale, we will frequently rely on SQL databases. In this class, we will practice with MySQL.
+In order to handle data on a large scale, we frequently rely on SQL databases. In this class, we can practice with MySQL.
 
 Here is a link to analogous code for many other database types:
 [http://docs.sqlalchemy.org/en/latest/core/engines.html](http://docs.sqlalchemy.org/en/latest/core/engines.html)
 
-Install MySQL with the following command:
+Install MySQL connectors with the following command:
 
 ```python
-!pip install anaconda mysql-connector-python
-# "!" only needed in mimir/notebooks
+pip install sqlalchemy mysql-connector-python
 ```
 
 ---
