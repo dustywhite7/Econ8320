@@ -85,7 +85,7 @@ This is the **Lagrangian** expression of our optimization problem.
 ![width:500px](paraboloid.png)
 
 
-In a computational optimization problem, we need to find a way to get ourselves to the minimum, and to know when we get there.
+In a computational optimization problem, we need to find a way to get ourselves to the optimum (minimum in this case), and to know when we get there.
 
 ---
 
@@ -103,7 +103,7 @@ A function, $f$, with two variables $x$ and $y$ has two partial derivatives:
 
 <br>
 
-$$ \frac{\partial f}{\partial x} \text{ and } \frac{\partial f}{\partial y} $$
+$$ f(x, y) \rightarrow \frac{\partial f}{\partial x} \text{ and } \frac{\partial f}{\partial y} $$
 
 <br>
 
@@ -117,7 +117,7 @@ The **gradient**, then, is the vector of all partial derivatives of a given func
 
 $$ \nabla f = \left[ \begin{matrix} \frac{\partial f}{\partial x} \\ \\ \frac{\partial f}{\partial y} \end{matrix} \right]  $$
 
-We can use the gradient to determine the linear approximation of a function at any given point.
+We can use the gradient to determine the linear approximation of a function's shape at any given point.
 
 Think about it as the slope and direction of a hill you are hiking on.
 
@@ -128,7 +128,7 @@ Think about it as the slope and direction of a hill you are hiking on.
 ![width:500px](gradDesc.png)
 
 
-**Gradient Descent** is a technique in which we algorithmically choose to move toward what we believe to be the minimum value of our function based on the current slope of our function.
+**Gradient Descent** is a technique in which we algorithmically move toward what we believe to be the minimum value of our function based on the current slope of our function.
 
 
 ---
@@ -206,7 +206,7 @@ from scipy.optimize import minimize
 
 There is NO maximize function.
 
-Why? Because any maximization problem can be restated as a minimization problem!
+Why? Because any maximization problem can be restated as a minimization problem! (Multiply by $-1$)
 
 ---
 
