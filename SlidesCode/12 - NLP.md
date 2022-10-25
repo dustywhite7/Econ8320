@@ -42,9 +42,10 @@ Natural Language Processing (NLP) is a tool similar to regex, but allows us to t
 First, we will need to install the right libraries (and a corpus!):
 
 ```python
-# Load the SpaCy library
-
+# Load the SpaCy library (IF NEEDED)
 !pip install spacy
+
+# Load the corpus
 !python -m spacy download en_core_web_sm
 ```
 
