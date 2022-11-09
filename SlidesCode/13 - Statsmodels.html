@@ -24,13 +24,17 @@
 <p>Unfortunately, it takes a LOT of time!</p>
 <br />
 <br />
-<p><small>*HAHAHAHAHAHAHAHAHAHA.... <img class="emoji" draggable="false" alt="😭" src="https://twemoji.maxcdn.com/v/14.0.2/svg/1f62d.svg" data-marp-twemoji=""/></small></p>
+<p>*HAHAHAHAHAHAHAHAHAHA.... <img class="emoji" draggable="false" alt="😭" src="https://twemoji.maxcdn.com/v/14.0.2/svg/1f62d.svg" data-marp-twemoji=""/></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="3" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+<h1>UPDATED TITLE</h1>
+<h1>Modeling through Statsmodels/Sklearn: You're going to hate me</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="4" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Statsmodels</h1>
 <p>Let's make statistics in Python easy!</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="4" data-marpit-fragments="2" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="5" data-marpit-fragments="2" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Importing Statsmodels</h1>
 <p>We can import <code>statsmodels</code> in one of two ways:</p>
 <ol>
@@ -45,7 +49,7 @@
 </span></span></foreignObject></svg></code></pre>
 <p>Let's start with option 1...</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="5" data-marpit-fragments="3" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="6" data-marpit-fragments="3" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Preparing a Dataset</h1>
 <p>When using formulas, we prepare our dataset by importing the data into a Pandas <code>DataFrame</code>. We should take care that each of our variables has a name with</p>
 <ol>
@@ -54,7 +58,7 @@
 <li data-marpit-fragment="3">Made up of letters and numbers (also can't have a number as the first character)</li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="6" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="7" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Preparing a Dataset</h1>
 <p>Our code so far might look something like:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">import</span> statsmodels.formula.api <span class="hljs-keyword">as</span> smf
@@ -65,7 +69,7 @@ data = pd.read_csv(<span class="hljs-string">&quot;https://github.com/dustywhite
 </span></span></foreignObject></svg></code></pre>
 <p>Assuming that our data set has already been cleaned</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="7" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="8" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Regression Equations</h1>
 <p><code>statsmodels</code> incorporates <code>R</code>-style regression equations by using the <code>patsy</code> library behind the scenes. The pattern is as follows:</p>
 <br />
@@ -73,7 +77,7 @@ data = pd.read_csv(<span class="hljs-string">&quot;https://github.com/dustywhite
 <br />
 <p>The regression equation will be held in a string (unlike in <code>R</code>)</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="8" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="9" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Implementing a Model</h1>
 <p>The first thing we might try is a simple linear regression:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>reg = smf.ols(<span class="hljs-string">&quot;hhincome ~ year&quot;</span>, data=data).fit()
@@ -84,7 +88,7 @@ data = pd.read_csv(<span class="hljs-string">&quot;https://github.com/dustywhite
 <span class="hljs-built_in">print</span>(reg.summary())
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="9" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="10" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Advancing our Model</h1>
 <p>It might be useful to create state-level fixed effects by including dummy variables for the states in our <code>statefip</code> column.</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>reg = smf.ols(<span class="hljs-string">&quot;np.log(hhincome) ~ year + C(statefip)&quot;</span>, 
@@ -93,7 +97,7 @@ data = pd.read_csv(<span class="hljs-string">&quot;https://github.com/dustywhite
 </span></span></foreignObject></svg></code></pre>
 <p>The <code>C()</code> command indicates that we would like to consider the <code>statefip</code> variable as a <strong>C</strong>ategorical variable, not a numeric variable.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="10" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="11" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Additional Transformations</h1>
 <p>Sometimes we want to include transformed variables in our model:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># Square a variable using the I() function for</span>
@@ -107,7 +111,7 @@ reg = smf.ols(<span class="hljs-string">&quot;np.log(hhincome) ~ I(age-education
 	data=data).fit()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="11" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="12" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Robust Modeling</h1>
 <p>If we want to utilize robust standard errors, we can update our regression results:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>reg = smf.ols(<span class="hljs-string">&quot;np.log(hhincome) ~ year + C(statefip)&quot;</span>, 
@@ -117,7 +121,7 @@ reg.get_robustcov_results(cov_type=<span class="hljs-string">&#x27;HC0&#x27;</sp
 <span class="hljs-built_in">print</span>(reg.summary())
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="12" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="13" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>More robust modeling</h1>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>reg = smf.ols(<span class="hljs-string">&quot;np.log(hhincome) ~ year + C(statefip)&quot;</span>, 
 	data=data).fit()
@@ -127,7 +131,7 @@ reg.get_robustcov_results(cov_type=<span class="hljs-string">&#x27;cluster&#x27;
 <span class="hljs-built_in">print</span>(reg.summary())
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="13" data-marpit-fragments="4" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="14" data-marpit-fragments="4" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Robust Modeling</h1>
 <p>Below are some of the <a href="http://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.RegressionResults.get_robustcov_results.html">covariance options</a> that we have:</p>
 <ol>
@@ -137,7 +141,7 @@ reg.get_robustcov_results(cov_type=<span class="hljs-string">&#x27;cluster&#x27;
 <li data-marpit-fragment="4"><code>hac-panel</code>: Panel robust standard errors</li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="14" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="15" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Time Series Models</h1>
 <p>We have multiple time series options available.</p>
 <ul>
@@ -146,7 +150,7 @@ reg.get_robustcov_results(cov_type=<span class="hljs-string">&#x27;cluster&#x27;
 <li><a href="https://www.statsmodels.org/stable/tsa.html#exponential-smoothing">Exponential Smoothing</a> models</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="15" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="16" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Modeling Discrete Outcomes</h1>
 <p>If we have a binary dependent variable, we are able to use either <a href="">Logit</a> or <a href="">Probit</a> models to estimate the effect of exogenous variables on our outcome of interest. To fit a Logit model:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">import</span> statsmodels.api <span class="hljs-keyword">as</span> sm
@@ -155,7 +159,7 @@ myformula=<span class="hljs-string">&quot;married ~ hhincome + C(statefip) + C(y
 model= sm.Logit.from_formula(myformula, data=data).fit()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="16" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="17" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Modeling Count Data</h1>
 <p>When modeling count data, we have options such as <a href="http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.Poisson.html#statsmodels.discrete.discrete_model.Poisson">Poisson</a> and <a href="http://www.statsmodels.org/dev/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html#statsmodels.discrete.discrete_model.NegativeBinomial">Negative Binomial</a> models.</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>data = pd.read_csv(<span class="hljs-string">&quot;auto-mpg.csv&quot;</span>)
@@ -165,11 +169,11 @@ myformula=<span class="hljs-string">&quot;nchild ~ hhincome + C(statefip) + C(ye
 model= sm.Poisson.from_formula(myformula, data=data).fit()
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="17" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="18" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1><code>patsy</code>: Using Regression Equations</h1>
 <p>Breaking out our regression equations!</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="18" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="19" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Why use <code>patsy</code>?</h1>
 <ul>
 <li>We could just select our variables manually, and creating a column of ones is trivial (remember??)</li>
@@ -182,11 +186,11 @@ model= sm.Poisson.from_formula(myformula, data=data).fit()
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="19" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="20" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Why use <code>patsy</code> when <code>statsmodels</code> handles it for us?</h1>
 <p>By breaking out our regression equations, we can use the same data splits and processing steps for both <code>statsmodels</code> and for <code>sklearn</code> (which does not use <code>patsy</code>)!</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="20" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Getting Started</h1>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">import</span> patsy <span class="hljs-keyword">as</span> pt
 <span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
@@ -205,7 +209,7 @@ x = pt.dmatrix(<span class="hljs-string">&quot;~ year + educ + married + age&quo
 </span></span></foreignObject></svg></code></pre>
 <p>These regression equations automatically include an intercept term.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="21" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Categorical Variables</h1>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># To create y AND x matrices</span>
 eqn = <span class="hljs-string">&quot;hhincome ~ C(year) + educ + married + age&quot;</span>
@@ -214,7 +218,7 @@ y, x = pt.dmatrices(eqn, data = data)
 <p>Categorical variables can be broken out into binary variables using the <code>C()</code> syntax inside of the regression equation.</p>
 <p>In this case, there would be binary variables for each unique value of <code>year</code>.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="22" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Transforming Variables</h1>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># To create y AND x matrices</span>
 eqn = <span class="hljs-string">&quot;I(np.log(hhincome)) ~ C(year) + educ + married + age + I(age**2)&quot;</span>
@@ -223,7 +227,7 @@ y, x = pt.dmatrices(eqn, data = data)
 <p>We can transform variables using the <code>I()</code> syntax inside of the regression equation. We then use any numeric transformation that we choose to impose on our data.</p>
 <p>In this case, we logged our dependent variable, <code>hhincome</code>, and added the square of our <code>age</code> term.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="23" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>SUPER IMPORTANT <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> Same Transformation on New Data!</h1>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># To create a new x matrix based on our previous version</span>
 
@@ -232,7 +236,7 @@ xNew = pt.build_design_matrices([x.design_info], dataNew)
 <p>We can create a new matrix in the SAME SHAPE as our original <code>x</code> matrix by using the <code>build_design_matrices()</code> function in <code>patsy</code>.</p>
 <p>We pass a list containing the old design matrix information, as well as the new data from which to construct our new matrix.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="24" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Why Does Recreating our <code>x</code> array Matter?</h1>
 <ul>
 <li>Ensures that we always have the same number of categories</li>
@@ -241,20 +245,27 @@ xNew = pt.build_design_matrices([x.design_info], dataNew)
 <li>AGAIN - <img class="emoji" draggable="false" alt="❤️" src="https://twemoji.maxcdn.com/v/14.0.2/svg/2764.svg" data-marp-twemoji=""/> streamlines the use of <code>statsmodels</code> and <code>sklearn</code> in the same workflow <img class="emoji" draggable="false" alt="❤️" src="https://twemoji.maxcdn.com/v/14.0.2/svg/2764.svg" data-marp-twemoji=""/></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="25" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="26" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>scikit-learn</h1>
 <p>see <img class="emoji" draggable="false" alt="🤖" src="https://twemoji.maxcdn.com/v/14.0.2/svg/1f916.svg" data-marp-twemoji=""/> learn</p>
 <p>learn, <img class="emoji" draggable="false" alt="🤖" src="https://twemoji.maxcdn.com/v/14.0.2/svg/1f916.svg" data-marp-twemoji=""/>, learn!</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="26" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="27" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Predictive Modeling</h1>
 <p>What <code>statsmodels</code> does for regression analysis, <code>sklearn</code> does for predictive analytics and machine learning.</p>
 <ul>
 <li>Likely the most popular machine learning library today</li>
 <li>Has a standard API to make using the library VERY simple.</li>
 </ul>
+<pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># Import some data...</span>
+data = pd.read_csv(<span class="hljs-string">&quot;https://github.com/dustywhite7/Econ8310/
+raw/master/DataSets/occupancyTrain.csv&quot;</span>)
+
+<span class="hljs-comment"># Build x, y matrices</span>
+y, x = pt.dmatrices(<span class="hljs-string">&quot;Occupancy ~ -1 + Light + CO2&quot;</span>, data=data)
+</span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="27" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="28" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Decision Tree Classification (and Regression)</h1>
 <p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier">Classification</a> and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor">Regression</a> Trees (CARTs) are the standard jumping-off point for exploring machine learning. They are very easy to implement in <code>sklearn</code>:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> tree
@@ -268,7 +279,7 @@ pred = clf.predict(new_xs)
 <span class="hljs-built_in">print</span>(accuracy_score(new_ys, pred))
 </span></span></foreignObject></svg></code></pre>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="28" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="29" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Support Vector Machines</h1>
 <p>We also implement <a href="http://scikit-learn.org/stable/modules/svm.html#svm">Support Vector Machines</a> for both <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">classification</a> and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR">regression</a>:</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> svm
@@ -283,7 +294,7 @@ pred = clf.predict(new_xs)
 </span></span></foreignObject></svg></code></pre>
 <p>Can you see the API pattern yet?</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="29" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="30" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Random Forest Models</h1>
 <p>Again, available in both <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier">classification</a> and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor">regression</a> flavors, these models are aggregations of many randomized Decision Trees.</p>
 <pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">from</span> sklearn.ensemble <span class="hljs-keyword">import</span> RandomForestClassifier
@@ -298,7 +309,7 @@ pred = clf.predict(new_xs)
 </span></span></foreignObject></svg></code></pre>
 <p>There MUST be a pattern here...</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="30" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="31" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>More from <code>sklearn</code></h1>
 <p>Many other tools are also available to aid in the data cleaning process through <code>sklearn</code>. Some of these are:</p>
 <ul>
@@ -314,11 +325,11 @@ pred = clf.predict(new_xs)
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html#sklearn.tree.plot_tree">Plotting decision trees</a></li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="31" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 960 720"><foreignObject width="960" height="720"><section id="32" data-class="default" data-theme="default" class="default" style="--class:default;--theme:default;" data-size="4:3">
 <h1>Lab time!</h1>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:f}=t.children;for(let r=0;r<f;r+=1){const o=t.children[r];if(o.getScreenCTM){const t=o.getScreenCTM();if(t){const r=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,a=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.children.length;for(let e=0;e<l;e+=1){const n=o.children[e];if("SECTION"===n.tagName){const{style:e}=n;e.transformOrigin||(e.transformOrigin=`${-r}px ${-a}px`),e.transform=`scale(${c}) matrix(${t.a}, ${t.b}, ${t.c}, ${t.d}, ${t.e-d.left}, ${t.f-d.top}) translateZ(0.0001px)`;break}}}}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),f=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",f)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
-</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>```python
+</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="14" tabindex="0"><p>```python
 from statsmodels.tsa.arima_model import ARIMA
 
 y = data.loc[data['statefip']==31, ['hhincome','year']]

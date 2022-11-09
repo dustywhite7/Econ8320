@@ -25,7 +25,14 @@ Unfortunately, it takes a LOT of time!
 <br>
 <br>
 
-<small>*HAHAHAHAHAHAHAHAHAHA.... :sob:</small>
+ *HAHAHAHAHAHAHAHAHAHA.... :sob:
+
+
+---
+
+# UPDATED TITLE
+# Modeling through Statsmodels/Sklearn: You're going to hate me
+
 
 ---
 
@@ -373,6 +380,15 @@ What `statsmodels` does for regression analysis, `sklearn` does for predictive a
 
 - Likely the most popular machine learning library today
 - Has a standard API to make using the library VERY simple.
+
+```python
+# Import some data...
+data = pd.read_csv("https://github.com/dustywhite7/Econ8310/
+raw/master/DataSets/occupancyTrain.csv")
+
+# Build x, y matrices
+y, x = pt.dmatrices("Occupancy ~ -1 + Light + CO2", data=data)
+```
 
 
 ---
