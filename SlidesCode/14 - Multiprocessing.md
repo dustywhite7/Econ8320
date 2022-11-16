@@ -55,7 +55,7 @@ It is important to note that when a program is running, it typically has a singl
 
 When we perform tasks, some steps MUST be performed sequentially.
 
-- We need to aim our penalty shot in FIFA before taking the kick
+- We need to import data before we clean it
 - We need to estimate regression coefficients before we can estimate standard errors on those coefficients
 - We need to fit a machine learning model before we can use it to make predictions
 
@@ -164,115 +164,115 @@ This is our function for actually integrating a function `f` from `xmin` to `xma
 
 ---
 
-# Example - Numeric Integration Convergence
+# Using Multiple Processes
+
+Some computational power must be assigned to send off processes and to retrieve their results upon completion. 
+- Parallel processing is not good for simple problems
+- It's reserved for computationally intensive problems
+
+---
+
+# Using Multiple Processes
+
+It's not worthwhile to make a parallel version of our single integral function above. Instead, let's create a function that can calculate the integral many times in parallel. 
+
+First, the serial version:
 
 ```python
-def serial(samples, f, lb, ub):
-  return [integral(s, f, lb, ub) for s in range(samples)]
-    
-def multiprocess(processes, samples, f, lb, ub):
+def serial_average(n_bins, n_reps, f, xmin, xmax):
+  attempts = [serial_integral(n_bins, f, xmin, xmax) for i in range(n_reps)]
+  return sum(attempts)/n_reps
+```
+
+---
+
+# Using Multiple Processes
+
+Now, we write it in parallel:
+
+```python
+def parallel_average(processes, n_bins, n_reps, f, xmin, xmax):
   pool = mp.Pool(processes=processes)
-  results = [pool.apply_async(integral, 
-    args=(s, f, lb, ub)) for s in range(samples)]
+  results = [pool.apply_async(serial_integral, 
+      (n_bins, f, xmin, xmax)) for i in range(n_reps)]
   results = [p.get() for p in results]
-  results.sort() # to sort the results
-  return [x[1] for x in results]
+  return sum(results)/n_reps
 ```
 
-We specify two functions to estimate integrals of `f`. One does so using serial code, the other parallelizes the estimates.
+Let's explore what that function does.
 
 ---
 
-# Example - Numeric Integration Convergence
+# Using Multiple Processes
 
 ```python
-def multiprocess(processes, samples, f, lb, ub):
+def parallel_average(processes, n_bins, n_reps, f, xmin, xmax):
   pool = mp.Pool(processes=processes)
   ...
   return ...
 ```
 
-The `multiprocessing.Pool` class allows us to define the degree to which we want to spread our work across various **processes**
-
-- We need to take care to choose the right number of processes for our machine!
+The `mp.Pool` class provides the functionality to organize our processes. We specify how many active processes there should be at any time `proceses`.
+- Performance is best when the number of processes is at or below the number of cores available
 
 ---
 
-# Example - Numeric Integration Convergence
+# Using Multiple Processes
 
 ```python
-def multiprocess(processes, samples, f, lb, ub):
+def parallel_average(processes, n_bins, n_reps, f, xmin, xmax):
   ...
-  results = [pool.apply_async(integral, 
-    args=(s, f, lb, ub)) for s in range(samples)]
+  results = [pool.apply_async(serial_integral, 
+        (n_bins, f, xmin, xmax)) for i in range(n_reps)]
   ...
   return ...
 ```
 
-We next use the `apply_async` method to pass the values that we want our pooled instances to calculate
-- Need to provide the function to be executed, as well as the arguments for the function
+The `apply_async` method passes the values that we want our pooled instances to calculate. We provide 
+- the function to be executed
+- the arguments for the function in each iteration with each each of the arguments an element in a tuple
+
+In our example, we are not varying the arguments, so that is a constant
 
 ---
 
-# Example - Numeric Integration Convergence
+# Using Multiple Processes
 
 ```python
-def multiprocess(processes, samples, f, lb, ub):
+def parallel_average(processes, n_bins, n_reps, f, xmin, xmax):
   ...
   results = [p.get() for p in results]
   ...
   return ...
 ```
-The next step is to use the `get()` method on each element of our returned processes. This will fetch the return statement values from each of the processes that we executed in the last line.
+The next step is to use the `get()` method to fetch the return statement values from each of the processes that we declared in the last line. This is where the code actually runs.
+
+The rest of the function works just like the serial version.
 
 ---
 
-# Example - Numeric Integration Convergence
+# Timing it
 
-```python
-def multiprocess(processes, samples, f, lb, ub):
-  ...
-  results.sort() # to sort the results
-  return ...
-```
-Remember when we included two elements in our `return` statement for the `integrate` method? We now sort our results based on the `nSample` value, so that we have our integral estimates in order from lowest number of intervals to highest (so that we can track convergence)
-
----
-
-# Example - Numeric Integration Convergence
-
-```python
-def multiprocess(processes, samples, f, lb, ub):
-  ...
-  return [x[1] for x in results]
-```
-<br>
-
-We don't need the first element in each array anymore (it's already sorted), so we return the second element in each result as a list. It will look just like the results from our `serial` method
-
----
-
-# Example - Timing it
+Next, it is time to write code that will allow us to test our parallel and serial performance.
 
 ```python
 import timeit # library for timing execution of code
 
 benchmarks = [] # list to store our execution times
 
-benchmarks.append(timeit.Timer('serial(10000, f, 0, 1)',
-  'from __main__ import serial, f').timeit(number=1))
+benchmarks.append(timeit.Timer('serial_average(10000, 100, f, 0, 1)',
+  'from __main__ import serial_average, serial_integral, f').timeit(number=1))
     # Note that we need to include a second line
     # that imports our functions from __main__.
     # This tells the timer what needs to be IN SCOPE
 
 benchmarks.append(timeit.Timer(
-  'multiprocess(2, 10000, f, 0, 1)',
-  'from __main__ import multiprocess, f').timeit(
+  'parallel_average(2, 10000, 100, f, 0, 1)',
+  'from __main__ import parallel_average, serial_integral, f').timeit(
     number=1))
     # Need to include number of processes
     # when timing the parallel implementation
 ```
-
 ---
 
 # Example - Timing it
