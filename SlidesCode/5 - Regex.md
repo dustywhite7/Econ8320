@@ -372,7 +372,7 @@ re.search(r'\b(100|[1-9][0-9]|[0-9])\b', mystring)
 
 # Phone Numbers
 
-How can we solve our phone number problem?
+How can we solve our phone number problem using this same process?
 
 Take 5 minutes and try with your neighbors.
 1) 425-389-1180
@@ -424,21 +424,6 @@ What if we want to find city, state abbreviation combinations (ie Miami, FL) fro
 
 Take 5 minutes to try it out. What shorthand might help?
 
----
-
-# City, State Combinations
-
-What if we want to find city, state abbreviation combinations (ie Miami, FL) from a text address?
-
-```python
-re.search(r'((\b\w+\b)+(\s)?){1,3}, ([A-Z]{2})', mystring)
-```
-
-1) "6708 Pine Street, Omaha, NE 68182"
-2) "1600 Pennsylvania Ave NW, Washington, DC 20006"
-3) "261 S 800 E\nSalt Lake City, UT 84102"
-
-This code assumes that a city name will not consist of more than 3 words. (Dangerous assumption)
 
 ---
 
@@ -447,7 +432,7 @@ This code assumes that a city name will not consist of more than 3 words. (Dange
 What if we want to find city, state abbreviation combinations (ie Miami, FL) from a text address?
 
 ```python
-myexp = r'(?:(?:\n|, )(.*)(?:, )([A-Z]{2}))'
+myexp = r'(?<=( |\n))((\w| )+)(?:, )([A-Z]{2})'
 ```
 
 This will get us what we want without the constraints on city name
@@ -460,26 +445,39 @@ What is going on, though?
 
 What is this statement doing?
 ```python
-myexp = r'(?:(?:\n|, )(.*)(?:, )([A-Z]{2}))'
+myexp = r'(?<=( |\n))((\w| )+)(?:, )([A-Z]{2})'
 ```
 `(` and `)` allow us to denote **groups** in our expression
 
-- We have one overarching group (the outer group)
-- We have a series of inner groups, breaking our code into small segments
+- We have a series of groups, breaking our code into small segments
 
 ---
 
-# Groups
+# Non-capturing Groups
 
 What is this statement doing?
 ```python
-myexp = r'(?:(?:\n|, )(.*)(?:, )([A-Z]{2}))'
+myexp = r'(?<=( |\n))((\w| )+)(?:, )([A-Z]{2})'
 ```
 
 Within our groups, we have a new, unique symbol: `?:`
 
 - When used inside a group, this indicates that we do not care to capture the group
 - This is useful when we change how we use the `re` library
+
+---
+
+# Non-capturing Groups
+
+What is this statement doing?
+```python
+myexp = r'(?<=( |\n))((\w| )+)(?:, )([A-Z]{2})'
+```
+
+Within our groups, we have a new, unique symbol: `?>=`
+
+- A **positive lookbehind** let's us condition our group on the thing that comes before it.
+- Sometimes this is easier to define than our pattern itself!
 
 ---
 
@@ -491,7 +489,7 @@ Within our groups, we have a new, unique symbol: `?:`
 3) "261 S 800 E\nSalt Lake City, UT 84102"
 
 ```python
-myexp = r'(?:(?:\n|, )(.*)(?:, )([A-Z]{2}))'
+myexp = r'(?<=( |\n))((\w| )+)(?:, )([A-Z]{2})'
 re.findall(myexp, mystring)
 ```
 
