@@ -18,8 +18,9 @@ What are the ways that we have learned so far to handle data?
 <!-- - Flat Files (we kind of skipped this) -->
 - Lists of lists
 - Dictionaries
+- Custom Classes
 
-Neither of these are particularly conducive to data exploration and quick manipulation
+None of these are particularly conducive to data exploration and quick manipulation
 
 ---
 
@@ -242,7 +243,8 @@ data['Column'].fillna(method='pad') # fill values forward
 
 `.map()` enables us to apply a function to each value item-by-item in a single column
 
-`.apply()` provides the same functionality column-by-column or row-by-row (use the `axis` parameter to specify), with each row being the input to the funtion, rather than a single value in one column
+`.apply()` provides the same functionality column-by-column or row-by-row (use the `axis=1` argument to specify that you want to operate on one row at a time)
+- Each row is the input to the funtion, rather than a single value from one column
 
 ---
 
@@ -320,7 +322,7 @@ We are using `mysql` via the `mysqlconnector` module. Next, we provide our `user
 
 # Using SQL with Python
 
-The first thing we need to do is to establish a connection to our database:
+The first thing we need to do is to establish a connection to our database (will vary based on SQL flavor and server):
 
 
 ```python
