@@ -111,14 +111,14 @@ The regression equation will be held in a string (unlike in `R`)
 The first thing we might try is a simple linear regression:
 
 ```python
-reg = smf.ols("hhincome ~ year", data=data).fit()
+reg = smf.ols("hhincome ~ educ", data=data).fit()
 print(reg.summary())
 ```
 
-Or, I might want to try regressing year on the logged average household incomes:
+Or, I might want to try regressing education on **logged** household incomes:
 
 ```python
-reg = smf.ols("np.log(hhincome) ~ year", data=data).fit()
+reg = smf.ols("np.log(hhincome) ~ educ", data=data).fit()
 print(reg.summary())
 ```
 
@@ -127,14 +127,14 @@ print(reg.summary())
 
 # Advancing our Model
 
-It might be useful to create state-level fixed effects by including dummy variables for the states in our `statefip` column.
+It might be useful to create effects by including dummy variables for the values in our `race` column.
 
 ```python
-reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
+reg = smf.ols("np.log(hhincome) ~ educ + C(race)", 
 	data=data).fit()
 print(reg.summary())
 ```
-The `C()` command indicates that we would like to consider the `statefip` variable as a **C**ategorical variable, not a numeric variable.
+The `C()` command indicates that we would like to consider the `race` variable as a **C**ategorical variable, not a numeric variable.
 
 
 ---
@@ -153,7 +153,7 @@ reg = smf.ols("np.log(hhincome) ~ age + I(age**2)",
 ```python
 # Combine variables using the I() function for
 #   mathematical transformations
-reg = smf.ols("np.log(hhincome) ~ I(age-education-5)", 
+reg = smf.ols("np.log(hhincome) ~ I(age-educ-5)", 
 	data=data).fit()
 ```
 
@@ -165,7 +165,7 @@ reg = smf.ols("np.log(hhincome) ~ I(age-education-5)",
 If we want to utilize robust standard errors, we can update our regression results:
 
 ```python
-reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
+reg = smf.ols("np.log(hhincome) ~ educ + C(race)", 
 	data=data).fit()
 # Use White's (1980) Standard Error
 reg.get_robustcov_results(cov_type='HC0')
@@ -177,11 +177,11 @@ print(reg.summary())
 # More robust modeling
 
 ```python
-reg = smf.ols("np.log(hhincome) ~ year + C(statefip)", 
+reg = smf.ols("np.log(hhincome) ~ educ + C(race)", 
 	data=data).fit()
 # Use Cluster-robust Standard Errors
 reg.get_robustcov_results(cov_type='cluster', 
-	groups=data['statefip']) # Need to specify groups
+	groups=data['race']) # Need to specify groups
 print(reg.summary())
 ```
 
@@ -247,8 +247,8 @@ If we have a binary dependent variable, we are able to use either [Logit]() or [
 ```python
 import statsmodels.api as sm
 
-myformula="married ~ hhincome + C(statefip) + C(year) + educ"
-model= sm.Logit.from_formula(myformula, data=data).fit()
+myformula = "married ~ hhincome + C(race) + educ"
+model = sm.Logit.from_formula(myformula, data=data).fit()
 ```
 
 ---
@@ -259,11 +259,9 @@ When modeling count data, we have options such as [Poisson](http://www.statsmode
 
 
 ```python
-data = pd.read_csv("auto-mpg.csv")
+myformula = "nchild ~ hhincome + C(race) + educ + married"
 
-myformula="nchild ~ hhincome + C(statefip) + C(year) + educ + married"
-
-model= sm.Poisson.from_formula(myformula, data=data).fit()
+model = sm.Poisson.from_formula(myformula, data=data).fit()
 ```
 
 ---

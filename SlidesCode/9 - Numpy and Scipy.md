@@ -12,18 +12,22 @@ size: 4:3
 
 ---
 
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2Fecb4ef81c389a65c2e7b1e6c3cba91a4%2Ftenor.gif%3Fitemid%3D14947968&f=1&nofb=1&ipt=c0cd682b6a32a9f8258e322c1d7392ecae92aaa599e1f67aa282b425628d51e8&ipo=images)
+
+---
+
 # Arrays and Math
 
-While we know that arrays and lists exist in Python, we have not yet tried to do any real computation with those tools.
+While we know that arrays and lists exist in Python, we have not yet tried to do any real computation with those tools on our own.
 
-Let's get started by doing some simple computations:
+Let's get started by doing some "simple" computations:
 
 - Calculate the dot product of two vectors of equal length
 <!-- - Multiply two conforming matrices -->
 
 ---
 
-# Dot Product
+# Review: Dot Product
 
 The **dot product** of two vectors is the sum of the products of the corresponding elements in each vector. We can write it as follows:
 
@@ -50,7 +54,7 @@ This code allows us to calculate the dot product.
 
 ---
 
-# Matrix Multiplication
+# Review: Matrix Multiplication
 
 We can multiply two matrices when the number of columns in the first matrix are equal to the number of rows in the second matrix:
 
@@ -64,7 +68,7 @@ In this case, the matrices are conforming, and can be multiplied together
 
 ---
 
-# Matrix Multiplication
+# Review: Matrix Multiplication
 
 $$
 A =
@@ -99,7 +103,7 @@ $$
 
 ---
 
-# Matrix Multiplication
+# Review: Matrix Multiplication
 
 $$
 A =
@@ -126,7 +130,7 @@ We calculate all elements of $C$ in this manner
 
 ---
 
-# Matrix Multiplication
+# Review: Matrix Multiplication
 
 ![](https://github.com/dustywhite7/Econ8320/raw/master/SlidesCode/matMult.png)
 
@@ -175,7 +179,7 @@ def matMul(a, b): # Define function, take 2 matrices
 
 # Computations and Python
 
-It is great that Python is so flexible that we can quickly write functions to do calculations like matrix multiplication.
+It is great that Python is so flexible that we can quickly (hahahaha) write functions to do calculations like matrix multiplication.
 - Do we WANT to write out functions to do all of the mathematical processes we need for different kinds of analysis?
 	- Random number generators?
 	- Matrix inversion algorithms?
@@ -314,7 +318,7 @@ def squareFunc(a=1, b=1, c=1, x=1):
   # return coef @ xs
 ```
 
-Why write this with arrays? Because vectorized math using `numpy` is FAR more efficient computationally. This doesn't matter for our current use case, but is very important when writing large scale code!
+Why write this with arrays? Because vectorized math using `numpy` is FAR more efficient computationally. This doesn't really matter for our current use case, but is very important when writing large scale code!
 
 ---
 <!--
