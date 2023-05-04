@@ -292,6 +292,46 @@ The parallel version of this problem executes over 5x faster than the serial ver
 ```python 
 mp.cpu_count() # Tells us the number of available CPUs
 ```
+
+---
+
+# Other helpers - `tqdm`
+
+`tqdm` is a great library for keeping up on the status of a large loop.
+
+```python
+from tqdm import tqdm
+import time
+
+for i in tqdm(range(10)):
+  time.sleep(2)
+  print(i)
+```
+
+---
+
+# Other helpers - `tqdm`
+
+We can also use `tqdm` with `pandas` to make life even better!
+
+Add the line `tqdm.pandas()` to the top of your code (after imports), and then your pandas `map` and `apply` functions will also provide progress bars! :smiley:
+
+---
+
+# `tqdm` and parallel `pandas`
+
+One final feature is the `process_map` function available through `tqdm`, enabling us to use parallel coding with a progress bar!
+
+```python
+from tqdm.contrib.concurrent import process_map
+
+output = process_map(function_to_run, 
+                iterable_arguments, 
+                max_workers=number_of_threads)
+```
+
+
+
 <!-- 
 ---
 
