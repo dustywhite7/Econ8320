@@ -948,9 +948,16 @@ from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
 import re
+import time
 
 # A function to collect lego sets from search results on brickset.com
 def collectLegoSets(startURL):
+    # Add headers to imitate a real browser
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Referer': 'https://www.google.com/'
+    }
     # Retrieve starting URL
     myPage = requests.get(startURL)
 
@@ -988,13 +995,17 @@ def collectLegoSets(startURL):
     
     # If there is another page of results, grab it and combine
     if nextPage:
+        time.sleep(2)
         return pd.concat([newData, collectLegoSets(nextPage)], axis=0)
     # Otherwise return the current data
     else:
         return newData
 ```
 
-One important note is that we use several `try`-`except` blocks. These code blocks permit us to write code that *might* result in an error. This is the code that is indented beneath the `try` keyword. Then, we write code that should be executed whenever an error *does* occur under the `except` keyword. In this way, we prevent errors from breaking our function, and we can better control the data that is recorded in our Data Frame. Let's run the code now:
+*Note: We sometimes need to use **headers** (text telling the website what kind of browser we are "using") so that we are able to access the website we want to scrape. Mileage will vary by website*
+(Shoutout to Kiran Best of Aalto University for finding the right header to keep this site working as an example)
+
+Observe that we use several `try`-`except` blocks. These code blocks permit us to write code that *might* result in an error. This is the code that is indented beneath the `try` keyword. Then, we write code that should be executed whenever an error *does* occur under the `except` keyword. In this way, we prevent errors from breaking our function, and we can better control the data that is recorded in our Data Frame. Let's run the code now:
 
 
 ```python
