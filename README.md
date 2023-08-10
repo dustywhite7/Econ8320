@@ -45,57 +45,40 @@ The exams in this course will be two projects, and will be completed outside of 
 
 ### Course Schedule
 
-#### Week 1
-**Data Types and Documentation** --
+#### Week 1 - Data types and documentation
 
-#### Week 2
-**Functions** --
+#### Week 2 - Conditions, loops and functions
 
-#### Week 3
-**Classes, Part 1** --
+#### Week 3 - Classes
 
-#### Week 4
-**Classes, Part 2** --
+#### Week 4 - Factoring and debugging
 
-#### Week 5
-**Threading** --
+#### Week 5 - Regular expression
 
-#### Week 6
-**Numpy and Scipy, Part 1** --
+#### Week 6 - Pandas and Dataframes
 
-#### Week 7
-**Numpy and Scipy, Part 2** --
+#### Week 7 - Web Scraping
 
-#### Week 8
-**Pandas (as well as pandasql and sqlite3)** --
+#### Week 8 - Web APIs
 
-### Week 9
-**Plotting Libraries (matplotlib, bokeh, plotly)** --
+### Week 9 - Numpy and numeric calculations
 
-### Week 10
-**Statsmodels (regression analysis)** --
+### Week 10 - Scipy and optimization
 
-### Week 11
-**Scikit-Learn (machine learning)** --
+### Week 11 - Plotting
 
-### Week 12
-**Regular Expression (regex)** --
+### Week 12 - Natural language processing (NLP)
 
-### Week 13
-**Scrapy, JSON** --
+### Week 13 - Statistical modeling
 
-### Week 14
-**Geolocation API's** --
+### Week 14 - Multiprocessing
 
-### Week 15
-**Twitter API's** --
-
-### Week 16
-**Dash (web applications)** --
-
+### Weeks 15 and 16 - Project Presentations
 
 ### ACADEMIC INTEGRITY
 
 UNO’s requirements for Academic Integrity and Behavior All students are required to adhere to the highest standards of academic integrity and behavior and must satisfy the UNO Academic Integrity Policy [http://www.unomaha.edu/student-life/student-conduct-and-community-standards/policies/academic-integrity.php](http://www.unomaha.edu/student-life/student-conduct-and-community-standards/policies/academic-integrity.php)  and Student Code of Conduct [http://www.unomaha.edu/student-life/student-conduct-and-community-standards/policies/code-of-conduct.php](http://www.unomaha.edu/student-life/student-conduct-and-community-standards/policies/code-of-conduct.php). It is the student’s responsibility to read, understand and abide by these policies.
 
 If I find that you have plagiarized, been dishonest in completing your assignments, or cheated an an exam or assignment, then I reserve the right to award you no points on the entire exam, project, or assignment and to report the behavior to the university. If this behavior is repeated, I reserve the right to award a failing grade, independent of your score on other assignments. Academic integrity is essential to education, and I take it very seriously.
+
+Using AI models such as ChatGPT to generate or clean or comment code without acknowledging their use is equivalent to plagiarism. These are legitimate tools and may be used, as long as you make it clear when and how they were used. Just remember, they can't replace a working knowledge of programming. If you let them solve all the problems, you have wasted your time. If you fail to cite AI coding models when you are using them (I can usually tell when you do), this is the same as cheating and will result in a failing grade.
