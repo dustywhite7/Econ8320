@@ -110,8 +110,8 @@ You wouldn't study French and not set aside time to practice. The same applies h
 
 # Getting Started in Python
 
-- Open the Codio IDE from the Canvas home page
-	- Codio allows us to execute code on a remote server, processing the code on uniform machines
+- Open the Google Colab home page
+	- [https://colab.research.google.com](https://colab.research.google.com)
 - Let's write some Python!
 
 ---
@@ -520,7 +520,7 @@ help(np.random) # or help(np.random.random)
 Learning to read documentation is a critical component of becoming a programmer, or using programming for pretty much any purpose.
 
 - Take your time
-- Follow this [link](http://lmgtfy.com/?q=random+integer+python) (Google is your friend!)
+- Follow this [link](https://letmegooglethat.com/?q=random+numbers+numpy) (Google is your friend!)
 - Don't Panic! 
 
 
