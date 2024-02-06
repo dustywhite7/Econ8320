@@ -274,7 +274,7 @@ class Sandwich(object):
 ---
 
 # Lab Time!
-
+<!-- 
 ---
 
 # Extra Practice!
@@ -301,4 +301,4 @@ Create your own ``ComplexNumber`` class!
 3. Add the following magic methods to your `ComplexNumber` class:
    - Implement ``__eq__()`` and ``__ne__()`` so that two ``ComplexNumber`` objects are equal if and only if they have the same real and imaginary parts.
  	-  Implement ``__add__()``, ``__sub__()``, ``__mul__()``, and ``__div__()`` appropriately. Each of these should return a new ``ComplexNumber`` object.
-
+ -->
