@@ -41,7 +41,7 @@ We write a series of logical steps that can be taken (given assumed inputs) in o
 
 Let's walk through factoring these problems
 
-**NOTE: DON'T PROCEEED WITH THIS VIDEO UNLESS YOU HAVE COMPLETED ASSIGNMENT 3**
+**NOTE: YOU SHOULD HAVE ALREADY COMPLETED ASSIGNMENT 3**
 
 
 ---
@@ -69,6 +69,16 @@ Let's walk through factoring these problems
 
 
 *Note: Anecdotally, "debugging" has its origins in the physical removal of bugs from giant vaccuum-tube computers in the early/mid 20th century, and is attributed to Grace Hopper*
+
+---
+
+# Debugging a new error
+
+1. Look up the error if you don't understand
+2. Read the stack trace, and figure out where your code was involved
+3. Determine what went wrong
+4. Figure out what you can do to resolve the problem
+5. Fix it. This might take LOTS of trial and error
 
 ---
 
@@ -108,7 +118,7 @@ Let's work through some code, in order to learn how to debug it.
 ---
 -->
 
-# Debugging in IPython
+# Debugging in IPython/Jupyter
 
 From inside an IPython console, we can run our script using 
 
@@ -120,7 +130,7 @@ This will run the script inside our console, and all variables will then be avai
 
 ---
 
-# Debugging in IPython
+# Debugging in IPython/Jupyter
 
 We can also run our script as
 
