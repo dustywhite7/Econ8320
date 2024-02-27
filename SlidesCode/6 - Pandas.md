@@ -7,7 +7,8 @@ size: 4:3
 ---
 
 
-# Week 6 - Pandas, SQL
+# Week 6 - Pandas 
+##### (and a HINT of SQL...)
 
 ---
 
@@ -31,6 +32,8 @@ When we want to manipulate data sets in a clean and efficient manner, we want to
 - Each variable can be considered a vector
 - Operations on a variable can be applied to all observations uniformly
 - We can quickly reduce the number of variables for specific questions
+
+*No way do we want to write a `for` loop for every little thing!*
 
 ---
 
@@ -70,13 +73,13 @@ We can also use pandas to easily read many types of files, and use them to creat
 ```python
 # CSV
 data = pd.read_csv(your_filename_here.csv)
-# or Excel Files
+# or Excel
 data = pd.read_excel(your_filename_here.xlsx)
-# or STATA Data
+# or STATA
 data = pd.read_stata(your_filename_here.dta)
-# or SAS Data
+# or SAS
 data = pd.read_sas(your_filename_here.sas7bdat)
-# or SQL Queries
+# or SQL
 data = pd.read_sql(your_query_here, your_connection_here)
 # and many others!
 ```
@@ -104,7 +107,7 @@ data[['Column1','Column2']]
 
 ---
 
-# Slicing the Data Frame
+# Slicing the Data Frame - Hard Version
 
 Two selection (or slicing) tools allow us to quickly subset our data.
 
@@ -120,7 +123,7 @@ data.iloc[:, 0] # Selects all rows, and first column
 
 ---
 
-# Slicing the Data Frame
+# Slicing the Data Frame - Easy Version
 
 Two selection (or slicing) tools allow us to quickly subset our data across both axes.
 
@@ -128,7 +131,7 @@ Two selection (or slicing) tools allow us to quickly subset our data across both
 data.loc[row_selection, column_selection]
 ```
 
-With the `.loc` method (now with no `i`), we can provide **name**-based selections, choose to select all rows or columns, and create subsets based on conditions.
+With the `.loc` method (now with no `i`), we can provide **name**-based selections, choose to select all rows or columns, and more.
 
 ```python
 data.loc[:, 'ColumnName'] # Selects all rows, one column
@@ -138,13 +141,8 @@ data.loc[:, 'ColumnName'] # Selects all rows, one column
 
 # Slicing the Data Frame
 
-Two selection (or slicing) tools allow us to quickly subset our data across both axes.
 
-```python
-data.loc[row_selection, column_selection]
-```
-
-With the `.loc` method (now with no `i`), we can provide **name**-based selections, choose to select all rows or columns, and create subsets based on conditions.
+With the `.loc` method (now with no `i`), we can also provide **logic**-based selections, creating subsets based on conditions.
 
 ```python
 data.loc[data['Column1'] == some_value, :]
@@ -161,16 +159,13 @@ We can quickly transform the data in a given column using the slicing techniques
 <br>
 
 ```python
-# Log the values of a variable
+# Log the values of a variable, replace old column
 data.loc[:,'Column1'] = np.log(data['Column1'])
 
-# Difference two variables
+# Difference two variables - make new column!
 data['newColumn'] = data['Column1'] - data['Column2']
-# Because the variable doesn't exist yet, we don't use
-#   the .loc syntax here
-# Instead, we just create a new column by naming it! Super easy!
 ```
-
+Because the variable doesn't exist yet, we don't use the .loc syntax here. Instead, we just create a new column by naming it! Super easy!
 
 ---
 
@@ -192,7 +187,7 @@ Remember! Indices MUST be unique values! In the case of a multi-level index, the
 
 ---
 
-# Transforming our Data
+# Datetimes and Date Processing
 
 Processing Datetimes is also easy with built-in Pandas functionality:
 
@@ -211,7 +206,7 @@ data['day'] = data['myDate'].dt.day
 
 ---
 
-# Date Processing
+# More Date Processing
 
 <br>
 
@@ -328,7 +323,7 @@ The first thing we need to do is to establish a connection to our database (will
 ```python
 from sqlalchemy import create_engine
 
-engineStr = 'mysql+mysqlconnector://student:cbasummer2020'
+engineStr = 'mysql+mysqlconnector://*username*:*password*'
 engineStr += '@35.202.92.40:3306'
 ```
 
@@ -346,7 +341,7 @@ The first thing we need to do is to establish a connection to our database:
 from sqlalchemy import create_engine
 
 # SQL flavor, user, password
-engineStr = 'mysql+mysqlconnector://student:cbasummer2020' 
+engineStr = 'mysql+mysqlconnector://*username*:*password*' 
 engineStr += '@35.202.92.40:3306' # Server Address
 engineStr += '/nfl' # Database Name
 
