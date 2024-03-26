@@ -80,7 +80,7 @@ data = pd.read_stata(your_filename_here.dta)
 # or SAS
 data = pd.read_sas(your_filename_here.sas7bdat)
 # or SQL
-data = pd.read_sql(your_query_here, your_connection_here)
+data = pd.DataFrame(engine.connect().execute(text(QUERY)))
 # and many others!
 ```
 
@@ -387,7 +387,7 @@ Our next step is to write a `SELECT` statement using SQL, and then to pass it to
 ```python
 select = """SELECT * FROM game WHERE seas=2019"""
             
-data = pd.read_sql(select, engine)
+data = pd.DataFrame(engine.connect().execute(text(select)))
 ```
 
 ---
