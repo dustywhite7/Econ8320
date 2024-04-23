@@ -342,6 +342,14 @@ px.scatter_geo(data, locations="Abbr",
 ![w:900](bubble1.png)
 
 
+---
+
+# Alternatives - `lets_plot`
+
+[lets-plot](https://lets-plot.org/) offers grammar of graphics plotting in Python
+- If you're coming from `ggplot2`, this might be a great alternative for you!
+- It still allows for lots of straightforward plotting, and exporting to html for embedding into websites!
+
 
 ---
 

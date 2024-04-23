@@ -6,7 +6,7 @@ class: default
 size: 4:3
 ---
 
-# Modeling through Statsmodels/Sklearn
+# Modeling through `statsmodels`/`sklearn`
 
 ---
 
@@ -31,18 +31,18 @@ Unfortunately, it takes a LOT of time!
 ---
 
 # UPDATED TITLE
-# Modeling through Statsmodels/Sklearn: You're going to hate me
+# Modeling through `statsmodels`/`sklearn`: You're going to hate me
 
 
 ---
 
-# Statsmodels
+# `statsmodels`
 
 Let's make statistics in Python easy!
 
 ---
 
-# Importing Statsmodels
+# Importing `statsmodels`
 
 We can import `statsmodels` in one of two ways:
 
@@ -66,7 +66,7 @@ Let's start with option 1...
 
 # Preparing a Dataset
 
-When using formulas, we prepare our dataset by importing the data into a Pandas `DataFrame`. We should take care that each of our variables has a name with 
+When using formulas, we prepare our dataset by importing the data into a `pandas` `DataFrame`. We should take care that each of our variables has a name with 
 1) **No spaces**
 2) No symbols
 3) Made up of letters and numbers (also can't have a number as the first character)
@@ -364,7 +364,7 @@ We pass a list containing the old design matrix information, as well as the new 
 ---
 
 
-# scikit-learn
+# scikit-learn (`sklearn`)
 
 see :robot: learn
 
