@@ -180,7 +180,8 @@ First, the serial version:
 
 ```python
 def serial_average(n_bins, n_reps, f, xmin, xmax):
-  attempts = [serial_integral(n_bins, f, xmin, xmax) for i in range(n_reps)]
+  attempts = [serial_integral(n_bins, f, xmin, xmax) 
+                for i in range(n_reps)]
   return sum(attempts)/n_reps
 ```
 
