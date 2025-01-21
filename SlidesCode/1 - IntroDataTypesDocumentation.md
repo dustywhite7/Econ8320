@@ -68,7 +68,7 @@ You wouldn't study French and not set aside time to practice. The same applies h
 |Final Project|30\%|
 |Participation|20\%|
 
-*Note: No matter what Codio says an assignment is worth, all homework assignments will have equal impact on your final grade*
+*Note: No matter what Github says an assignment is worth, all homework assignments will have equal impact on your final grade*
 
 
 ---
@@ -110,8 +110,8 @@ You wouldn't study French and not set aside time to practice. The same applies h
 
 # Getting Started in Python
 
-- Open the Google Colab home page
-	- [https://colab.research.google.com](https://colab.research.google.com)
+- Installing Python via Anaconda
+- Installing an IDE
 - Let's write some Python!
 
 ---
@@ -526,4 +526,6 @@ Learning to read documentation is a critical component of becoming a programmer,
 
 ---
 
-# Lab Time!
+# Lab Time - Introducing GitHub!
+
+Let's explore how to complete assignments in this class, and then you can get started!
