@@ -46,7 +46,7 @@ Let's walk through factoring these problems
 
 ---
 
-# Advantages of Factoring
+# Advantages of Factoring Reviewed
 
 <br>
 
@@ -68,7 +68,7 @@ Let's walk through factoring these problems
 - What needs to be fixed?
 
 
-*Note: Anecdotally, "debugging" has its origins in the physical removal of bugs from giant vaccuum-tube computers in the early/mid 20th century, and is attributed to Grace Hopper*
+*Note: Anecdotally, the term "debugging" has its origins in the physical removal of bugs from giant vaccuum-tube computers in the early/mid 20th century, and is attributed to Grace Hopper*
 
 ---
 
@@ -78,7 +78,8 @@ Let's walk through factoring these problems
 2. Read the stack trace, and figure out where your code was involved
 3. Determine what went wrong
 4. Figure out what you can do to resolve the problem
-5. Fix it. This might take LOTS of trial and error
+5. Fix it. This might take LOTS of trial and error.
+6. Move on to next error and go to step (1)
 
 ---
 
@@ -118,7 +119,13 @@ Let's work through some code, in order to learn how to debug it.
 ---
 -->
 
-# Debugging in IPython/Jupyter
+# Visual Debugging in Positron
+
+Let's walk through it!
+
+---
+
+# Debugging in Positron via console
 
 From inside an IPython console, we can run our script using 
 
@@ -176,19 +183,9 @@ The trace will kick your program to a debugger at the point in which the trace i
 
 # Doing Unit Tests
 
-```python
-import unittest
-
-class TestComNum(unittest.TestCase): 
-    
-    def test_ne(self):
-        self.assertNotEqual(ComplexNumber(4,3), ComplexNumber(4,-3))
-        
-
-unittest.main(argv=[''], verbosity=2, exit=False)
-```
-
 Let's look at the unittests used for grading a past assignment to learn more.
+
+Go to github and look in the `tests` folder in any assignment repository
 
 ---
 
