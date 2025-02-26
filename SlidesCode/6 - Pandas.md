@@ -403,35 +403,35 @@ Feel free to take a look at some slides about writing SQL query code:
 
 ---
 
-# PandaSQL and Data Cleaning
+# DuckDB, Pandas and Data Cleaning
 
-We can actually use SQL to clean our data within Pandas by making use of the `pandasql` library.
+We can actually use SQL to clean our data within Pandas by making use of the [`duckdb`](https://duckdb.org/docs/clients/python/overview.html) library.
 
 
 Get started by using the following code:
 ```python
-from pandasql import sqldf
-pysqldf = lambda q: sqldf(q, globals())
+import pandas as pd
+import duckdb
 ```
 
 If it isn't installed, you can install the library by running
 ```bash
-!pip install pandasql # "!" only needed in mimir/notebooks
+!pip install duckdb # "!" only needed in notebooks
 ```
 
 ---
 
-# PandaSQL and Data Cleaning
+# DuckDB, Pandas and Data Cleaning
 
 <br>
 
 ```python
-edited_data = pysqldf(select_statement_here)
+edited_data = duckdb.sql(query_with_data_frame_as_table)
 ```
 
-Using SQLite syntax, we can then clean any dataset using the same tools that we would to extract data from a database!
+Using the DuckDB SQL syntax, we can then clean any dataset using the same tools that we would to extract data from a database!
 
-We can aggregate, create new columns, group, and join across datasets, just like we would with SQL.
+We can aggregate, create new columns, group, and join across datasets, just like we would with SQL!
 
 <!---
 
