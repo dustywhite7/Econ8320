@@ -76,13 +76,15 @@ $$ \mathcal{L} = x^\alpha y^\beta + \lambda(I- p_x \cdot x - p_y \cdot y)  $$
 
 This is the **Lagrangian** expression of our optimization problem.
 
+In this case, we could algebraically solve the problem, **but that is not always the case**!
+
 <!-- Let's walk through the solution. -->
 
 ---
 
 # Geometrically
 
-![width:500px](paraboloid.png)
+![bg left 90%](paraboloid.png)
 
 
 In a computational optimization problem, we need to find a way to get ourselves to the optimum (minimum in this case), and to know when we get there.
@@ -91,7 +93,7 @@ In a computational optimization problem, we need to find a way to get ourselves 
 
 # Geometrically
 
-![width:500px](gradDesc.png)
+![bg right 100%](gradDesc.png)
 
 Typically, we use some form of **gradient descent** to find our way to the minimum value of a function.
 
@@ -99,7 +101,7 @@ Typically, we use some form of **gradient descent** to find our way to the minim
 
 # What is a gradient?
 
-A function, $f$, with two variables $x$ and $y$ has two partial derivatives:
+A function, $f$, with two input variables $x$ and $y$ has two partial derivatives:
 
 <br>
 
@@ -139,9 +141,11 @@ Think about it as the slope and direction of a hill you are hiking on.
 - Evaluate the gradient of the function
 - Find the direction of steepest descent
 - Determine how far to move in that direction
+  - Based on slope
 - Move to new point
 - Reevaluate the gradient
-- Stop moving when gradient is within a margin of error from 0
+- Stop moving when gradient is approximately 0
+  - Choose how close is close
 
 
 ---

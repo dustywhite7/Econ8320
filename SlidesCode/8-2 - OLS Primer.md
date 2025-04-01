@@ -3,6 +3,7 @@ marp: true
 title: Week 8.2 - OLS Primer
 theme: default
 class: default
+size: 4:3
 ---
 
 
