@@ -353,4 +353,15 @@ px.scatter_geo(data, locations="Abbr",
 
 ---
 
+# Alternatives
+
+- [`altair`](https://altair-viz.github.io/index.html) - vega plotting library
+- [`bokeh`](https://docs.bokeh.org/en/latest/index.html) - like plotly but different
+- :star:[`seaborn`](https://seaborn.pydata.org/) - particularly strong in statistical plots
+- [`plotnine`](https://plotnine.org/) - more grammar of graphics
+- [`matplotlib`](https://matplotlib.org/) - does ALL THE THINGS, but is hard to use
+- :star:[`folium`](https://python-visualization.github.io/folium/latest/) - for hardcore mapping
+
+---
+
 # Lab Time!
