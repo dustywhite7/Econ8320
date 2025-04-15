@@ -81,6 +81,8 @@ doc = nlp(jane)
 
 Here, we are pointing to the language file we want to use, and then parsing our text
 
+(`nlp` here is like `BeautifulSoup`, but instead of HTML, we are parsing human language)
+
 ---
 
 # Important attributes
@@ -172,7 +174,7 @@ Here, we are going to use `spacytextblob` to increase the functionality of our N
 
 ---
 
-# Use `spacytextblob` for sentiment analysis
+# `spacytextblob` sentiment analysis
 
 ```python
 import spacy
@@ -193,6 +195,7 @@ for sentence in blob.sents:
         sentence._.polarity, 
         sentence._.subjectivity))
 ```
+
 
 ---
 
