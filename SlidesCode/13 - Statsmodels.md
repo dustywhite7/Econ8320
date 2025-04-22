@@ -206,6 +206,8 @@ We have multiple time series options available.
 - [Exponential Smoothing](https://www.statsmodels.org/stable/tsa.html#exponential-smoothing) models
 
 
+(Join me next semester to explore these in depth!)
+
 <!--
 
 ```python
