@@ -126,8 +126,7 @@ Often, when integrating complicated functions, there is no **algebraic** solutio
 
 ```python
 import numpy as np 
-import multiprocessing as mp # This module is part of the
-			     # python standard library
+import multiprocess as mp 
 
 # define any function here!
 def f(x):
@@ -135,7 +134,7 @@ def f(x):
     return 1/(1 + x**2)
 ```
 
-The ``multiprocessing`` library is designed to create separate instances of the python interpreter, each returning values that are independent of the other instances
+The ``multiprocess`` library is designed to create separate instances of the python interpreter, each returning values that are independent of the other instances
 
 
 ---
@@ -143,7 +142,7 @@ The ``multiprocessing`` library is designed to create separate instances of the 
 # Example - Numeric Integration Convergence
 
 ```python
-def integral(nSample, f, xmin, xmax):
+def serial_integral(nSample, f, xmin, xmax):
   # determine points of estimation
   sample = np.sort(np.random.uniform(xmin, xmax, nSample))
   # Calculate height at each point
@@ -252,27 +251,31 @@ The rest of the function works just like the serial version.
 
 ---
 
-# Timing it
-
-Next, it is time to write code that will allow us to test our parallel and serial performance.
+# Timing it - how much does it help?
 
 ```python
-import timeit # library for timing execution of code
+import time
 
 benchmarks = [] # list to store our execution times
 
-benchmarks.append(timeit.Timer('serial_average(10000, 100, f, 0, 1)',
-  'from __main__ import serial_average, serial_integral, f').timeit(number=1))
-    # Note that we need to include a second line
-    # that imports our functions from __main__.
-    # This tells the timer what needs to be IN SCOPE
+# Benchmark serial code
+start = time.time()
+result = serial_average(10000, 10000, f, 0, 1)
+end = time.time()
+elapsed = end - start
+print(f'Serial function time taken: {elapsed:.6f} seconds') 
 
-benchmarks.append(timeit.Timer(
-  'parallel_average(2, 10000, 100, f, 0, 1)',
-  'from __main__ import parallel_average, serial_integral, f').timeit(
-    number=1))
-    # Need to include number of processes
-    # when timing the parallel implementation
+benchmarks.append(elapsed)
+
+# Benchmark parallel code
+start = time.time()
+# Run a process for each CPU core minus one
+result = parallel_average(mp.cpu_count()-1, 10000, 10000, f, 0, 1)
+end = time.time()
+elapsed = end - start
+print(f'Parallel function time taken: {elapsed:.6f} seconds')
+
+benchmarks.append(elapsed)
 ```
 ---
 
