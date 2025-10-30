@@ -171,9 +171,9 @@ Remember regular expression? Time for "regex" to shine:
 import re
 
 re.search(
-    r'([$])(\d+.\d+)', # \u20AC is unicode for Euro
-    listings[0].find("div", class_="m--t--1").text.strip(), 
-    re.UNICODE).groups()[1]
+    r'([$])(\d+.\d+)', 
+    listings[0].find("div", 
+      class_="m--t--1").text.strip()).groups()[1]
 ```
 
 Wrap that all in a `float()` call and we get back something like
@@ -181,6 +181,8 @@ Wrap that all in a `float()` call and we get back something like
 ```none
 875.0
 ```
+
+**It will vary based on what is listed at the time of your scrape**
 
 ---
 
