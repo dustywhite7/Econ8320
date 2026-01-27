@@ -26,7 +26,7 @@ Make a list of things that you can do with each individual item below:
 - A critical element of object-oriented programming
 - Directions for creating objects
 	- A list of "recipes" for utilizing that object
-- Allow us to generate multiple related objects, and to manipulate them, quickly and efficiently
+- Allow us to generate multiple related objects, and to manipulate them quickly and efficiently
 
 ---
 
@@ -34,8 +34,8 @@ Make a list of things that you can do with each individual item below:
 
 Let's imagine we work at a cafeteria, and that we want to represent a sandwich as code. There are certain things we would want to know about every sandwich:
 1) Whose is it?
-2) What toppings will we put on our sandwich?
-3) What kind of bread will we use?
+2) What kind of bread will we use?
+3) What toppings will we put on our sandwich?
 
 How can we start designing our sandwich code?
 
@@ -87,13 +87,13 @@ So, I created a delicious sandwich class, but I can't print anything useful abou
 
 # Magic Methods
 
-Not all of the magic methods will make sense for all classes. Which standard operations do you think would make sense for our ```Sandwich``` class?
+Not all of the magic methods will make sense for all classes (just like you can't square a `list` object!). Which standard operations do you think would make sense for our ```Sandwich``` class?
 
 ---
 
 # Magic Methods
 
-Not all of the magic methods will make sense for all classes. Which standard operations do you think would make sense for our ```Sandwich``` class?
+Which standard operations do you think would make sense for our ```Sandwich``` class?
 
 - Adding (we can ADD toppings)
 - Subtracting (we can REMOVE toppings)
