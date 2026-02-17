@@ -8,11 +8,11 @@ size: 4:3
 
 # Week 5 -  Analyzing Text With Regular Expressions
 
----
+<!-- ---
 
 # Dealing with Text
 
-How have you dealt with text in Python so far?
+How have you dealt with text in Python so far? -->
 
 ---
 

@@ -327,7 +327,7 @@ engineStr = 'mysql+mysqlconnector://*username*:*password*'
 engineStr += '@35.202.92.40:3306'
 ```
 
-We need to direct the connection to our server, which is hosted at `dadata.cba.edu`, and can be reached through port `3306`.
+We need to direct the connection to our server, which is hosted at `35.202.92.40`, and can be reached through port `3306`.
 
 ---
 
