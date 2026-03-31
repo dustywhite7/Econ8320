@@ -359,6 +359,7 @@ px.scatter_geo(data, locations="Abbr",
 - [`bokeh`](https://docs.bokeh.org/en/latest/index.html) - like plotly but different
 - :star:[`seaborn`](https://seaborn.pydata.org/) - particularly strong in statistical plots
 - [`plotnine`](https://plotnine.org/) - more grammar of graphics
+    - also [`ggplotly`](https://github.com/bbcho/ggplotly) if you want plotly but `ggplot` syntax
 - [`matplotlib`](https://matplotlib.org/) - does ALL THE THINGS, but is hard to use
 - :star:[`folium`](https://python-visualization.github.io/folium/latest/) - for hardcore mapping
 
