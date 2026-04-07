@@ -157,7 +157,7 @@ Noun chunks include all of the modifiers for a given noun, and make it easier to
 from spacy import displacy
 
 sent = [i for i in doc.sents][100]
-displacy.serve(sent, style="dep")
+displacy.render(sent, style="dep", jupyter=True)
 ```
 
 ---
