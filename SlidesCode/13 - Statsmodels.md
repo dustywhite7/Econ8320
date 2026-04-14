@@ -49,7 +49,7 @@ We can import `statsmodels` in one of two ways:
 1) With support for R-style formulas:
 
 ```python
-import statsmodels.formula.api as sm
+import statsmodels.formula.api as smf
 ```
 
 2) Using pre-built numpy arrays as inputs:
@@ -247,10 +247,8 @@ The VAR model will optimize its own order (number of lags included) based on inf
 If we have a binary dependent variable, we are able to use either [Logit]() or [Probit]() models to estimate the effect of exogenous variables on our outcome of interest. To fit a Logit model:
 
 ```python
-import statsmodels.api as sm
-
 myformula = "married ~ hhincome + C(race) + educ"
-model = sm.Logit.from_formula(myformula, data=data).fit()
+model = smf.logit(myformula, data=data).fit()
 ```
 
 ---
@@ -263,7 +261,7 @@ When modeling count data, we have options such as [Poisson](http://www.statsmode
 ```python
 myformula = "nchild ~ hhincome + C(race) + educ + married"
 
-model = sm.Poisson.from_formula(myformula, data=data).fit()
+model = smf.poisson(myformula, data=data).fit()
 ```
 
 ---
