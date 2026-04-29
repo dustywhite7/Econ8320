@@ -126,6 +126,7 @@ Often, when integrating complicated functions, there is no **algebraic** solutio
 
 ```python
 import numpy as np 
+# might need to pip install multiprocess
 import multiprocess as mp 
 
 # define any function here!
@@ -142,15 +143,20 @@ The ``multiprocess`` library is designed to create separate instances of the pyt
 # Example - Numeric Integration Convergence
 
 ```python
+import random
+
 def serial_integral(nSample, f, xmin, xmax):
   # determine points of estimation
-  sample = np.sort(np.random.uniform(xmin, xmax, nSample))
+  sample = sorted([random.uniform(xmin, xmax) for i in range(nSample)])
   # Calculate height at each point
-  value = f(sample)
-  # Calculate areas, sum
-  area = np.sum(np.diff(sample) * value[1:])
-  # Return integral
-  return (nSample, area)
+  value = [f(i) for i in sample]
+  # Calculate areas of rectangles
+  # We have to specially calculate the first rectangle,
+  #   because xmin is not part of our list of samples
+  area = [(sample[0]-xmin)*value[0]] + 
+    [(sample[i]-sample[i-1])*value[i] for i in range(1, len(sample))]
+  # Return sum as an approximate integral
+  return sum(area)
 ```
 
 This is our function for actually integrating a function `f` from `xmin` to `xmax` across `nSample` random intervals.
@@ -178,9 +184,11 @@ It's not worthwhile to make a parallel version of our single integral function a
 First, the serial version:
 
 ```python
+import multiprocess as mp # This module is part of the
+			     # python standard library
+
 def serial_average(n_bins, n_reps, f, xmin, xmax):
-  attempts = [serial_integral(n_bins, f, xmin, xmax) 
-                for i in range(n_reps)]
+  attempts = [serial_integral(n_bins, f, xmin, xmax) for i in range(n_reps)]
   return sum(attempts)/n_reps
 ```
 
@@ -193,8 +201,8 @@ Now, we write it in parallel:
 ```python
 def parallel_average(processes, n_bins, n_reps, f, xmin, xmax):
   pool = mp.Pool(processes=processes)
-  results = [pool.apply_async(serial_integral, 
-      (n_bins, f, xmin, xmax)) for i in range(n_reps)]
+  results = [pool.apply_async(serial_integral,
+     (n_bins, f, xmin, xmax)) for i in range(n_reps)]
   results = [p.get() for p in results]
   return sum(results)/n_reps
 ```
@@ -289,8 +297,8 @@ benchmarks.append(elapsed)
 
 The parallel version of this problem executes over 5x faster than the serial version
 
-- This was done on a 16-core processor
-- Creating too many processes (going past 16 to 32) actually started to slow the computations down
+- This was done on a 12-core processor (8 performance and 4 efficiency cores)
+- Creating too many processes (going past 12) actually started to slow the computations down
 - We need to be aware of the hardware that we are utilizing when designing parallel code
 
 ```python 
